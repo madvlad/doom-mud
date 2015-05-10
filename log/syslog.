@@ -1,0 +1,4 @@
+autorun starting game Sat May  9 20:32:27 EDT 2015
+running bin/circle -q 4000
+nohup: ignoring input
+nohup: failed to run command ‘bin/circle’: No such file or directory
