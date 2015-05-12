@@ -35,3 +35,4 @@ SYSERR: Illegal port number 23.
 SYSERR: Illegal port number 23.
 SYSERR: Illegal port number 23.
 SYSERR: Illegal port number 23.
+May 11 20:07:41 :: SYSERR: Received SIGHUP, SIGINT, or SIGTERM.  Shutting down...
