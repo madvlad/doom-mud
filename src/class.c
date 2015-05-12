@@ -32,6 +32,7 @@ void snoop_check(struct char_data *ch);
 int parse_class(char arg);
 bitvector_t find_class_bitvector(const char *arg);
 byte saving_throws(int class_num, int type, int level);
+//int thaco(struct char_data *ch);
 int thaco(int class_num, int level);
 void roll_real_abils(struct char_data *ch);
 void do_start(struct char_data *ch);
@@ -48,6 +49,7 @@ const char *class_abbrevs[] = {
   "Cl",
   "Th",
   "Wa",
+  "Hr"
   "\n"
 };
 
@@ -57,6 +59,7 @@ const char *pc_class_types[] = {
   "Cleric",
   "Thief",
   "Warrior",
+  "Hell Raiser"
   "\n"
 };
 
@@ -68,7 +71,8 @@ const char *class_menu =
 "  [C]leric\r\n"
 "  [T]hief\r\n"
 "  [W]arrior\r\n"
-"  [M]agic-user\r\n";
+"  [M]agic-user\r\n"
+"  [H]ell-raiser";
 
 
 
@@ -86,6 +90,7 @@ int parse_class(char arg)
   case 'c': return CLASS_CLERIC;
   case 'w': return CLASS_WARRIOR;
   case 't': return CLASS_THIEF;
+  case 'h': return CLASS_HELL_RAISER;
   default:  return CLASS_UNDEFINED;
   }
 }
@@ -1215,6 +1220,14 @@ byte saving_throws(int class_num, int type, int level)
 }
 
 /* THAC0 for classes and levels.  (To Hit Armor Class 0) */
+/*int thaco(struct char_data *ch) {
+  struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
+
+  if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON && GET_OBJ_VAL(wielded, 0)) {
+    return (20 - (GET_SKILL(ch, GET_OBJ_VAL(wielded, 0)) / 5));
+  } else
+    return bare_hand_thaco((int)GET_CLASS(ch), (int)GET_LEVEL(ch));
+}*/
 int thaco(int class_num, int level)
 {
   switch (class_num) {
@@ -1696,6 +1709,11 @@ void init_spell_levels(void)
   spell_level(SKILL_RESCUE, CLASS_WARRIOR, 3);
   spell_level(SKILL_TRACK, CLASS_WARRIOR, 9);
   spell_level(SKILL_BASH, CLASS_WARRIOR, 12);
+
+  spell_level(SKILL_MACHINE, CLASS_HELL_RAISER, 1)
+  spell_level(SKILL_SHOTGUN, CLASS_HELL_RAISER,  1)
+  spell_level(SKILL_PISTOL, CLASS_HELL_RAISER, 1)
+  spell_level(SKILL_RIFLE, CLASS_HELL_RAISER, 1)
 }
 
 

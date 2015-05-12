@@ -34,6 +34,7 @@ extern struct message_list fight_messages[MAX_MESSAGES];
 char *fread_action(FILE *fl, int nr);
 ACMD(do_flee);
 int backstab_mult(int level);
+//int thaco(struct char_data *ch);
 int thaco(int ch_class, int level);
 int ok_damage_shopkeeper(struct char_data *ch, struct char_data *victim);
 
@@ -60,7 +61,7 @@ int compute_thaco(struct char_data *ch, struct char_data *vict);
 /* Weapon attack texts */
 struct attack_hit_type attack_hit_text[] =
 {
-  {"hit", "hits"},		/* 0 */
+  {"hit", "hits"},              /* 0 */
   {"sting", "stings"},
   {"whip", "whips"},
   {"slash", "slashes"},
@@ -70,11 +71,13 @@ struct attack_hit_type attack_hit_text[] =
   {"pound", "pounds"},
   {"claw", "claws"},
   {"maul", "mauls"},
-  {"thrash", "thrashes"},	/* 10 */
+  {"thrash", "thrashes"},       /* 10 */
   {"pierce", "pierces"},
   {"blast", "blasts"},
   {"punch", "punches"},
   {"stab", "stabs"}
+  {"fire", "fires"}             /* 15 */
+  {"blast", "blasts"}
 };
 
 #define IS_WEAPON(type) (((type) >= TYPE_HIT) && ((type) < TYPE_SUFFERING))
