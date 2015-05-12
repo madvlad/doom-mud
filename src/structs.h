@@ -800,7 +800,7 @@ struct char_point_data {
    sh_int max_hit;      /* Max hit for PC/NPC                      	*/
    sh_int move;
    sh_int max_move;     /* Max move for PC/NPC                  	*/
-   sh_int evasion		/* Evasion rating of the Character 			*/
+   sh_int evasion;		/* Evasion rating of the Character 			*/
 
    sh_int armor;        /* Internal -100..100, external -10..10 AC 	*/
    int	gold;           /* Money carried                           	*/

@@ -514,7 +514,7 @@ void	update_pos(struct char_data *victim);
 #define IS_CLERIC(ch)		(!IS_NPC(ch) && \
 				(GET_CLASS(ch) == CLASS_CLERIC))
 #define IS_THIEF(ch)		(!IS_NPC(ch) && \
-				(GET_CLASS(ch) == CLASS_BOUNTY-HUNTER))
+				(GET_CLASS(ch) == CLASS_BOUNTY_HUNTER))
 #define IS_WARRIOR(ch)		(!IS_NPC(ch) && \
 				(GET_CLASS(ch) == CLASS_WARRIOR))
 #define IS_HELL_RAISER(ch)	(!IS_NPC(ch) && \

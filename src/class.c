@@ -32,8 +32,8 @@ void snoop_check(struct char_data *ch);
 int parse_class(char arg);
 bitvector_t find_class_bitvector(const char *arg);
 byte saving_throws(int class_num, int type, int level);
-//int thaco(struct char_data *ch);
-int thaco(int class_num, int level);
+int thaco(struct char_data *ch);
+//int thaco(int class_num, int level);
 void roll_real_abils(struct char_data *ch);
 void do_start(struct char_data *ch);
 int backstab_mult(int level);
@@ -89,7 +89,7 @@ int parse_class(char arg)
   case 'm': return CLASS_MAGIC_USER;
   case 'c': return CLASS_CLERIC;
   case 'w': return CLASS_WARRIOR;
-  case 't': return CLASS_BOUNTY-HUNTER;
+  case 't': return CLASS_BOUNTY_HUNTER;
   case 'h': return CLASS_HELL_RAISER;
   default:  return CLASS_UNDEFINED;
   }
@@ -677,7 +677,7 @@ byte saving_throws(int class_num, int type, int level)
       break;
     }
     break;
-  case CLASS_BOUNTY-HUNTER:
+  case CLASS_BOUNTY_HUNTER:
     switch (type) {
     case SAVING_PARA:	/* Paralyzation */
       switch (level) {
@@ -1226,7 +1226,7 @@ int thaco(struct char_data *ch) {
   if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON && GET_OBJ_VAL(wielded, 0)) {
     return (GET_SKILL(ch, GET_OBJ_VAL(wielded, 0)));
   } else
-    return bare_hand_thaco((int)GET_CLASS(ch), (int)GET_LEVEL(ch));
+    return 50;
 }/*
 int thaco(int class_num, int level)
 {
@@ -1311,7 +1311,7 @@ int thaco(int class_num, int level)
     default:
       log("SYSERR: Missing level for cleric thac0.");
     }
-  case CLASS_BOUNTY-HUNTER:
+  case CLASS_BOUNTY_HUNTER:
     switch (level) {
     case  0: return 100;
     case  1: return  20;
@@ -1395,12 +1395,12 @@ int thaco(int class_num, int level)
     log("SYSERR: Unknown class in thac0 chart.");
   }
 
-  /* Will not get there unless something is wrong. */
+  // Will not get there unless something is wrong. 
   //return 100;
 //}
 
 
-/*
+*
  * Roll the 6 stats for a character... each stat is made of the sum of
  * the best 3 out of 4 rolls of a 6-sided die.  Each class then decides
  * which priority will be given for the best to worst stats.
@@ -1449,7 +1449,7 @@ void roll_real_abils(struct char_data *ch)
     ch->real_abils.con = table[4];
     ch->real_abils.cha = table[5];
     break;
-  case CLASS_BOUNTY-HUNTER:
+  case CLASS_BOUNTY_HUNTER:
     ch->real_abils.dex = table[0];
     ch->real_abils.str = table[1];
     ch->real_abils.con = table[2];
@@ -1493,7 +1493,7 @@ void do_start(struct char_data *ch)
   case CLASS_CLERIC:
     break;
 
-  case CLASS_BOUNTY-HUNTER:
+  case CLASS_BOUNTY_HUNTER:
     GET_EVASION(ch) = 5;
     SET_SKILL(ch, SKILL_SNEAK, 10);
     SET_SKILL(ch, SKILL_HIDE, 5);
@@ -1507,7 +1507,7 @@ void do_start(struct char_data *ch)
 
   case CLASS_WARRIOR:
     break;
-  case CLASS_HELL_RAISER;
+  case CLASS_HELL_RAISER:
     GET_EVASION(ch) = 0;
     SET_SKILL(ch, SKILL_MACHINE, 1);
     SET_SKILL(ch, SKILL_SHOTGUN, 1);
@@ -1558,7 +1558,7 @@ void advance_level(struct char_data *ch)
     add_move = rand_number(0, 2);
     break;
 
-  case CLASS_BOUNTY-HUNTER:
+  case CLASS_BOUNTY_HUNTER:
     add_hp += rand_number(7, 13);
     add_mana = 0;
     add_move = rand_number(1, 3);
@@ -1704,12 +1704,12 @@ void init_spell_levels(void)
   spell_level(SPELL_REMOVE_CURSE, CLASS_CLERIC, 26);
 
   /* THIEVES */
-  spell_level(SKILL_SNEAK, CLASS_BOUNTY-HUNTER, 1);
-  spell_level(SKILL_PICK_LOCK, CLASS_BOUNTY-HUNTER, 2);
-  spell_level(SKILL_BACKSTAB, CLASS_BOUNTY-HUNTER, 3);
-  spell_level(SKILL_STEAL, CLASS_BOUNTY-HUNTER, 4);
-  spell_level(SKILL_HIDE, CLASS_BOUNTY-HUNTER, 5);
-  spell_level(SKILL_TRACK, CLASS_BOUNTY-HUNTER, 6);
+  spell_level(SKILL_SNEAK, CLASS_BOUNTY_HUNTER, 1);
+  spell_level(SKILL_PICK_LOCK, CLASS_BOUNTY_HUNTER, 2);
+  spell_level(SKILL_BACKSTAB, CLASS_BOUNTY_HUNTER, 3);
+  spell_level(SKILL_STEAL, CLASS_BOUNTY_HUNTER, 4);
+  spell_level(SKILL_HIDE, CLASS_BOUNTY_HUNTER, 5);
+  spell_level(SKILL_TRACK, CLASS_BOUNTY_HUNTER, 6);
   spell_level(SKILL_PISTOL, CLASS_HELL_RAISER, 1);
   spell_level(SKILL_RIFLE, CLASS_HELL_RAISER, 1);
 
@@ -1827,7 +1827,7 @@ int level_exp(int chclass, int level)
     }
     break;
 
-    case CLASS_BOUNTY-HUNTER:
+    case CLASS_BOUNTY_HUNTER:
     switch (level) {
       case  0: return 0;
       case  1: return 1;
@@ -1995,7 +1995,7 @@ const char *title_male(int chclass, int level)
     }
     break;
 
-    case CLASS_BOUNTY-HUNTER:
+    case CLASS_BOUNTY_HUNTER:
     switch (level) {
       case  1: return "the Pilferer";
       case  2: return "the Footpad";
@@ -2142,7 +2142,7 @@ const char *title_female(int chclass, int level)
     }
     break;
 
-    case CLASS_BOUNTY-HUNTER:
+    case CLASS_BOUNTY_HUNTER:
     switch (level) {
       case  1: return "the Pilferess";
       case  2: return "the Footpad";

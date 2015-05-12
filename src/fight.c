@@ -34,8 +34,8 @@ extern struct message_list fight_messages[MAX_MESSAGES];
 char *fread_action(FILE *fl, int nr);
 ACMD(do_flee);
 int backstab_mult(int level);
-//int thaco(struct char_data *ch);
-int thaco(int ch_class, int level);
+int thaco(struct char_data *ch);
+//int thaco(int ch_class, int level);
 int ok_damage_shopkeeper(struct char_data *ch, struct char_data *victim);
 
 /* local functions */
@@ -862,7 +862,7 @@ int compute_thaco(struct char_data *ch, struct char_data *victim)
   int calc_thaco;
 
   if (!IS_NPC(ch))
-    calc_thaco = thaco(char_data *ch);
+    calc_thaco = thaco(ch);
     //calc_thaco = thaco(GET_CLASS(ch), GET_LEVEL(ch));
   else		/* THAC0 for monsters is set in the HitRoll */
     calc_thaco = 100;
