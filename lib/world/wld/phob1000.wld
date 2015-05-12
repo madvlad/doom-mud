@@ -130,17 +130,587 @@ A Wood-Paneled Hallway~
   Todo : Add description
 ~
 0 d 0
+D0
+A passage way down a wood-paneled hallways
+~
+~
+0 0 12
+D1
+A passage way back to the foyer
+~
+~
+0 0 7
 S
 #9
 The Information Desk~
   Todo : Add description
 ~
 0 d 0
+D2
+A passage way back to the foyer
+~
+~
+0 0 7
 S
 #10
 A White-Tiled Hallway~
   Todo : Add description
 ~
 0 d 0
+D0
+A passage way down a white tiled hallways
+~
+~
+0 0 13
+D3
+A passage way back to the foyer
+~
+~
+0 0 7
+S
+#11
+A Wooden Rounded Corner~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way towards the entrance of a bar
+~
+~
+0 0 16
+D1
+A passage way back to the wood-paneled hallway
+~
+~
+0 0 12
+S
+#12
+A Wood-Paneled Hallway~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way down the hallway, toward the sanctuary
+~
+~
+0 0 17
+D2
+A passage way back towards the lobby
+~
+~
+0 0 8
+D3
+A passage way down the turn, toward the bar
+~
+~
+0 0 11
+S
+#13
+A White-Tiled Hallway~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way down the hallway, toward the sanctuary
+~
+~
+0 0 19
+D1
+A passage way down a loud hallway
+~
+~
+0 0 14
+S
+#14
+A Loud White-Tiled Hallway~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way toward the Shops
+~
+~
+0 0 20
+D3
+A passage way back to the tiled hallway
+~
+~
+0 0 13
+S
+#15
+Phobos Pub~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way to Maureen's Room
+~
+~
+0 0 37
+D1
+A passage way back to the wood-paneled hallway
+~
+~
+0 0 16
+D2
+A passage way to Gerald's Room
+~
+~
+0 0 39
+D3
+A passage way to Dave's Room
+~
+~
+0 0 38
+S
+#16
+A wood-paneled hallway~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way toward the outer wall
+~
+~
+0 0 22
+D2
+A passage way down the wood-paneled hallway toward the lobby
+~
+~
+0 0 11
+D3
+A passage way leading to the inside of the Phobos Pub
+~
+~
+0 0 15
+S
+#17
+The Inner Hallway~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way toward the outer wall
+~
+~
+0 0 23
+D1
+A passage way toward the Sanctuary
+~
+~
+0 0 18
+D2
+A passage way toward the lobby
+~
+~
+0 0 12
+S
+#18
+The Sanctuary~
+  Todo : Add description
+~
+0 cdeh 0
+D1
+A passage way to a White-Tiled hallway
+~
+~
+0 0 19
+D3
+A passage way to a Wood-Paneled hallway
+~
+~
+0 0 17
+S
+#19
+The Inner Hallway~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way toward the outer wall
+~
+~
+0 0 24
+D2
+A passage way down toward the lobby
+~
+~
+0 0 13
+D3
+A passage way into the Sanctuary
+~
+~
+0 0 18
+S
+#20
+Outside of the Shops~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage toward the outer wall
+~
+~
+0 0 25
+D1
+A passage way going into the middle of the shops
+~
+~
+0 0 21
+D2
+A passage way going back toward the lobby
+~
+~
+0 0 14
+S
+#21
+Middle of the Shops~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way to the Arms Shop
+~
+~
+0 0 40
+D1
+A passage way to the Health Shop
+~
+~
+0 0 41
+D2
+A passage way to the Armor Shop
+~
+~
+0 0 42
+S
+#22
+South West Outpost~
+  Todo : Add description
+~
+0 d 0
+D0
+A walkway to the out perimeter
+~
+~
+0 0 27
+D2
+A hallway toward the Phobos Pub
+~
+~
+0 0 16
+D4
+A latter up to the South West Lookout
+~
+~
+0 0 33
+S
+#23
+The Outer Wall~
+  Todo : Add description
+~
+0 d 0
+D1
+A walkway to the Portals Entrance
+~
+~
+0 0 24
+D2
+A hallway towards the Sanctuary
+~
+~
+0 0 17
+D3
+A walkway to the south west outpost
+~
+~
+0 0 22
+S
+#24
+The Outer Wall~
+  Todo : Add description
+~
+0 d 0
+D1
+A pathway to the eastern side
+~
+~
+0 0 25
+D2
+A hallway toward the Sanctuary
+~
+~
+0 0 19
+D3
+A hallway toward the Portals Entrance
+~
+~
+0 0 29
+S
+#25
+The Eastern Outer Wall~
+  Todo : Add description
+~
+0 d 0
+D1
+A walkway to the south east outpost
+~
+~
+0 0 26
+D2
+A hallway towards the Shops
+~
+~
+0 0 20
+D3
+A walkway toward the western outer wall
+~
+~
+0 0 24
+S
+#26
+The South East Outpost~
+  Todo : Add description
+~
+0 d 0
+D0
+A walkway to the North East Outpost
+~
+~
+0 0 28
+D3
+A walkway to the Eastern Outer Wall
+~
+~
+0 0 25
+D4
+A latter up to the top of the South East outpost
+~
+~
+0 0 36
+S
+#27
+The North West Outpost~
+  Todo : Add description
+~
+0 d 0
+D1
+A walkway to the North Western Outpost
+~
+~
+0 0 28
+D2
+A walkway to the South Western Outpost
+~
+~
+0 0 22
+D4
+A ladder leading to the top of the Outpost
+~
+~
+0 0 34
+S
+#28
+The North East Outpost~
+  Todo : Add description
+~
+0 d 0
+D2
+A walkway to the South Eastern outpost
+~
+~
+0 0 26
+D3
+A walkway to the North Western outpost
+~
+~
+0 0 27
+D4
+A ladder leading up to the top of the North Western outpost
+~
+~
+0 0 35
+S
+#29
+The entrance to the Portals~
+  Todo : Add description
+~
+0 d 0
+D0
+A catwalk to the Portal to Deimos
+~
+~
+0 0 30
+D1
+A walkway toward the eastern outer wall
+~
+~
+0 0 24
+D3
+A walkway toward the western outer wall
+~
+~
+0 0 23
+S
+#30
+A Portal to Deimos~
+  There is a portal to the martian moon Deimos here.
+  It appears to be offline.
+~
+0 d 0
+D1
+A catwalk to the Portal to UAC Labs
+~
+~
+0 0 31
+D2
+A catwalk to the Entrance to the Portals
+~
+~
+0 0 29
+S
+#31
+A Portal to UAC Labs~
+  There is a portal to the over-run Phobian UAC Labs here.
+  It is online.
+~
+0 d 0
+D2
+A catwalk to the portal generator
+~
+~
+0 0 32
+D3
+A catwalk to the Portal to Deimos
+~
+~
+0 0 30
+D5
+Entrance to the Portal to UAC Labs
+~
+~
+0 0 100
+S
+#32
+A Portal Generator~
+  There is a portal generator here.
+  It is functioning fine.
+~
+0 d 0
+D0
+A catwalk to the Portal to UAC Labs Portal
+~
+~
+0 0 31
+S
+#33
+On top of the South Western Tower~
+  Todo : Add description
+~
+0 d 0
+D5
+A ladder leading down the tower
+~
+~
+0 0 22
+S
+#34
+On top of the North Western Tower~
+  Todo : Add description
+~
+0 d 0
+D5
+A ladder leading down the tower
+~
+~
+0 0 27
+S
+#35
+On top of the North Eastern Tower~
+  Todo : Add description
+~
+0 d 0
+D5
+A ladder leading down the tower
+~
+~
+0 0 28
+S
+#36
+On top of the South Eastern Tower~
+ Todo : Add description
+~
+0 d 0
+D5
+A ladder leading down the tower
+~
+~
+0 0 26
+S
+#37
+The inside of a rented room~
+  Todo : Add description
+~
+0 d 0
+D2
+A passage back to the Pub proper
+~
+~
+0 0 15
+S
+#38
+The inside of a rented room~
+  Todo : Add description
+~
+0 d 0
+D1
+A passage back to the Pub proper
+~
+~
+0 0 15
+S
+#39
+The inside of a rented room~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage back to the Pub proper
+~
+~
+0 0 15
+S
+#40
+The Arms Shop~
+  Todo : Add description
+~
+0 d 0
+D2
+A passage back to the shopping center
+~
+~
+0 0 21
+S
+#41
+The Health Shop~
+  Todo : Add description
+~
+0 d 0
+D3
+A passage back to the shopping center
+~
+~
+0 0 21
+S
+#42
+The Armor Shop~
+  Todo : Add description
+~
+0 d 0
+D1
+A passage back to the shopping center
+~
+~
+0 0 21
 S
 $~

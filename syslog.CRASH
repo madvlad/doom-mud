@@ -1,30 +1,30 @@
-May 12 01:49:59 :: SYSERR: Attempt to assign spec to non-existant room #10738
-May 12 01:49:59 :: SYSERR: Attempt to assign spec to non-existant room #23281
-May 12 01:49:59 :: SYSERR: Attempt to assign spec to non-existant room #25722
-May 12 01:49:59 :: SYSERR: Attempt to assign spec to non-existant room #27155
-May 12 01:49:59 :: SYSERR: Attempt to assign spec to non-existant room #27616
-May 12 01:49:59 :: SYSERR: Attempt to assign spec to non-existant room #31523
-May 12 01:49:59 :: Assigning spell and skill levels.
-May 12 01:49:59 :: Sorting command list and spells.
-May 12 01:49:59 :: Booting mail system.
-May 12 01:49:59 ::    Mail file read -- 0 messages.
-May 12 01:49:59 :: Reading banned site and invalid-name list.
-May 12 01:49:59 :: Booting houses.
-May 12 01:49:59 :: Cleaning up last log.
-May 12 01:49:59 :: Resetting #0: The Original Hub Zone (rooms 1-44).
-May 12 01:49:59 :: Boot db -- DONE.
-May 12 01:49:59 :: Signal trapping.
-May 12 01:49:59 :: Entering game loop.
-May 12 01:49:59 :: No connections.  Going to sleep.
-May 12 01:50:06 :: New connection.  Waking up.
-May 12 01:50:09 :: David [localhost] has connected.
-May 12 01:50:11 :: David un-renting and entering game.
-May 12 01:50:11 :: David (level 34) has 1 objects (max 30).
-May 12 01:50:16 :: SYSERR: a depressed looking dog (#2): Attempting to call non-existing mob function.
-May 12 01:50:27 :: David has quit the game.
-May 12 01:50:29 :: Losing player: David.
-May 12 01:50:29 :: No connections.  Going to sleep.
-May 12 01:50:31 :: SYSERR: Received SIGHUP, SIGINT, or SIGTERM.  Shutting down...
+May 12 18:54:55 :: SYSERR: Attempt to assign spec to non-existant room #23281
+May 12 18:54:55 :: SYSERR: Attempt to assign spec to non-existant room #25722
+May 12 18:54:55 :: SYSERR: Attempt to assign spec to non-existant room #27155
+May 12 18:54:55 :: SYSERR: Attempt to assign spec to non-existant room #27616
+May 12 18:54:55 :: SYSERR: Attempt to assign spec to non-existant room #31523
+May 12 18:54:55 :: Assigning spell and skill levels.
+May 12 18:54:55 :: Sorting command list and spells.
+May 12 18:54:55 :: Booting mail system.
+May 12 18:54:55 ::    Mail file read -- 0 messages.
+May 12 18:54:55 :: Reading banned site and invalid-name list.
+May 12 18:54:55 :: Booting houses.
+May 12 18:54:55 :: Cleaning up last log.
+May 12 18:54:55 :: Resetting #0: The Original Hub Zone (rooms 1-44).
+May 12 18:54:55 :: Boot db -- DONE.
+May 12 18:54:55 :: Signal trapping.
+May 12 18:54:55 :: Entering game loop.
+May 12 18:54:55 :: No connections.  Going to sleep.
+May 12 18:54:59 :: New connection.  Waking up.
+May 12 18:55:01 :: Bad PW: David [localhost]
+May 12 18:55:03 :: David [localhost] has connected.
+May 12 18:55:05 :: David un-renting and entering game.
+May 12 18:55:05 :: David (level 34) has 1 objects (max 30).
+May 12 18:55:09 :: SYSERR: a depressed looking dog named Dutchess (#2): Attempting to call non-existing mob function.
+May 12 18:57:09 :: David has quit the game.
+May 12 18:57:12 :: Losing player: David.
+May 12 18:57:12 :: No connections.  Going to sleep.
+May 12 18:57:15 :: SYSERR: Received SIGHUP, SIGINT, or SIGTERM.  Shutting down...
 Quick boot mode -- rent check supressed.
 Using file descriptor for logging.
 Improper shutdown of autorun detected, rotating syslogs before startup.
