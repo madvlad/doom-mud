@@ -117,7 +117,7 @@
 #define CLASS_UNDEFINED	  (-1)
 #define CLASS_MAGIC_USER  0
 #define CLASS_CLERIC      1
-#define CLASS_THIEF       2
+#define CLASS_BOUNTY_HUNTER       2
 #define CLASS_WARRIOR     3
 #define CLASS_HELL_RAISER 4
 #define NUM_CLASSES	  5  /* This must be the number of classes!! */
@@ -309,7 +309,7 @@
 #define ITEM_WAND       3		/* Item is a wand		*/
 #define ITEM_STAFF      4		/* Item is a staff		*/
 #define ITEM_WEAPON     5		/* Item is a weapon		*/
-#define ITEM_FIREWEAPON 6		/* Unimplemented		*/
+#define ITEM_GUN		6		/* Unimplemented	Item is a gun	*/
 #define ITEM_MISSILE    7		/* Unimplemented		*/
 #define ITEM_TREASURE   8		/* Item is a treasure, not gold	*/
 #define ITEM_ARMOR      9		/* Item is armor		*/
@@ -599,7 +599,7 @@ struct extra_descr_data {
 
 /* object-related structures ******************************************/
 
-#define NUM_OBJ_VAL_POSITIONS 4
+#define NUM_OBJ_VAL_POSITIONS 7
 /* object flags; used in obj_data */
 struct obj_flag_data {
    int	value[NUM_OBJ_VAL_POSITIONS];	/* Values of the item (see list)    */
@@ -795,19 +795,20 @@ struct char_ability_data {
 /* Char's points.  Used in char_file_u *DO*NOT*CHANGE* */
 struct char_point_data {
    sh_int mana;
-   sh_int max_mana;     /* Max mana for PC/NPC			   */
+   sh_int max_mana;     /* Max mana for PC/NPC			   			*/
    sh_int hit;
-   sh_int max_hit;      /* Max hit for PC/NPC                      */
+   sh_int max_hit;      /* Max hit for PC/NPC                      	*/
    sh_int move;
-   sh_int max_move;     /* Max move for PC/NPC                     */
+   sh_int max_move;     /* Max move for PC/NPC                  	*/
+   sh_int evasion		/* Evasion rating of the Character 			*/
 
-   sh_int armor;        /* Internal -100..100, external -10..10 AC */
-   int	gold;           /* Money carried                           */
-   int	bank_gold;	/* Gold the char has in a bank account	   */
-   int	exp;            /* The experience of the player            */
+   sh_int armor;        /* Internal -100..100, external -10..10 AC 	*/
+   int	gold;           /* Money carried                           	*/
+   int	bank_gold;		/* Gold the char has in a bank account	   	*/
+   int	exp;            /* The experience of the player            	*/
 
-   sbyte hitroll;       /* Any bonus or penalty to the hit roll    */
-   sbyte damroll;       /* Any bonus or penalty to the damage roll */
+   sbyte hitroll;       /* Any bonus or penalty to the hit roll    	*/
+   sbyte damroll;       /* Any bonus or penalty to the damage roll 	*/
 };
 
 

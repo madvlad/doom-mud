@@ -126,7 +126,7 @@ void list_skills(struct char_data *ch)
   size_t len = 0, nlen;
   char buf2[MAX_STRING_LENGTH];
 
-  len = snprintf(buf2, sizeof(buf2), "You have %d practice session%s remaining.\r\n"
+  len = snprintf(buf2, sizeof(buf2), "You have %d skill points%s remaining.\r\n"
 	"You know of the following %ss:\r\n", GET_PRACTICES(ch),
 	GET_PRACTICES(ch) == 1 ? "" : "s", SPLSKL(ch));
   
@@ -160,7 +160,7 @@ SPECIAL(guild)
     return (TRUE);
   }
   if (GET_PRACTICES(ch) <= 0) {
-    send_to_char(ch, "You do not seem to be able to practice now.\r\n");
+    send_to_char(ch, "You mind cannot handle new knowledge.\r\n");
     return (TRUE);
   }
 
@@ -172,7 +172,7 @@ SPECIAL(guild)
     return (TRUE);
   }
   if (GET_SKILL(ch, skill_num) >= LEARNED(ch)) {
-    send_to_char(ch, "You are already learned in that area.\r\n");
+    send_to_char(ch, "You have already learned %s.\r\n", GET_SKILL(ch, skill_num));
     return (TRUE);
   }
   send_to_char(ch, "You practice for a while...\r\n");
@@ -184,7 +184,7 @@ SPECIAL(guild)
   SET_SKILL(ch, skill_num, MIN(LEARNED(ch), percent));
 
   if (GET_SKILL(ch, skill_num) >= LEARNED(ch))
-    send_to_char(ch, "You are now learned in that area.\r\n");
+    send_to_char(ch, "You have matered a new skill!\r\n");
 
   return (TRUE);
 }

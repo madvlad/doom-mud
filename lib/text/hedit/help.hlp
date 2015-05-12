@@ -4,6 +4,28 @@ EDIT
 
 See Also: OLC
 #0
+BOUNTY-HUNTER BOUNTY HUNTER
+
+  Bounty hunters are in it for one thing: booty. These guys are known
+for the powerful rifles. Bounty hunters excel in doing tons of damage!
+
+SKILLS:
+ ______________________
+|LEVEL        SKILL    |
+|======================|
+|   1         Rifle    |
+|   1         Pistol   |
+|______________________|
+
+#0
+RELOAD RELOADING
+
+  SYNTAX reload <weapon>
+
+  Everyone runs out of ammo at some point. If you don't want to resort
+to using your fists, you'll need to reload your weapon. Make sure you
+have the proper type of ammo in your inventory!
+#0
 MACHINEGUN MACHINE GUN
 
   Machine guns fire quickly and have large clips. Not very accurate but,
@@ -18,7 +40,7 @@ hit with a shotgun. Don't forget about the devastating critial hits!
 Only problem is the need to reload.
 
 #0
-PISTOL
+PISTOL PISTOLS
 
   Pistols may not be the best at anything, but they are well rounded. The
 biggest advantage? The ammo is cheap! You have better things you need to
@@ -26,7 +48,7 @@ spend that hard fought money on!
 
 See Also: Dual-Pistols
 #0
-Dual-Pistols Dual
+DUAL-PISTOLS DUAL
 
   This is for all you real gunslingers out there! With this ability, you
 will be able to use a pistol in each hand. Sure, you'll be a less accurate,
@@ -36,7 +58,7 @@ two sticks lighting up your enemies!
 required skills: Pistol, Speed
 
 #0
-Rifle Rifles
+RIFLE RIFLES
 
   Rifles are about power and accuracy. Sometimes you just want to blow
 the head off of whatever scum is attacking you. Sure, it's not as

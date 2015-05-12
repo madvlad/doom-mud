@@ -148,9 +148,17 @@
 #define TYPE_MAUL                    309
 #define TYPE_THRASH                  310
 #define TYPE_PIERCE                  311
-#define TYPE_BLAST		     312
-#define TYPE_PUNCH		     313
-#define TYPE_STAB		     314
+#define TYPE_BLAST		               312
+#define TYPE_PUNCH		               313
+#define TYPE_STAB		                 314   
+#define TYPE_SHOT                    315
+#define TYPE_BLAST                   316
+
+/* WEAPON HIT PERCENTAGES */
+#define HIT_MACHINE         70
+#define SKILL_SHOTGUN       95
+#define SKILL_PISTOL        85
+#define SKILL_RIFLE         90
 
 /* new attack types can be added here - up to TYPE_SUFFERING */
 #define TYPE_SUFFERING		     399

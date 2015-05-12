@@ -89,7 +89,7 @@ int parse_class(char arg)
   case 'm': return CLASS_MAGIC_USER;
   case 'c': return CLASS_CLERIC;
   case 'w': return CLASS_WARRIOR;
-  case 't': return CLASS_THIEF;
+  case 't': return CLASS_BOUNTY-HUNTER;
   case 'h': return CLASS_HELL_RAISER;
   default:  return CLASS_UNDEFINED;
   }
@@ -145,10 +145,10 @@ bitvector_t find_class_bitvector(const char *arg)
 /* #define PRAC_TYPE		3  should it say 'spell' or 'skill'?	*/
 
 int prac_params[4][NUM_CLASSES] = {
-  /* MAG	CLE	THE	WAR */
-  { 95,		95,	85,	80	},	/* learned level */
-  { 100,	100,	12,	12	},	/* max per practice */
-  { 25,		25,	0,	0	},	/* min per practice */
+  /* MAG	CLE	BTH	WAR HELL*/
+  { 95,		95,  85, 80, 70	},	/* learned level */
+  { 100,	100, 85, 12, 70	},	/* max per practice */
+  { 25,		25,  0,  0,  70	},	/* min per practice */
   { SPELL,	SPELL,	SKILL,	SKILL	},	/* prac name */
 };
 
@@ -167,10 +167,10 @@ int prac_params[4][NUM_CLASSES] = {
 struct guild_info_type guild_info[] = {
 
 /* Midgaard */
-  { CLASS_MAGIC_USER,	3017,	SCMD_SOUTH	},
-  { CLASS_CLERIC,	3004,	SCMD_NORTH	},
-  { CLASS_THIEF,	3027,	SCMD_EAST	},
-  { CLASS_WARRIOR,	3021,	SCMD_EAST	},
+  { -999,	18,	SCMD_SOUTH	},
+  { -999,	3004,	SCMD_NORTH	},
+  { -999,	3027,	SCMD_EAST	},
+  { -999,	3021,	SCMD_EAST	},
 
 /* Brass Dragon */
   { -999 /* all */ ,	5065,	SCMD_WEST	},
@@ -677,7 +677,7 @@ byte saving_throws(int class_num, int type, int level)
       break;
     }
     break;
-  case CLASS_THIEF:
+  case CLASS_BOUNTY-HUNTER:
     switch (type) {
     case SAVING_PARA:	/* Paralyzation */
       switch (level) {
@@ -1220,14 +1220,14 @@ byte saving_throws(int class_num, int type, int level)
 }
 
 /* THAC0 for classes and levels.  (To Hit Armor Class 0) */
-/*int thaco(struct char_data *ch) {
+int thaco(struct char_data *ch) {
   struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
 
   if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON && GET_OBJ_VAL(wielded, 0)) {
-    return (20 - (GET_SKILL(ch, GET_OBJ_VAL(wielded, 0)) / 5));
+    return (GET_SKILL(ch, GET_OBJ_VAL(wielded, 0)));
   } else
     return bare_hand_thaco((int)GET_CLASS(ch), (int)GET_LEVEL(ch));
-}*/
+}/*
 int thaco(int class_num, int level)
 {
   switch (class_num) {
@@ -1311,7 +1311,7 @@ int thaco(int class_num, int level)
     default:
       log("SYSERR: Missing level for cleric thac0.");
     }
-  case CLASS_THIEF:
+  case CLASS_BOUNTY-HUNTER:
     switch (level) {
     case  0: return 100;
     case  1: return  20;
@@ -1396,8 +1396,8 @@ int thaco(int class_num, int level)
   }
 
   /* Will not get there unless something is wrong. */
-  return 100;
-}
+  //return 100;
+//}
 
 
 /*
@@ -1449,7 +1449,7 @@ void roll_real_abils(struct char_data *ch)
     ch->real_abils.con = table[4];
     ch->real_abils.cha = table[5];
     break;
-  case CLASS_THIEF:
+  case CLASS_BOUNTY-HUNTER:
     ch->real_abils.dex = table[0];
     ch->real_abils.str = table[1];
     ch->real_abils.con = table[2];
@@ -1493,17 +1493,24 @@ void do_start(struct char_data *ch)
   case CLASS_CLERIC:
     break;
 
-  case CLASS_THIEF:
+  case CLASS_BOUNTY-HUNTER:
+    GET_EVASION(ch) = 5;
     SET_SKILL(ch, SKILL_SNEAK, 10);
     SET_SKILL(ch, SKILL_HIDE, 5);
     SET_SKILL(ch, SKILL_STEAL, 15);
     SET_SKILL(ch, SKILL_BACKSTAB, 10);
     SET_SKILL(ch, SKILL_PICK_LOCK, 10);
     SET_SKILL(ch, SKILL_TRACK, 10);
+    SET_SKILL(ch, SKILL_RIFLE, 1);
+    SET_SKILL(ch, SKILL_PISTOL, 1);
     break;
 
   case CLASS_WARRIOR:
     break;
+  case CLASS_HELL_RAISER;
+    GET_EVASION(ch) = 0;
+    SET_SKILL(ch, SKILL_MACHINE, 1);
+    SET_SKILL(ch, SKILL_SHOTGUN, 1);
   }
 
   advance_level(ch);
@@ -1551,7 +1558,7 @@ void advance_level(struct char_data *ch)
     add_move = rand_number(0, 2);
     break;
 
-  case CLASS_THIEF:
+  case CLASS_BOUNTY-HUNTER:
     add_hp += rand_number(7, 13);
     add_mana = 0;
     add_move = rand_number(1, 3);
@@ -1697,12 +1704,14 @@ void init_spell_levels(void)
   spell_level(SPELL_REMOVE_CURSE, CLASS_CLERIC, 26);
 
   /* THIEVES */
-  spell_level(SKILL_SNEAK, CLASS_THIEF, 1);
-  spell_level(SKILL_PICK_LOCK, CLASS_THIEF, 2);
-  spell_level(SKILL_BACKSTAB, CLASS_THIEF, 3);
-  spell_level(SKILL_STEAL, CLASS_THIEF, 4);
-  spell_level(SKILL_HIDE, CLASS_THIEF, 5);
-  spell_level(SKILL_TRACK, CLASS_THIEF, 6);
+  spell_level(SKILL_SNEAK, CLASS_BOUNTY-HUNTER, 1);
+  spell_level(SKILL_PICK_LOCK, CLASS_BOUNTY-HUNTER, 2);
+  spell_level(SKILL_BACKSTAB, CLASS_BOUNTY-HUNTER, 3);
+  spell_level(SKILL_STEAL, CLASS_BOUNTY-HUNTER, 4);
+  spell_level(SKILL_HIDE, CLASS_BOUNTY-HUNTER, 5);
+  spell_level(SKILL_TRACK, CLASS_BOUNTY-HUNTER, 6);
+  spell_level(SKILL_PISTOL, CLASS_HELL_RAISER, 1);
+  spell_level(SKILL_RIFLE, CLASS_HELL_RAISER, 1);
 
   /* WARRIORS */
   spell_level(SKILL_KICK, CLASS_WARRIOR, 1);
@@ -1710,10 +1719,9 @@ void init_spell_levels(void)
   spell_level(SKILL_TRACK, CLASS_WARRIOR, 9);
   spell_level(SKILL_BASH, CLASS_WARRIOR, 12);
 
+  /* HELL RAISERS */
   spell_level(SKILL_MACHINE, CLASS_HELL_RAISER, 1);
   spell_level(SKILL_SHOTGUN, CLASS_HELL_RAISER,  1);
-  spell_level(SKILL_PISTOL, CLASS_HELL_RAISER, 1);
-  spell_level(SKILL_RIFLE, CLASS_HELL_RAISER, 1);
 }
 
 
@@ -1819,7 +1827,7 @@ int level_exp(int chclass, int level)
     }
     break;
 
-    case CLASS_THIEF:
+    case CLASS_BOUNTY-HUNTER:
     switch (level) {
       case  0: return 0;
       case  1: return 1;
@@ -1987,7 +1995,7 @@ const char *title_male(int chclass, int level)
     }
     break;
 
-    case CLASS_THIEF:
+    case CLASS_BOUNTY-HUNTER:
     switch (level) {
       case  1: return "the Pilferer";
       case  2: return "the Footpad";
@@ -2134,7 +2142,7 @@ const char *title_female(int chclass, int level)
     }
     break;
 
-    case CLASS_THIEF:
+    case CLASS_BOUNTY-HUNTER:
     switch (level) {
       case  1: return "the Pilferess";
       case  2: return "the Footpad";

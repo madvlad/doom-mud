@@ -25,6 +25,7 @@ int	touch(const char *path);
 void	mudlog(int type, int level, int file, const char *str, ...) __attribute__ ((format (printf, 4, 5)));
 void	log_death_trap(struct char_data *ch);
 int	rand_number(int from, int to);
+int dice_roll(int num, int min, int max);
 int	dice(int number, int size);
 size_t	sprintbit(bitvector_t vektor, const char *names[], char *result, size_t reslen);
 size_t	sprinttype(int type, const char *names[], char *result, size_t reslen);
@@ -296,6 +297,7 @@ void	update_pos(struct char_data *victim);
 
 #define GET_EXP(ch)	  ((ch)->points.exp)
 #define GET_AC(ch)        ((ch)->points.armor)
+#define GET_EVASION(ch)        ((ch)->points.armor)
 #define GET_HIT(ch)	  ((ch)->points.hit)
 #define GET_MAX_HIT(ch)	  ((ch)->points.max_hit)
 #define GET_MOVE(ch)	  ((ch)->points.move)
@@ -512,7 +514,7 @@ void	update_pos(struct char_data *victim);
 #define IS_CLERIC(ch)		(!IS_NPC(ch) && \
 				(GET_CLASS(ch) == CLASS_CLERIC))
 #define IS_THIEF(ch)		(!IS_NPC(ch) && \
-				(GET_CLASS(ch) == CLASS_THIEF))
+				(GET_CLASS(ch) == CLASS_BOUNTY-HUNTER))
 #define IS_WARRIOR(ch)		(!IS_NPC(ch) && \
 				(GET_CLASS(ch) == CLASS_WARRIOR))
 #define IS_HELL_RAISER(ch)	(!IS_NPC(ch) && \

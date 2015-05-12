@@ -862,13 +862,14 @@ int compute_thaco(struct char_data *ch, struct char_data *victim)
   int calc_thaco;
 
   if (!IS_NPC(ch))
-    calc_thaco = thaco(GET_CLASS(ch), GET_LEVEL(ch));
+    calc_thaco = thaco(char_data *ch);
+    //calc_thaco = thaco(GET_CLASS(ch), GET_LEVEL(ch));
   else		/* THAC0 for monsters is set in the HitRoll */
-    calc_thaco = 20;
-  calc_thaco -= str_app[STRENGTH_APPLY_INDEX(ch)].tohit;
-  calc_thaco -= GET_HITROLL(ch);
-  calc_thaco -= (int) ((GET_INT(ch) - 13) / 1.5);	/* Intelligence helps! */
-  calc_thaco -= (int) ((GET_WIS(ch) - 13) / 1.5);	/* So does wisdom */
+    calc_thaco = 100;
+  //calc_thaco -= str_app[STRENGTH_APPLY_INDEX(ch)].tohit;
+  //calc_thaco -= GET_HITROLL(ch);
+  //calc_thaco -= (int) ((GET_INT(ch) - 13) / 1.5);	/* Intelligence helps! */
+  //calc_thaco -= (int) ((GET_WIS(ch) - 13) / 1.5);	/* So does wisdom */
 
   return calc_thaco;
 }
@@ -877,7 +878,7 @@ int compute_thaco(struct char_data *ch, struct char_data *victim)
 void hit(struct char_data *ch, struct char_data *victim, int type)
 {
   struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
-  int w_type, victim_ac, calc_thaco, dam, diceroll;
+  int w_type, victim_ac, calc_thaco, dam, diceroll, crit_roll, hit;
 
   /* check if the character has a fight trigger */
   fight_mtrigger(ch);
@@ -891,7 +892,7 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
 
   /* Find the weapon type (for display purposes only) */
   if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON)
-    w_type = GET_OBJ_VAL(wielded, 3) + TYPE_HIT;
+    w_type = GET_OBJ_VAL(wielded, 6) + TYPE_HIT;
   else {
     if (IS_NPC(ch) && ch->mob_specials.attack_type != 0)
       w_type = ch->mob_specials.attack_type + TYPE_HIT;
@@ -904,24 +905,30 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
 
   /* Calculate the raw armor including magic armor.  Lower AC is better for defender. */
   victim_ac = compute_armor_class(victim) / 10;
+  /** victim_evasion = compute_evasion(victim)*/
 
   /* roll the die and take your chances... */
-  diceroll = rand_number(1, 20);
+  diceroll = rand_number(1, 100);
 
-  /*
-   * Decide whether this is a hit or a miss.
+  /* Hit is based on percentage:
+    HIT <= ACCURACY
+  */
+  hit = diceroll + victim_ac;
+  if (hit <= thaco || !AWAKE(victim))
+    dam = TRUE;
+   /* Decide whether this is a hit or a miss.
    *
    *  Victim asleep = hit, otherwise:
    *     1   = Automatic miss.
    *   2..19 = Checked vs. AC.
    *    20   = Automatic hit.
    */
-  if (diceroll == 20 || !AWAKE(victim))
+  /*if (diceroll == 20 || !AWAKE(victim))
     dam = TRUE;
   else if (diceroll == 1)
     dam = FALSE;
   else
-    dam = (calc_thaco - diceroll <= victim_ac);
+    dam = (calc_thaco - diceroll <= victim_ac);*/
 
   if (!dam)
     /* the attacker missed the victim */
@@ -930,19 +937,21 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
     /* okay, we know the guy has been hit.  now calculate damage. */
 
     /* Start with the damage bonuses: the damroll and strength apply */
-    dam = str_app[STRENGTH_APPLY_INDEX(ch)].todam;
-    dam += GET_DAMROLL(ch);
+    //dam = str_app[STRENGTH_APPLY_INDEX(ch)].todam;
+    //dam += GET_DAMROLL(ch);
+    dam = 0;
 
     /* Maybe holding arrow? */
     if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON) {
       /* Add weapon-based damage if a weapon is being wielded */
-      dam += dice(GET_OBJ_VAL(wielded, 1), GET_OBJ_VAL(wielded, 2));
+      //dam += dice(GET_OBJ_VAL(wielded, 1), GET_OBJ_VAL(wielded, 2));
+      dam += dice_roll(GET_OBJ_VAL(wielded, 1), GET_OBJ_VAL(wielded, 2), GET_OBJ_VAL(wielded, 3));
     } else {
       /* If no weapon, add bare hand damage instead */
       if (IS_NPC(ch))
-	dam += dice(ch->mob_specials.damnodice, ch->mob_specials.damsizedice);
+	     dam += dice(ch->mob_specials.damnodice, ch->mob_specials.damsizedice);
       else
-	dam += rand_number(0, 2);	/* Max 2 bare hand damage for players */
+	     dam += rand_number(0, 2);	/* Max 2 bare hand damage for players */
     }
 
     /*
@@ -968,6 +977,11 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
       damage(ch, victim, dam * backstab_mult(GET_LEVEL(ch)), SKILL_BACKSTAB);
     else
       damage(ch, victim, dam, w_type);
+
+    /* check to see if the hit is a critical */
+    crit_roll = rand_number(1, 20);
+    if(crit_roll == 20)
+      dam *= GET_OBJ_VAL(wielded, 5);
   }
 
   /* check if the victim has a hitprcnt trigger */
