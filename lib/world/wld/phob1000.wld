@@ -11,6 +11,11 @@ A passage way to the front of the shuttle.
 ~
 ~
 0 0 1
+D1
+A passage way to the back of the shuttle.
+~
+~
+0 0 2
 S
 #1
 The Front of the Shuttle~
@@ -21,6 +26,19 @@ To the east is the middle of the shuttle.
 ~
 0 de 0
 D1
+A passage way to the middle of the shuttle.
+~
+~
+0 0 0
+S
+#2
+The Back Seat of the Shuttle~
+  The back seat of the shuttle has a less light than you expected. A familiar
+moldy metallic smell emanates back here.
+To the west is the middle of the shuttle.
+~
+0 de 0
+D3
 A passage way to the middle of the shuttle.
 ~
 ~
