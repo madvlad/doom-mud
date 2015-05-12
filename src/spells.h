@@ -103,6 +103,12 @@
 #define SKILL_TRACK		    140 /* Reserved Skill[] DO NOT CHANGE */
 /* New skills may be added here up to MAX_SKILLS (200) */
 
+#define SKILL_MACHINE     141
+#define SKILL_SHOTGUN     142
+#define SKILL_PISTOL      143
+#define SKILL_RIFLE       144
+
+
 
 /*
  *  NON-PLAYER AND OBJECT SPELLS AND SKILLS
