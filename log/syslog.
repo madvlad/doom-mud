@@ -1,4 +1,6 @@
-autorun starting game Sat May  9 20:32:27 EDT 2015
-running bin/circle -q 4000
+autorun starting game Mon May 11 20:04:43 EDT 2015
+running bin/circle -q 23
 nohup: ignoring input
-nohup: failed to run command ‘bin/circle’: No such file or directory
+Game Config File: etc/config: No such file or directory
+Quick boot mode -- rent check supressed.
+SYSERR: Illegal port number 23.

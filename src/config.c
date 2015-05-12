@@ -114,8 +114,8 @@ int load_into_inventory = YES;
 
 /* "okay" etc. */
 const char *OK = "Okay.\r\n";
-const char *NOPERSON = "No-one by that name here.\r\n";
-const char *NOEFFECT = "Nothing seems to happen.\r\n";
+const char *NOPERSON = "Haven't seen that person around...`\r\n";
+const char *NOEFFECT = "Nothing happened!\r\n";
 
 /*
  * You can define or not define TRACK_THOUGH_DOORS, depending on whether
@@ -291,7 +291,7 @@ int max_playing = 300;
 int max_filesize = 50000;
 
 /* maximum number of password attempts before disconnection */
-int max_bad_pws = 3;
+int max_bad_pws = 5;
 
 /*
  * Rationale for enabling this, as explained by naved@bird.taponline.com.
@@ -338,21 +338,39 @@ int use_new_socials = 1;
 
 const char *MENU =
 "\r\n"
-"Welcome to CircleMUD!\r\n"
-"0) Exit from CircleMUD.\r\n"
-"1) Enter the game.\r\n"
+"Welcome to PhobosMUD!\r\n"
+"0) Get the hell outta here!\r\n"
+"1) Let me at them!\r\n"
 "2) Enter description.\r\n"
-"3) Read the background story.\r\n"
+"3) Read Phobo's background story.\r\n"
 "4) Change password.\r\n"
 "5) Delete this character.\r\n"
 "\r\n"
-"   Make your choice: ";
+"   Choose now!: ";
 
 
 
 const char *WELC_MESSG =
 "\r\n"
-"Welcome to CircleMUD!  May your visit here be... Interesting"
+"=================     ===============     ===============   ========  ========"
+"\\\\ . . . . . . .\\\\   //. . . . . . .\\\\   //. . . . . . .\\\\  \\\\. . .\\\\// . . //"
+"||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\\/ . . .||"
+"|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||"
+"||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||"
+"|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\\ . . . . ||"
+"||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\\_ . .|. .||"
+"|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\\ `-_/| . ||"
+"||_-' ||  .|/    || ||    \\|.  || `-_|| ||_-' ||  .|/    || ||   | \\  / |-_.||"
+"||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \\  / |  `||"
+"||    `'         || ||         `'    || ||    `'         || ||   | \\  / |   ||"
+"||            .===' `===.         .==='.`===.         .===' /==. |  \\/  |   ||"
+"||         .=='   \\_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \\/  |   ||"
+"||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \\/  |   ||"
+"||   .=='    _-'          `-__\\._-'         `-_./__-'         `' |. /|  |   ||"
+"||.=='    _-'                                                     `' |  /==.||"
+"=='    _-'                                                            \\/   `=="
+"\\   _-'                                                                `-_   /"
+" `''                                                                      ``'"
 "\r\n\r\n";
 
 const char *START_MESSG =
