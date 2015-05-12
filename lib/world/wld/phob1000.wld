@@ -130,17 +130,258 @@ A Wood-Paneled Hallway~
   Todo : Add description
 ~
 0 d 0
+D0
+A passage way down a wood-paneled hallways
+~
+~
+0 0 12
+D1
+A passage way back to the foyer
+~
+~
+0 0 7
 S
 #9
 The Information Desk~
   Todo : Add description
 ~
 0 d 0
+D2
+A passage way back to the foyer
+~
+~
+0 0 7
 S
 #10
 A White-Tiled Hallway~
   Todo : Add description
 ~
 0 d 0
+D0
+A passage way down a white tiled hallways
+~
+~
+0 0 13
+D3
+A passage way back to the foyer
+~
+~
+0 0 7
+S
+#11
+A Wooden Rounded Corner~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way towards the entrance of a bar
+~
+~
+0 0 16
+D1
+A passage way back to the wood-paneled hallway
+~
+~
+0 0 12
+S
+#12
+A Wood-Paneled Hallway~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way down the hallway, toward the sanctuary
+~
+~
+0 0 17
+D2
+A passage way back towards the lobby
+~
+~
+0 0 8
+D3
+A passage way down the turn, toward the bar
+~
+~
+0 0 11
+S
+#13
+A White-Tiled Hallway~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way down the hallway, toward the sanctuary
+~
+~
+0 0 19
+D1
+A passage way down a loud hallway
+~
+~
+0 0 14
+S
+#14
+A Loud White-Tiled Hallway~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way toward the Shops
+~
+~
+0 0 20
+D3
+A passage way back to the tiled hallway
+~
+~
+0 0 13
+S
+#15
+Phobos Pub~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way to Maureen's Room
+~
+~
+0 0 37
+D1
+A passage way back to the wood-paneled hallway
+~
+~
+0 0 16
+D2
+A passage way to Gerald's Room
+~
+~
+0 0 39
+D3
+A passage way to Dave's Room
+~
+~
+0 0 38
+S
+#16
+A wood-paneled hallway~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way toward the outer wall
+~
+~
+0 0 22
+D2
+A passage way down the wood-paneled hallway toward the lobby
+~
+~
+0 0 11
+D3
+A passage way leading to the inside of the Phobos Pub
+~
+~
+0 0 15
+S
+#17
+The Inner Hallway~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way toward the outer wall
+~
+~
+0 0 23
+D1
+A passage way toward the Sanctuary
+~
+~
+0 0 18
+D2
+A passage way toward the lobby
+~
+~
+0 0 12
+S
+#18
+The Sanctuary~
+  Todo : Add description
+~
+0 cdeh 0
+D1
+A passage way to a White-Tiled hallway
+~
+~
+0 0 19
+D3
+A passage way to a Wood-Paneled hallway
+~
+~
+0 0 17
+S
+#19
+The Inner Hallway~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way toward the outer wall
+~
+~
+0 0 24
+D2
+A passage way down toward the lobby
+~
+~
+0 0 13
+D3
+A passage way into the Sanctuary
+~
+~
+0 0 18
+S
+#20
+Outside of the Shops~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage toward the outer wall
+~
+~
+0 0 25
+D1
+A passage way going into the middle of the shops
+~
+~
+0 0 21
+D2
+A passage way going back toward the lobby
+~
+~
+0 0 14
+S
+#21
+Middle of the Shops~
+  Todo : Add description
+~
+0 d 0
+D0
+A passage way to the Arms Shop
+~
+~
+0 0 40
+D1
+A passage way to the Health Shop
+~
+~
+0 0 41
+D2
+A passage way to the Armor Shop
+~
+~
+0 0 42
 S
 $~
