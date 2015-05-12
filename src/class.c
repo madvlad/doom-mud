@@ -1710,10 +1710,10 @@ void init_spell_levels(void)
   spell_level(SKILL_TRACK, CLASS_WARRIOR, 9);
   spell_level(SKILL_BASH, CLASS_WARRIOR, 12);
 
-  spell_level(SKILL_MACHINE, CLASS_HELL_RAISER, 1)
-  spell_level(SKILL_SHOTGUN, CLASS_HELL_RAISER,  1)
-  spell_level(SKILL_PISTOL, CLASS_HELL_RAISER, 1)
-  spell_level(SKILL_RIFLE, CLASS_HELL_RAISER, 1)
+  spell_level(SKILL_MACHINE, CLASS_HELL_RAISER, 1);
+  spell_level(SKILL_SHOTGUN, CLASS_HELL_RAISER,  1);
+  spell_level(SKILL_PISTOL, CLASS_HELL_RAISER, 1);
+  spell_level(SKILL_RIFLE, CLASS_HELL_RAISER, 1);
 }
 
 

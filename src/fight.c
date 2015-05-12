@@ -75,8 +75,8 @@ struct attack_hit_type attack_hit_text[] =
   {"pierce", "pierces"},
   {"blast", "blasts"},
   {"punch", "punches"},
-  {"stab", "stabs"}
-  {"fire", "fires"}             /* 15 */
+  {"stab", "stabs"},
+  {"fire", "fires"},             /* 15 */
   {"blast", "blasts"}
 };
 

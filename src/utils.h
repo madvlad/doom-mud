@@ -515,6 +515,8 @@ void	update_pos(struct char_data *victim);
 				(GET_CLASS(ch) == CLASS_THIEF))
 #define IS_WARRIOR(ch)		(!IS_NPC(ch) && \
 				(GET_CLASS(ch) == CLASS_WARRIOR))
+#define IS_HELL_RAISER(ch)	(!IS_NPC(ch) && \
+				(GET_CLASS(ch) == CLASS_HELL_RAISER))
 
 #define OUTSIDE(ch) (!ROOM_FLAGGED(IN_ROOM(ch), ROOM_INDOORS))
 

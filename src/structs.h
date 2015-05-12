@@ -119,8 +119,8 @@
 #define CLASS_CLERIC      1
 #define CLASS_THIEF       2
 #define CLASS_WARRIOR     3
-
-#define NUM_CLASSES	  4  /* This must be the number of classes!! */
+#define CLASS_HELL_RAISER 4
+#define NUM_CLASSES	  5  /* This must be the number of classes!! */
 
 /* NPC classes (currently unused - feel free to implement!) */
 #define CLASS_OTHER       0

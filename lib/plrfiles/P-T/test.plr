@@ -1,32 +1,29 @@
 Name: Test
-Pass: Te.k0FpPzK/xA
-Titl: the Apprentice of Magic
+Pass: TezslcIaVhj2Q
+Titl: the Man
 Sex : 1
-Levl: 1
+Clas: 4
 Home: 1
-Id  : 4
-Brth: 1431389799
-Plyd: 297
-Last: 1431390096
-Host: localhost
-Hite: 188
-Wate: 172
-Act : h
+Id  : 5
+Brth: 1431395977
+Plyd: 0
+Last: 1431395977
+Host: ei-mbp-dorkoj.8.8.8.8
+Hite: 194
+Wate: 160
 Room: 65535
-Lern: 2
-Hung: 20
-Thir: 20
-Hit : 15/15
-Mana: 100/100
-Move: 83/83
-Str : 13/0
-Int : 16
-Wis : 13
-Dex : 13
-Con : 10
-Cha : 9
+Hung: 24
+Thir: 24
+Drnk: 24
+Mana: 0/100
+Str : 25/100
+Int : 25
+Wis : 25
+Dex : 25
+Con : 25
+Cha : 25
 Ac  : 100
-Exp : 1
+Olc : 0
 Page: 0
 Skil:
 0 0

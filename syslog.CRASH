@@ -1,30 +1,30 @@
-May 11 20:48:36 :: Resetting #310: Graye Area (rooms 31000-31099).
-May 11 20:48:36 :: Resetting #311: The Dragon's Teeth (rooms 31100-31199).
-May 11 20:48:36 :: Resetting #312: Leper Island (rooms 31200-31299).
-May 11 20:48:36 :: Resetting #313: Farmlands of Ofingia (rooms 31300-31399).
-May 11 20:48:36 :: Resetting #314: X'Raantra's Altar of Sacrifice (rooms 31400-31499).
-May 11 20:48:36 :: Resetting #315: McGintey Business District (rooms 31500-31599).
-May 11 20:48:36 :: Resetting #316: McGintey Guild Area (rooms 31600-31699).
-May 11 20:48:36 :: Resetting #317: Wharf (rooms 31700-31799).
-May 11 20:48:36 :: Resetting #318: Dock Area (rooms 31800-31899).
-May 11 20:48:36 :: Resetting #319: Yllythad Sea (rooms 31900-31999).
-May 11 20:48:36 :: Resetting #320: Yllythad Sea II (rooms 32000-32099).
-May 11 20:48:36 :: Resetting #321: Yllythad Sea III (rooms 32100-32199).
-May 11 20:48:36 :: Resetting #322: McGintey Bay (rooms 32200-32299).
-May 11 20:48:36 :: Resetting #323: Caverns of the Pale Man (rooms 32300-32399).
-May 11 20:48:36 :: Resetting #324: Army Encampment (rooms 32400-32499).
-May 11 20:48:36 :: Resetting #325: Revelry (rooms 32500-32599).
-May 11 20:48:36 :: Resetting #326: Army Perimeter (rooms 32600-32699).
-May 11 20:48:36 :: Resetting #345: Asylum for the Insane (rooms 34500-34599).
-May 11 20:48:36 :: Boot db -- DONE.
-May 11 20:48:36 :: Signal trapping.
-May 11 20:48:36 :: Entering game loop.
-May 11 20:48:36 :: No connections.  Going to sleep.
-May 11 20:48:43 :: New connection.  Waking up.
-May 11 20:48:50 :: David [localhost] has connected.
-May 11 20:48:53 :: Losing player: David.
-May 11 20:48:53 :: No connections.  Going to sleep.
-May 11 20:48:56 :: SYSERR: Received SIGHUP, SIGINT, or SIGTERM.  Shutting down...
+running bin/circle -q 4000
+nohup: ignoring input
+Game Config File: etc/config: No such file or directory
+May 11 21:49:13 :: Using etc/config for configuration.
+May 11 21:49:13 :: CircleMUD, version 3.5
+May 11 21:49:13 :: OasisOLC 2.0.6
+May 11 21:49:13 :: DG Scripts 1.0.14
+May 11 21:49:13 :: ASCII Player Files 3.0.1
+May 11 21:49:13 :: Using lib as data directory.
+May 11 21:49:13 :: Running game on port 4000.
+May 11 21:49:13 :: Finding player limit.
+May 11 21:49:13 ::    Setting player limit to 300 using rlimit.
+May 11 21:49:13 :: Opening mother connection.
+May 11 21:49:13 :: Binding to all IP interfaces on this host.
+May 11 21:49:13 :: Boot db -- BEGIN.
+May 11 21:49:13 :: Resetting the game time:
+May 11 21:49:13 ::    Current Gametime: 10H 26D 4M 729Y.
+May 11 21:49:13 :: Reading news, credits, help, ihelp, bground, info & motds.
+May 11 21:49:13 :: Loading spell definitions.
+May 11 21:49:13 :: Loading zone table.
+May 11 21:49:13 ::    182 zones, 5824 bytes.
+May 11 21:49:13 :: Loading triggers and generating index.
+May 11 21:49:13 :: Loading rooms.
+May 11 21:49:13 ::    2 rooms, 144 bytes.
+May 11 21:49:13 :: Renumbering rooms.
+May 11 21:49:13 :: Checking start rooms.
+May 11 21:49:13 :: SYSERR:  Mortal start room does not exist.  Change in config.c.
 Quick boot mode -- rent check supressed.
 Using file descriptor for logging.
-Improper shutdown of autorun detected, rotating syslogs before startup.
+autoscript killed Mon May 11 21:49:13 EDT 2015
