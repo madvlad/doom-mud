@@ -1,30 +1,30 @@
-May 11 23:37:45 :: Resetting #311: The Dragon's Teeth (rooms 31100-31199).
-May 11 23:37:45 :: Resetting #312: Leper Island (rooms 31200-31299).
-May 11 23:37:45 :: Resetting #313: Farmlands of Ofingia (rooms 31300-31399).
-May 11 23:37:45 :: Resetting #314: X'Raantra's Altar of Sacrifice (rooms 31400-31499).
-May 11 23:37:45 :: Resetting #315: McGintey Business District (rooms 31500-31599).
-May 11 23:37:45 :: Resetting #316: McGintey Guild Area (rooms 31600-31699).
-May 11 23:37:45 :: Resetting #317: Wharf (rooms 31700-31799).
-May 11 23:37:45 :: Resetting #318: Dock Area (rooms 31800-31899).
-May 11 23:37:45 :: Resetting #319: Yllythad Sea (rooms 31900-31999).
-May 11 23:37:45 :: Resetting #320: Yllythad Sea II (rooms 32000-32099).
-May 11 23:37:45 :: Resetting #321: Yllythad Sea III (rooms 32100-32199).
-May 11 23:37:45 :: Resetting #322: McGintey Bay (rooms 32200-32299).
-May 11 23:37:45 :: Resetting #323: Caverns of the Pale Man (rooms 32300-32399).
-May 11 23:37:45 :: Resetting #324: Army Encampment (rooms 32400-32499).
-May 11 23:37:45 :: Resetting #325: Revelry (rooms 32500-32599).
-May 11 23:37:45 :: Resetting #326: Army Perimeter (rooms 32600-32699).
-May 11 23:37:45 :: Resetting #345: Asylum for the Insane (rooms 34500-34599).
-May 11 23:37:45 :: Boot db -- DONE.
-May 11 23:37:45 :: Signal trapping.
-May 11 23:37:45 :: Entering game loop.
-May 11 23:37:45 :: No connections.  Going to sleep.
-May 11 23:37:52 :: New connection.  Waking up.
-May 11 23:37:56 :: David [localhost] has connected.
-May 11 23:37:59 :: David un-renting and entering game.
-May 11 23:37:59 :: David (level 34) has 1 objects (max 30).
-May 11 23:39:28 :: David has quit the game.
-May 11 23:41:28 :: SYSERR: Received SIGHUP, SIGINT, or SIGTERM.  Shutting down...
+May 11 23:52:02 :: Resetting #324: Army Encampment (rooms 32400-32499).
+May 11 23:52:02 :: Resetting #325: Revelry (rooms 32500-32599).
+May 11 23:52:02 :: Resetting #326: Army Perimeter (rooms 32600-32699).
+May 11 23:52:02 :: Resetting #345: Asylum for the Insane (rooms 34500-34599).
+May 11 23:52:02 :: Boot db -- DONE.
+May 11 23:52:02 :: Signal trapping.
+May 11 23:52:02 :: Entering game loop.
+May 11 23:52:02 :: No connections.  Going to sleep.
+May 11 23:52:06 :: New connection.  Waking up.
+May 11 23:52:14 :: Bad PW: Test [ei-mbp-dorkoj.8.8.8.8]
+May 11 23:52:16 :: David [localhost] has connected.
+May 11 23:52:16 :: Bad PW: Test [ei-mbp-dorkoj.8.8.8.8]
+May 11 23:52:18 :: Losing player: Test.
+May 11 23:52:20 :: David un-renting and entering game.
+May 11 23:52:20 :: David (level 34) has 1 objects (max 30).
+May 11 23:52:26 :: Poop [ei-mbp-dorkoj.8.8.8.8] has connected.
+May 11 23:52:29 :: Poop had no variable file
+May 11 23:52:29 :: Poop retrieving crash-saved items and entering game.
+May 11 23:52:29 :: Poop (level 1) has 19 objects (max 30).
+May 11 23:52:32 :: Poop tried to get help on pistol
+May 11 23:52:55 :: Poop tried to get help on rifle
+May 11 23:53:29 :: Poop tried to get help on limits
+May 11 23:53:48 :: Poop tried to get help on @@
+May 11 23:53:52 :: Poop tried to get help on @
+May 11 23:54:30 :: David has quit the game.
+May 11 23:54:32 :: Losing player: David.
+May 11 23:54:52 :: SYSERR: Received SIGHUP, SIGINT, or SIGTERM.  Shutting down...
 Quick boot mode -- rent check supressed.
 Using file descriptor for logging.
 Improper shutdown of autorun detected, rotating syslogs before startup.

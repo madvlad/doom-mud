@@ -12,6 +12,7 @@ Host: ei-mbp-dorkoj.8.8.8.8
 Hite: 194
 Wate: 160
 Room: 65535
+Badp: 2
 Hung: 24
 Thir: 24
 Drnk: 24
@@ -23,7 +24,6 @@ Dex : 25
 Con : 25
 Cha : 25
 Ac  : 100
-Olc : 0
 Page: 0
 Skil:
 0 0

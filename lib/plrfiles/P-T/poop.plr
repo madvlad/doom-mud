@@ -9,14 +9,13 @@ Id  : 3
 Brth: 1431385570
 Plyd: 700
 Last: 1431386270
-Host: ei-mbp-dorkoj.8.8.8.8
+Host: localhost
 Hite: 198
 Wate: 143
-Act : h
-Room: 65535
+Act : gh
 Lern: 3
-Hung: 14
-Thir: 14
+Hung: 13
+Thir: 13
 Hit : 18/18
 Mana: 100/100
 Move: 83/83
