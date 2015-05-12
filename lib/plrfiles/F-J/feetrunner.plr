@@ -1,25 +1,25 @@
-Name: Test
-Pass: TezslcIaVhj2Q
+Name: FeetRunner
+Pass: FekjhaFYkKW5s
 Titl: the Classless
 Sex : 1
 Clas: 4
 Levl: 1
 Home: 1
-Id  : 6
-Brth: 1431409491
+Id  : 7
+Brth: 1431409701
 Plyd: 2
-Last: 1431409493
+Last: 1431409703
 Host: localhost
-Hite: 182
-Wate: 159
-Room: 4
+Hite: 194
+Wate: 172
+Act : h
+Room: 6
 Lern: 2
-Hung: 24
-Thir: 24
-Drnk: 24
+Hung: 23
+Thir: 23
 Hit : 1/16
-Mana: 1/100
-Move: 0/83
+Mana: 100/100
+Move: 80/83
 Str : 25/0
 Int : 25
 Wis : 25

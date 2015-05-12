@@ -12,4 +12,32 @@ Dex: 3
 Int: 3
 Wis: 3
 E
+#1
+friendly green imp~
+A Friendly Imp named Gerald~
+A friendly Imp who has pledged his life to peace and serenity.
+~
+A friendly Imp who has a lot of health but will not attack you.
+~
+g 0 0 E
+20 20 1 0d0+1337 0d0+0
+2 115600
+6 1 1
+BareHandAttack: 0
+Dex: 1
+E
+#2
+dutchess dog depressed~
+A depressed looking dog named Dutchess~
+A dog who upon closer inspection seems to be suffering a heart attack.
+~
+Dutchess is a dog (at least, one would think so) who seems to be wondering around, lost.
+~
+afghq p -200 E
+0 20 10 1d6+50 1d4+0
+0 25
+8 8 1
+BareHandAttack: 4
+Str: 18
+E
 $
