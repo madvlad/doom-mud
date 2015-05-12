@@ -1,30 +1,30 @@
-May 11 20:05:02 :: Resetting #313: Farmlands of Ofingia (rooms 31300-31399).
-May 11 20:05:02 :: Resetting #314: X'Raantra's Altar of Sacrifice (rooms 31400-31499).
-May 11 20:05:02 :: Resetting #315: McGintey Business District (rooms 31500-31599).
-May 11 20:05:02 :: Resetting #316: McGintey Guild Area (rooms 31600-31699).
-May 11 20:05:02 :: Resetting #317: Wharf (rooms 31700-31799).
-May 11 20:05:02 :: Resetting #318: Dock Area (rooms 31800-31899).
-May 11 20:05:02 :: Resetting #319: Yllythad Sea (rooms 31900-31999).
-May 11 20:05:02 :: Resetting #320: Yllythad Sea II (rooms 32000-32099).
-May 11 20:05:02 :: Resetting #321: Yllythad Sea III (rooms 32100-32199).
-May 11 20:05:02 :: Resetting #322: McGintey Bay (rooms 32200-32299).
-May 11 20:05:02 :: Resetting #323: Caverns of the Pale Man (rooms 32300-32399).
-May 11 20:05:02 :: Resetting #324: Army Encampment (rooms 32400-32499).
-May 11 20:05:02 :: Resetting #325: Revelry (rooms 32500-32599).
-May 11 20:05:02 :: Resetting #326: Army Perimeter (rooms 32600-32699).
-May 11 20:05:02 :: Resetting #345: Asylum for the Insane (rooms 34500-34599).
-May 11 20:05:02 :: Boot db -- DONE.
-May 11 20:05:02 :: Signal trapping.
-May 11 20:05:02 :: Entering game loop.
-May 11 20:05:02 :: No connections.  Going to sleep.
-May 11 20:05:16 :: New connection.  Waking up.
-May 11 20:05:22 :: David [localhost] has connected.
-May 11 20:05:26 :: David un-renting and entering game.
-May 11 20:05:26 :: David (level 34) has 1 objects (max 30).
-May 11 20:06:16 :: David has quit the game.
-May 11 20:06:50 :: Losing player: David.
-May 11 20:06:50 :: No connections.  Going to sleep.
-May 11 20:07:41 :: SYSERR: Received SIGHUP, SIGINT, or SIGTERM.  Shutting down...
+May 11 20:48:36 :: Resetting #310: Graye Area (rooms 31000-31099).
+May 11 20:48:36 :: Resetting #311: The Dragon's Teeth (rooms 31100-31199).
+May 11 20:48:36 :: Resetting #312: Leper Island (rooms 31200-31299).
+May 11 20:48:36 :: Resetting #313: Farmlands of Ofingia (rooms 31300-31399).
+May 11 20:48:36 :: Resetting #314: X'Raantra's Altar of Sacrifice (rooms 31400-31499).
+May 11 20:48:36 :: Resetting #315: McGintey Business District (rooms 31500-31599).
+May 11 20:48:36 :: Resetting #316: McGintey Guild Area (rooms 31600-31699).
+May 11 20:48:36 :: Resetting #317: Wharf (rooms 31700-31799).
+May 11 20:48:36 :: Resetting #318: Dock Area (rooms 31800-31899).
+May 11 20:48:36 :: Resetting #319: Yllythad Sea (rooms 31900-31999).
+May 11 20:48:36 :: Resetting #320: Yllythad Sea II (rooms 32000-32099).
+May 11 20:48:36 :: Resetting #321: Yllythad Sea III (rooms 32100-32199).
+May 11 20:48:36 :: Resetting #322: McGintey Bay (rooms 32200-32299).
+May 11 20:48:36 :: Resetting #323: Caverns of the Pale Man (rooms 32300-32399).
+May 11 20:48:36 :: Resetting #324: Army Encampment (rooms 32400-32499).
+May 11 20:48:36 :: Resetting #325: Revelry (rooms 32500-32599).
+May 11 20:48:36 :: Resetting #326: Army Perimeter (rooms 32600-32699).
+May 11 20:48:36 :: Resetting #345: Asylum for the Insane (rooms 34500-34599).
+May 11 20:48:36 :: Boot db -- DONE.
+May 11 20:48:36 :: Signal trapping.
+May 11 20:48:36 :: Entering game loop.
+May 11 20:48:36 :: No connections.  Going to sleep.
+May 11 20:48:43 :: New connection.  Waking up.
+May 11 20:48:50 :: David [localhost] has connected.
+May 11 20:48:53 :: Losing player: David.
+May 11 20:48:53 :: No connections.  Going to sleep.
+May 11 20:48:56 :: SYSERR: Received SIGHUP, SIGINT, or SIGTERM.  Shutting down...
 Quick boot mode -- rent check supressed.
 Using file descriptor for logging.
 Improper shutdown of autorun detected, rotating syslogs before startup.

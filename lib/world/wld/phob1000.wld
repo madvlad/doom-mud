@@ -1,0 +1,29 @@
+#0
+The Shuttle Seat~
+  You are in a shuttle deep within the void of space. Outside you can see 
+an endless expanse of nothingness, lightly salted with specs of Stars 
+giving an endless amount of life to the rocks lucky enough to orbit them. 
+To the west is the empty driver's seat, to the east is the vacant back seat.
+~
+0 de 0
+D3
+A passage way to the front of the shuttle.
+~
+~
+0 0 1
+S
+#1
+The Front of the Shuttle~
+  Entering the front of the shuttle, you get a clear view out of the front
+of the windshield. You see the Martian moon Deimos off in the distance
+following a similar orbit to the moon you are docked to.
+To the east is the middle of the shuttle.
+~
+0 de 0
+D1
+A passage way to the middle of the shuttle.
+~
+~
+0 0 0
+S
+$~

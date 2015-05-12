@@ -3,7 +3,7 @@ Pass: AwjbAVPwoNCHo
 Titl: the Swordpupil
 Sex : 1
 Clas: 3
-Levl: 1
+Levl: 32
 Home: 1
 Id  : 2
 Brth: 1431226055
@@ -28,6 +28,6 @@ Dex : 13
 Con : 13
 Cha : 7
 Ac  : 100
-Exp : 1
+Exp : 600000
 Skil:
 0 0

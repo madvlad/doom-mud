@@ -226,22 +226,22 @@ int selfdelete_fastwipe = YES;
 /* ROOM NUMBERS */
 
 /* virtual number of room that mortals should enter at */
-room_vnum mortal_start_room = 3001;
+room_vnum mortal_start_room = 0;
 
 /* virtual number of room that immorts should enter at by default */
-room_vnum immort_start_room = 1204;
+room_vnum immort_start_room = 0;
 
 /* virtual number of room that frozen players should enter at */
-room_vnum frozen_start_room = 1202;
+room_vnum frozen_start_room = 0;
 
 /*
  * virtual numbers of donation rooms.  note: you must change code in
  * do_drop of act.item.c if you change the number of non-NOWHERE
  * donation rooms.
  */
-room_vnum donation_room_1 = 3063;
-room_vnum donation_room_2 = 5510; 	/* unused - room for expansion */
-room_vnum donation_room_3 = 235;	/* unused - room for expansion */
+room_vnum donation_room_1 = 0;
+room_vnum donation_room_2 = 0; 	/* unused - room for expansion */
+room_vnum donation_room_3 = 0;	/* unused - room for expansion */
 
 
 /****************************************************************************/
@@ -352,31 +352,14 @@ const char *MENU =
 
 const char *WELC_MESSG =
 "\r\n"
-"=================     ===============     ===============   ========  ========\r\n"
-"\\\\ . . . . . . .\\\\   //. . . . . . .\\\\   //. . . . . . .\\\\  \\\\. . .\\\\// . . //\r\n"
-"||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\\/ . . .||\r\n"
-"|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||\r\n"
-"||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||\r\n"
-"|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\\ . . . . ||\r\n"
-"||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\\_ . .|. .||\r\n"
-"|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\\ `-_/| . ||\r\n"
-"||_-' ||  .|/    || ||    \\|.  || `-_|| ||_-' ||  .|/    || ||   | \\  / |-_.||\r\n"
-"||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \\  / |  `||\r\n"
-"||    `'         || ||         `'    || ||    `'         || ||   | \\  / |   ||\r\n"
-"||            .===' `===.         .==='.`===.         .===' /==. |  \\/  |   ||\r\n"
-"||         .=='   \\_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \\/  |   ||\r\n"
-"||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \\/  |   ||\r\n"
-"||   .=='    _-'          `-__\\._-'         `-_./__-'         `' |. /|  |   ||\r\n"
-"||.=='    _-'                                                     `' |  /==.||\r\n"
-"=='    _-'                                                            \\/   `==\r\n"
-"\\   _-'                                                                `-_   /\r\n"
-" `''                                                                      ``'\r\n"
+"Your body materializes in the hellish Phobian wasteland, the scent of "
+"blood in the air is strong."
 "\r\n\r\n";
 
 const char *START_MESSG =
-"Welcome.  This is your new CircleMUD character!  You can now earn gold,\r\n"
-"gain experience, find weapons and equipment, and much more -- while\r\n"
-"meeting people from around the world!\r\n";
+"Welcome to Phobos, marine! You are stationed in the deepest pit of hell\r\n"
+"in all of Mars's moons! Now get out there and kick some demon ass and\r\n"
+"rid us of this infestation!\r\n";
 
 /****************************************************************************/
 /****************************************************************************/
