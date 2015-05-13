@@ -3,7 +3,7 @@ machine gun~
 a heavy machine gun~
 A jet-black machine gun is lying here~
 ~
-6 0 acn 0
+5 0 acn 0
 141 8 1 2 72 1.5 15
 20 100 0 0
 #50002
@@ -11,7 +11,7 @@ basic pistol~
 light blue pistol~
 A little pistol is missing its owner~
 ~
-6 0 acn 0
+5 0 acn 0
 143 2 3 9 18 2 15
 20 25 0 0
 #50003
@@ -19,7 +19,7 @@ Bear pistol~
 thick pistol~
 A pistol on the floor keeps staring at your head....~
 ~
-6 0 acn 0
+5 0 acn 0
 143 1 15 20 8 1.8 16
 20 100 0 0
 #50004
@@ -27,7 +27,7 @@ basic rifle~
 electric green pistol~
 A bright rifle is lying here~
 ~
-6 0 acn 0
+5 0 acn 0
 144 2 4 10 16 2 15
 10 100 0 0
 #50005
@@ -35,7 +35,7 @@ baby shotgun~
 weird-green shotgun~
 A crap colored shotty is missing its owner~
 ~
-6 0 acn 0
+5 0 acn 0
 142 1 5 25 6 2 16
 15 100 0 0
 $

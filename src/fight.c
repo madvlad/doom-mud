@@ -870,8 +870,11 @@ int compute_thaco(struct char_data *ch, struct char_data *victim)
 
   if (!IS_NPC(ch)) /* PC to hit is based on weapon */
     calc_thaco = thaco(ch);
-  else		/* Moster hit is modified by lvl difference */
+  else{		/* Moster hit is modified by lvl difference */
     calc_thaco = 90 - 2*(GET_LEVEL(victim) - GET_LEVEL(ch));
+    if(calc_thaco > 100) calc_thaco = 100;
+    else if(calc_thaco < 50) calc_thaco = 50
+  }
 
   return calc_thaco;
 }
@@ -894,7 +897,7 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
 
   /* Find the weapon type (for display purposes only) */
   if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON)
-    w_type = GET_OBJ_VAL(wielded, 6) + TYPE_HIT;
+    w_type = GET_OBJ_VAL(wielded, 6);
   else {
     if (IS_NPC(ch) && ch->mob_specials.attack_type != 0)
       w_type = ch->mob_specials.attack_type + TYPE_HIT;

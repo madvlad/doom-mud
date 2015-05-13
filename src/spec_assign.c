@@ -84,7 +84,6 @@ void assign_mobiles(void)
 
   ASSIGNMOB(3095, cryogenicist);
 
-  ASSIGNMOB(39, guild);
   ASSIGNMOB(120, guild);
   ASSIGNMOB(121, guild);
   ASSIGNMOB(122, guild);
