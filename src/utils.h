@@ -297,7 +297,7 @@ void	update_pos(struct char_data *victim);
 
 #define GET_EXP(ch)	  ((ch)->points.exp)
 #define GET_AC(ch)        ((ch)->points.armor)
-#define GET_EVASION(ch)        ((ch)->points.armor)
+#define GET_EVASION(ch)        ((ch)->points.evasion)
 #define GET_HIT(ch)	  ((ch)->points.hit)
 #define GET_MAX_HIT(ch)	  ((ch)->points.max_hit)
 #define GET_MOVE(ch)	  ((ch)->points.move)

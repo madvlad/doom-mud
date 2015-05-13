@@ -56,6 +56,7 @@ void solo_gain(struct char_data *ch, struct char_data *victim);
 char *replace_string(const char *str, const char *weapon_singular, const char *weapon_plural);
 void perform_violence(void);
 int compute_armor_class(struct char_data *ch);
+int compute_evasion(struct char_data *ch);
 int compute_thaco(struct char_data *ch, struct char_data *vict);
 
 /* Weapon attack texts */
@@ -99,7 +100,7 @@ void appear(struct char_data *ch)
 }
 
 
-int compute_armor_class(struct char_data *ch)
+int compute_armor_class(struct char_data *ch) //bananakick
 {
   int armorclass = GET_AC(ch);
 
@@ -109,6 +110,12 @@ int compute_armor_class(struct char_data *ch)
   return (MAX(-100, armorclass));      /* -100 is lowest */
 }
 
+/* Compute the evasion rating */ 
+int compute_evasion(struct char_data *ch) //bananakick
+{
+  int evasion = GET_EVASION(ch);
+  //possibly check for evasion feats
+}
 
 void free_messages_type(struct msg_type *msg)
 {
@@ -861,15 +868,10 @@ int compute_thaco(struct char_data *ch, struct char_data *victim)
 {
   int calc_thaco;
 
-  if (!IS_NPC(ch))
+  if (!IS_NPC(ch)) /* PC to hit is based on weapon */
     calc_thaco = thaco(ch);
-    //calc_thaco = thaco(GET_CLASS(ch), GET_LEVEL(ch));
-  else		/* THAC0 for monsters is set in the HitRoll */
-    calc_thaco = 100;
-  //calc_thaco -= str_app[STRENGTH_APPLY_INDEX(ch)].tohit;
-  //calc_thaco -= GET_HITROLL(ch);
-  //calc_thaco -= (int) ((GET_INT(ch) - 13) / 1.5);	/* Intelligence helps! */
-  //calc_thaco -= (int) ((GET_WIS(ch) - 13) / 1.5);	/* So does wisdom */
+  else		/* Moster hit is modified by lvl difference */
+    calc_thaco = 90 - 2*(GET_LEVEL(victim) - GET_LEVEL(ch));
 
   return calc_thaco;
 }
@@ -916,20 +918,6 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
   hit = diceroll + victim_ac;
   if (hit <= thaco || !AWAKE(victim))
     dam = TRUE;
-   /* Decide whether this is a hit or a miss.
-   *
-   *  Victim asleep = hit, otherwise:
-   *     1   = Automatic miss.
-   *   2..19 = Checked vs. AC.
-   *    20   = Automatic hit.
-   */
-  /*if (diceroll == 20 || !AWAKE(victim))
-    dam = TRUE;
-  else if (diceroll == 1)
-    dam = FALSE;
-  else
-    dam = (calc_thaco - diceroll <= victim_ac);*/
-
   if (!dam)
     /* the attacker missed the victim */
     damage(ch, victim, 0, type == SKILL_BACKSTAB ? SKILL_BACKSTAB : w_type);
