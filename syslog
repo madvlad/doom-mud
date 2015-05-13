@@ -167,3 +167,6 @@ May 12 20:15:21 :: David tried to get help on postol
 May 12 20:16:22 :: David has quit the game.
 May 12 20:16:23 :: Losing player: David.
 May 12 20:16:23 :: No connections.  Going to sleep.
+May 12 20:16:54 :: SYSERR: Received SIGHUP, SIGINT, or SIGTERM.  Shutting down...
+Quick boot mode -- rent check supressed.
+Using file descriptor for logging.
