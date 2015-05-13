@@ -156,9 +156,9 @@
 
 /* WEAPON HIT PERCENTAGES */
 #define HIT_MACHINE         70
-#define SKILL_SHOTGUN       95
-#define SKILL_PISTOL        85
-#define SKILL_RIFLE         90
+#define HIT_SHOTGUN         95
+#define HIT_PISTOL          85
+#define HIT_RIFLE           90
 
 /* new attack types can be added here - up to TYPE_SUFFERING */
 #define TYPE_SUFFERING		     399
