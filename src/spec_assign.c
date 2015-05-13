@@ -82,6 +82,13 @@ void assign_mobiles(void)
 {
   assign_kings_castle();
 
+
+  ASSIGNMOB(3, guild);
+
+  // AFTER THIS IS ALL OLD DATA
+  // REMOVE AT UR OWN PERIL
+  // DONT COME CRYIN TO ME WHEN
+  // EVERYTHING BREAKS
   ASSIGNMOB(3095, cryogenicist);
 
   ASSIGNMOB(120, guild);
