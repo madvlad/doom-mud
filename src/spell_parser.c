@@ -1024,7 +1024,7 @@ void mag_assign_spells(void)
 
   skillo(SKILL_MACHINE, "machine gun");
   skillo(SKILL_SHOTGUN, "shotgun");
-  skillo(SKILL_PISTOL, "postol");
+  skillo(SKILL_PISTOL, "pistol");
   skillo(SKILL_RIFLE, "rifle");
 }
 
