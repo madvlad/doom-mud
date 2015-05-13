@@ -1,30 +1,30 @@
-May 12 20:12:37 :: Using etc/config for configuration.
-May 12 20:12:37 :: CircleMUD, version 3.5
-May 12 20:12:37 :: OasisOLC 2.0.6
-May 12 20:12:37 :: DG Scripts 1.0.14
-May 12 20:12:37 :: ASCII Player Files 3.0.1
-May 12 20:12:37 :: Using lib as data directory.
-May 12 20:12:37 :: Running game on port 4000.
-May 12 20:12:37 :: Finding player limit.
-May 12 20:12:37 ::    Setting player limit to 300 using rlimit.
-May 12 20:12:37 :: Opening mother connection.
-May 12 20:12:37 :: Binding to all IP interfaces on this host.
-May 12 20:12:37 :: Boot db -- BEGIN.
-May 12 20:12:37 :: Resetting the game time:
-May 12 20:12:37 ::    Current Gametime: 2H 1D 6M 729Y.
-May 12 20:12:37 :: Reading news, credits, help, ihelp, bground, info & motds.
-May 12 20:12:37 :: Loading spell definitions.
-May 12 20:12:37 :: Loading zone table.
-May 12 20:12:37 ::    1 zones, 32 bytes.
-May 12 20:12:37 :: Loading triggers and generating index.
-May 12 20:12:37 :: Loading rooms.
-May 12 20:12:37 ::    42 rooms, 3024 bytes.
-May 12 20:12:37 :: Renumbering rooms.
-May 12 20:12:37 :: Checking start rooms.
-May 12 20:12:37 :: Loading mobs and generating index.
-May 12 20:12:37 ::    3 mobs, 60 bytes in index, 996 bytes in prototypes.
-May 12 20:12:37 :: Loading objs and generating index.
-May 12 20:12:37 :: SYSERR: boot error - 0 records counted in world/obj//index.
+May 12 21:39:46 :: Using etc/config for configuration.
+May 12 21:39:46 :: CircleMUD, version 3.5
+May 12 21:39:46 :: OasisOLC 2.0.6
+May 12 21:39:46 :: DG Scripts 1.0.14
+May 12 21:39:46 :: ASCII Player Files 3.0.1
+May 12 21:39:46 :: Using lib as data directory.
+May 12 21:39:46 :: Running game on port 4000.
+May 12 21:39:46 :: Finding player limit.
+May 12 21:39:46 ::    Setting player limit to 300 using rlimit.
+May 12 21:39:46 :: Opening mother connection.
+May 12 21:39:46 :: Binding to all IP interfaces on this host.
+May 12 21:39:46 :: Boot db -- BEGIN.
+May 12 21:39:46 :: Resetting the game time:
+May 12 21:39:46 ::    Current Gametime: 23H 3D 6M 729Y.
+May 12 21:39:46 :: Reading news, credits, help, ihelp, bground, info & motds.
+May 12 21:39:46 :: Loading spell definitions.
+May 12 21:39:46 :: Loading zone table.
+May 12 21:39:46 ::    1 zones, 32 bytes.
+May 12 21:39:46 :: Loading triggers and generating index.
+May 12 21:39:46 :: Loading rooms.
+May 12 21:39:46 ::    42 rooms, 3024 bytes.
+May 12 21:39:46 :: Renumbering rooms.
+May 12 21:39:46 :: Checking start rooms.
+May 12 21:39:46 :: Loading mobs and generating index.
+May 12 21:39:46 ::    4 mobs, 80 bytes in index, 1328 bytes in prototypes.
+May 12 21:39:46 :: SYSERR: Format error in last line of mob #3
+...expecting line of form '# # #'
 Quick boot mode -- rent check supressed.
 Using file descriptor for logging.
-autoscript killed Tue May 12 20:12:37 EDT 2015
+autoscript killed Tue May 12 21:39:46 EDT 2015

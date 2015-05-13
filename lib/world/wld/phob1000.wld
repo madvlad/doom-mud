@@ -394,6 +394,11 @@ A walkway to the out perimeter
 ~
 ~
 0 0 27
+D1
+A walkway toward the outer wall
+~
+~
+0 0 23
 D2
 A hallway toward the Phobos Pub
 ~
@@ -414,7 +419,7 @@ D1
 A walkway to the Portals Entrance
 ~
 ~
-0 0 24
+0 0 29
 D2
 A hallway towards the Sanctuary
 ~
@@ -648,8 +653,8 @@ A ladder leading down the tower
 0 0 26
 S
 #37
-The inside of a rented room~
-  Todo : Add description
+The Hell Raiser Guild~
+  The Guildmaster's presence dominates this room.
 ~
 0 d 0
 D2

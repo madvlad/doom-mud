@@ -12,14 +12,13 @@ Last: 1431409493
 Host: localhost
 Hite: 182
 Wate: 159
-Room: 4
-Lern: 2
-Hung: 24
-Thir: 24
-Drnk: 24
-Hit : 1/16
-Mana: 1/100
-Move: 0/83
+Room: 7
+Hung: 21
+Thir: 21
+Drnk: 21
+Hit : 16/16
+Mana: 33/100
+Move: 52/83
 Str : 25/0
 Int : 25
 Wis : 25
@@ -28,6 +27,7 @@ Con : 25
 Cha : 25
 Ac  : 100
 Exp : 1
-Page: 0
 Skil:
+85 70
+90 70
 0 0
