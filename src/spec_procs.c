@@ -148,7 +148,15 @@ void list_skills(struct char_data *ch)
 
 SPECIAL(guild)
 {
-  int skill_num, percent;
+  int skill_num, percent, skill_cost;
+
+  skill_num = find_skill_num(argument);
+  if(skill_num <= 146)
+    skill_cost = 1;
+  else if(skill_num <= 154)
+    skill_cost = 2;
+  else if(skill_num <= 161)
+    skill_cost = 3;
 
   if (IS_NPC(ch) || !CMD_IS("practice"))
     return (FALSE);
@@ -159,12 +167,10 @@ SPECIAL(guild)
     list_skills(ch);
     return (TRUE);
   }
-  if (GET_PRACTICES(ch) <= 0) {
-    send_to_char(ch, "You mind cannot handle new knowledge.\r\n");
+  if (GET_PRACTICES(ch) < skill_cost) {
+    send_to_char(ch, "You require %d skill points to learn that skill.\r\n", skill_cost);
     return (TRUE);
   }
-
-  skill_num = find_skill_num(argument);
 
   if (skill_num < 1 ||
       GET_LEVEL(ch) < spell_info[skill_num].min_level[(int) GET_CLASS(ch)]) {
@@ -176,10 +182,11 @@ SPECIAL(guild)
     return (TRUE);
   }
   send_to_char(ch, "You practice for a while...\r\n");
-  GET_PRACTICES(ch)--;
+  GET_PRACTICES(ch)-= skill_cost;
 
-  percent = GET_SKILL(ch, skill_num);
-  percent += MIN(MAXGAIN(ch), MAX(MINGAIN(ch), int_app[GET_INT(ch)].learn));
+  //percent = GET_SKILL(ch, skill_num);
+  percent = 100;
+  //percent += MIN(MAXGAIN(ch), MAX(MINGAIN(ch), int_app[GET_INT(ch)].learn));
 
   SET_SKILL(ch, skill_num, MIN(LEARNED(ch), percent));
 

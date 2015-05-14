@@ -30,6 +30,11 @@
 #define MAG_CREATIONS	(1 << 9)
 #define MAG_MANUAL	(1 << 10)
 
+/* WEAPON HIT PERCENTAGES */
+#define HIT_MACHINE         70
+#define HIT_SHOTGUN         95
+#define HIT_PISTOL          85
+#define HIT_RIFLE           90
 
 #define TYPE_UNDEFINED               (-1)
 #define SPELL_RESERVED_DBC            0  /* SKILL NUMBER ZERO -- RESERVED */
@@ -103,10 +108,29 @@
 #define SKILL_TRACK		    140 /* Reserved Skill[] DO NOT CHANGE */
 /* New skills may be added here up to MAX_SKILLS (200) */
 
-#define SKILL_MACHINE     141
-#define SKILL_SHOTGUN     142
-#define SKILL_PISTOL      143
-#define SKILL_RIFLE       144
+#define SKILL_MACHINE         141 /* Cost 1 skill point */
+#define SKILL_SHOTGUN         142
+#define SKILL_PISTOL          143
+#define SKILL_RIFLE           144
+#define SKILL_HEAL_PACK       145
+#define SKILL_ARMOR           146
+
+#define SKILL_EVASION         147 /* Cost 2 skill points */
+#define SKILL_DUAL_PISTOL     148
+#define SKILL_QUICK_RELOAD    149
+#define SKILL_MASOCHISM       150 //3?
+#define SKILL_TOUGHNESS       151
+#define SKILL_ACCURACY        152
+#define SKILL_CRITICAL        153
+#define SKILL_ADRENALINE      154
+
+#define SKILL_COUNTER_ATTACK  155
+#define SKILL_BLEED_CRIT      156 /* Cost 3 skill points */
+#define SKILL_HEAL_CRIT       157
+#define SKILL_RAPID_FIRE      158
+#define SKILL_BESERK          159
+#define SKILL_PIERCE_SHOT     160
+#define SKILL_TURRET          161
 
 
 
@@ -153,12 +177,6 @@
 #define TYPE_STAB		                 314   
 #define TYPE_SHOT                    315
 #define TYPE_BLAST                   316
-
-/* WEAPON HIT PERCENTAGES */
-#define HIT_MACHINE         70
-#define HIT_SHOTGUN         95
-#define HIT_PISTOL          85
-#define HIT_RIFLE           90
 
 /* new attack types can be added here - up to TYPE_SUFFERING */
 #define TYPE_SUFFERING		     399

@@ -4,27 +4,28 @@ EDIT
 
 See Also: OLC
 #0
+RELOAD RELOADING
+
+  Syntax: reload <weapon>
+  Time: 2.0 seconds
+
+  Everyone runs out of ammo at some point. If you don't want to resort
+to using your fists, you'll need to reload your weapon. Make sure you
+have the proper type of ammo in your inventory!
+#0
 BOUNTY-HUNTER BOUNTY HUNTER
 
   Bounty hunters are in it for one thing: booty. These guys are known
 for the powerful rifles. Bounty hunters excel in doing tons of damage!
 
 SKILLS:
- ______________________
-|LEVEL        SKILL    |
-|======================|
-|   1         Rifle    |
-|   1         Pistol   |
-|______________________|
+ _______________________
+|  LEVEL  |    SKILL    |
+|=======================|
+\   1     |    Rifle    /
+/   1     |    Pistol   \
+\_________|_____________/
 
-#0
-RELOAD RELOADING
-
-  SYNTAX reload <weapon>
-
-  Everyone runs out of ammo at some point. If you don't want to resort
-to using your fists, you'll need to reload your weapon. Make sure you
-have the proper type of ammo in your inventory!
 #0
 MACHINEGUN MACHINE GUN
 
@@ -32,6 +33,7 @@ MACHINEGUN MACHINE GUN
 hey, who needs accuracy when you have numbers? Great for the person who
 doesn't want to waste time playing with themselves.
 
+skill points: 1
 #0
 SHOTGUN SHOTTY
 
@@ -39,12 +41,15 @@ SHOTGUN SHOTTY
 hit with a shotgun. Don't forget about the devastating critial hits!
 Only problem is the need to reload.
 
+skill points: 1
 #0
 PISTOL PISTOLS
 
   Pistols may not be the best at anything, but they are well rounded. The
 biggest advantage? The ammo is cheap! You have better things you need to
 spend that hard fought money on!
+
+skill points: 1
 
 See Also: Dual-Pistols
 #0
@@ -56,7 +61,7 @@ but think about how cool you'll look with a big cigar in your mouth and
 two sticks lighting up your enemies!
 
 required skills: Pistol, Speed
-
+skill points: 2
 #0
 RIFLE RIFLES
 
@@ -66,6 +71,141 @@ powerful as the shotgun, but you make up wit cheaper ammo and bigger
 clips. Great for the powerhourse that doesn't want to be one of the 
 losers that misses shots.
 
+skill points: 1
+#0
+HEAL-PACK HEAL PACK
+
+  Syntax: heal <target>
+
+  Fighting can be quite a challenge if you have to worry about keeping
+all your organs inside your body. Buy a heal-pack in town and you'll
+be able to heal yourself or one of your friends.
+
+skill points: 1
+#0
+ARMOR ARMOUR
+
+  Demons and other crazies can are a lot to handle. Armor can help
+reduce some of the damage. Be careful, though! Armor can only handle
+so much damage before it breaks.
+
+skill points: 1
+#0
+EVASION
+
+  Why run the risk of damaging that beautiful face you got there? Your
+mama didn't prepare you to be damaged. Increase your odds to side step
+bullets or demon claws.
+
+skill points: 2
+#0
+QUICK-RELOAD QUICK
+
+  In the heat of battle, you'll need to be able to reload your clip
+as quickly as possible. Cut your reload time in half!
+
+skill points: 2
+#0
+COUNTER-ATTACK COUNTER
+
+  Take advantage of advantages given to you by your opponent. When
+you dodge an enemy's attack, you will get an extra attack
+
+skill points: 3
+#0
+MASOCHISM
+
+  Thrive on the pain inflicted upon you. The more damage you have
+taken, the more damage you will do.
+
+skill points: 2
+#0
+TOUGHNESS
+
+  Some people can handle a few more bullet holes than others. This skill
+skill increases max health each level. The bonus applies to each level
+obtained already and levels gained in the future.
+
+skill points: 2
+#0
+ACCURACY
+
+  Bullets are precious friends. Why not help your friends enter the brains
+of your enemies. Increase your chances of hitting your opponent.
+
+skill points: 2
+#0
+INCREASED-CRITICAL
+
+  Increase your odds of landing a critical hit on your opponents.
+
+skill points: 2
+#0
+BLEEDING-CRITICAL
+
+  Make landing criticals a little more deadly. Landing a critical hit will
+cause your target to bleed after the attack
+
+skill points: 3
+#0
+HEALING-CRITICAL
+
+  By some crazy, unexplained magic, bullets hitting vital spots of your
+enemies excite you and grant you a temporary shield and a little bit of
+health
+
+skill points: 3
+#0
+RAPID-FIRE RAPID
+
+  Your finger is only happy when it's on the trigger of a gun. The trigger
+finger becomes a little twitchier. Shots with your weapon increase by 50%.
+This ability does not work with shotguns.
+
+skill points: 3
+#0
+ADRENALINE-SHOT ADRENALINE
+
+  Syntax inject <target>
+
+  Sometimes all you need is a little shot....of pure power! Adrenaline
+shots increase your fire rate and grant a little bit of armor. Downside 
+is that you become unable to dodge attacks.
+
+skill points: 2
+#0
+BERSERK
+
+  Syntax: berserk
+
+  Release the fury of the demons inside you! Becoming berserk will increase
+your damage and attack speed. You fight will no precaution. You become more
+susceptible to critical hits from your opponents.
+
+skill points: 3
+#0
+PIERCE PIERCE-SHOT PIERCING
+
+  Angle your bullets in a fashion that allows them to bypass some of the
+armor of your opponents.
+
+skill points: 3
+#0
+TURRET
+
+  Syntax: turret
+
+  Learn how to set up auto turrets to fire at your opponents.
+
+skill points: 3
+
+#0
+CRITICAL CRITICALS CRIT
+
+  Every one has a shot to hit vital parts of others. Each character has
+a 5% chance to land a critical strike.
+
+See Also: INCREASED-CRITICAL, BLEEDING-CRITICAL, HEALING-CRITICAL
 #31
 DRUNK WINE LIQUID-CONTAINERS BEER SPIRITS DRINK-TYPES LIQUOR WHISKEY WHISKY LIQUIDS LIQ-CONTAINERS
 

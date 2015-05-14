@@ -33,7 +33,6 @@ int parse_class(char arg);
 bitvector_t find_class_bitvector(const char *arg);
 byte saving_throws(int class_num, int type, int level);
 int thaco(struct char_data *ch);
-//int thaco(int class_num, int level);
 void roll_real_abils(struct char_data *ch);
 void do_start(struct char_data *ch);
 int backstab_mult(int level);
@@ -199,7 +198,21 @@ int thaco(struct char_data *ch) {
   struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
 
   if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON && GET_OBJ_VAL(wielded, 0)) {
-    return (GET_SKILL(ch, GET_OBJ_VAL(wielded, 0)));
+    switch(GET_OBJ_VAL(wielded, 0){
+      case(141): // Machine gun
+        return(HIT_SHOTGUN);
+        break;
+      case(142): // Shotgun
+        return(HIT_SHOTGUN);
+        break;
+      case(143): // Pistol
+        return(HIT_SHOTGUN);
+        break;
+      case(144): // Rifle
+        return(HIT_SHOTGUN);
+        break;
+    }
+    //return (GET_SKILL(ch, GET_OBJ_VAL(wielded, 0)));
   } else
     return 50;
 }

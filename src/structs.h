@@ -115,12 +115,12 @@
 
 /* PC classes */
 #define CLASS_UNDEFINED	  (-1)
-#define CLASS_MAGIC_USER  0
-#define CLASS_CLERIC      1
-#define CLASS_BOUNTY_HUNTER       2
-#define CLASS_WARRIOR     3
-#define CLASS_HELL_RAISER 4
-#define NUM_CLASSES	  5  /* This must be the number of classes!! */
+#define CLASS_MAGIC_USER  	0
+#define CLASS_CLERIC      	1
+#define CLASS_BOUNTY_HUNTER 2
+#define CLASS_WARRIOR     	3
+#define CLASS_HELL_RAISER 	4
+#define NUM_CLASSES	  		5  /* This must be the number of classes!! */
 
 /* NPC classes (currently unused - feel free to implement!) */
 #define CLASS_OTHER       0
@@ -138,16 +138,16 @@
 
 
 /* Positions */
-#define POS_DEAD       0	/* dead			*/
-#define POS_MORTALLYW  1	/* mortally wounded	*/
-#define POS_INCAP      2	/* incapacitated	*/
-#define POS_STUNNED    3	/* stunned		*/
-#define POS_SLEEPING   4	/* sleeping		*/
-#define POS_RESTING    5	/* resting		*/
-#define POS_SITTING    6	/* sitting		*/
-#define POS_FIGHTING   7	/* fighting		*/
-#define POS_STANDING   8	/* standing		*/
-
+#define POS_DEAD       	0	/* dead			*/
+#define POS_MORTALLYW  	1	/* mortally wounded	*/
+#define POS_INCAP      	2	/* incapacitated	*/
+#define POS_STUNNED    	3	/* stunned		*/
+#define POS_SLEEPING   	4	/* sleeping		*/
+#define POS_RESTING    	5	/* resting		*/
+#define POS_SITTING    	6	/* sitting		*/
+#define POS_FIGHTING   	7	/* fighting		*/
+#define POS_STANDING   	8	/* standing		*/
+#define POS_RELADING	9 	/* reloading	*/
 
 /* Player flags: used by char_data.char_specials.act */
 #define PLR_KILLER	(1 << 0)   /* Player is a player-killer		*/
@@ -221,28 +221,28 @@
 
 /* Affect bits: used in char_data.char_specials.saved.affected_by */
 /* WARNING: In the world files, NEVER set the bits marked "R" ("Reserved") */
-#define AFF_BLIND             (1 << 0)	   /* (R) Char is blind		*/
-#define AFF_INVISIBLE         (1 << 1)	   /* Char is invisible		*/
-#define AFF_DETECT_ALIGN      (1 << 2)	   /* Char is sensitive to align*/
-#define AFF_DETECT_INVIS      (1 << 3)	   /* Char can see invis chars  */
-#define AFF_DETECT_MAGIC      (1 << 4)	   /* Char is sensitive to magic*/
-#define AFF_SENSE_LIFE        (1 << 5)	   /* Char can sense hidden life*/
-#define AFF_WATERWALK	      (1 << 6)	   /* Char can walk on water	*/
-#define AFF_SANCTUARY         (1 << 7)	   /* Char protected by sanct.	*/
-#define AFF_GROUP             (1 << 8)	   /* (R) Char is grouped	*/
-#define AFF_CURSE             (1 << 9)	   /* Char is cursed		*/
-#define AFF_INFRAVISION       (1 << 10)	   /* Char can see in dark	*/
-#define AFF_POISON            (1 << 11)	   /* (R) Char is poisoned	*/
-#define AFF_PROTECT_EVIL      (1 << 12)	   /* Char protected from evil  */
-#define AFF_PROTECT_GOOD      (1 << 13)	   /* Char protected from good  */
-#define AFF_SLEEP             (1 << 14)	   /* (R) Char magically asleep	*/
-#define AFF_NOTRACK	      (1 << 15)	   /* Char can't be tracked	*/
-#define AFF_UNUSED16	      (1 << 16)	   /* Room for future expansion	*/
-#define AFF_UNUSED17	      (1 << 17)	   /* Room for future expansion	*/
-#define AFF_SNEAK             (1 << 18)	   /* Char can move quietly	*/
-#define AFF_HIDE              (1 << 19)	   /* Char is hidden		*/
-#define AFF_UNUSED20	      (1 << 20)	   /* Room for future expansion	*/
-#define AFF_CHARM             (1 << 21)	   /* Char is charmed		*/
+#define AFF_BLIND             	(1 << 0)	   /* (R) Char is blind		*/
+#define AFF_INVISIBLE         	(1 << 1)	   /* Char is invisible		*/
+#define AFF_DETECT_ALIGN      	(1 << 2)	   /* Char is sensitive to align*/
+#define AFF_DETECT_INVIS      	(1 << 3)	   /* Char can see invis chars  */
+#define AFF_DETECT_MAGIC      	(1 << 4)	   /* Char is sensitive to magic*/
+#define AFF_SENSE_LIFE        	(1 << 5)	   /* Char can sense hidden life*/
+#define AFF_WATERWALK	      	(1 << 6)	   /* Char can walk on water	*/
+#define AFF_SANCTUARY         	(1 << 7)	   /* Char protected by sanct.	*/
+#define AFF_GROUP             	(1 << 8)	   /* (R) Char is grouped	*/
+#define AFF_CURSE             	(1 << 9)	   /* Char is cursed		*/
+#define AFF_INFRAVISION       	(1 << 10)	   /* Char can see in dark	*/
+#define AFF_POISON            	(1 << 11)	   /* (R) Char is poisoned	*/
+#define AFF_PROTECT_EVIL      	(1 << 12)	   /* Char protected from evil  */
+#define AFF_PROTECT_GOOD      	(1 << 13)	   /* Char protected from good  */
+#define AFF_SLEEP             	(1 << 14)	   /* (R) Char magically asleep	*/
+#define AFF_NOTRACK	      		(1 << 15)	   /* Char can't be tracked	*/
+#define AFF_BERSERK		    	(1 << 16)	   /* Char is berserked	*/
+#define AFF_ADRENALIZED	      	(1 << 17)	   /* char is adrenalized	*/
+#define AFF_SNEAK             	(1 << 18)	   /* Char can move quietly	*/
+#define AFF_HIDE              	(1 << 19)	   /* Char is hidden		*/
+#define AFF_FATIGUED	      	(1 << 20)	   /* Char is fatigued	*/
+#define AFF_CHARM             	(1 << 21)	   /* Char is charmed		*/
 
 
 /* Modes of connectedness: used by descriptor_data.state */

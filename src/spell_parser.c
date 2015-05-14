@@ -1026,5 +1026,24 @@ void mag_assign_spells(void)
   skillo(SKILL_SHOTGUN, "shotgun");
   skillo(SKILL_PISTOL, "pistol");
   skillo(SKILL_RIFLE, "rifle");
+  skillo(SKILL_HEAL_PACK, "healing pack");
+  skillo(SKILL_ARMOR, "armor");
+
+  skillo(SKILL_DUAL_PISTOL, "dual wield pistols");
+  skillo(SKILL_QUICK_RELOAD, "quick reload");
+  skillo(SKILL_COUNTER_ATTACK, "counter attack");
+  skillo(SKILL_MASOCHISM, "masochism");
+  skillo(SKILL_TOUGHNESS, "toughness");
+  skillo(SKILL_ACCURACY, "improved accuracy");
+  skillo(SKILL_CRITICAL, "increased critical");
+  skillo(SKILL_ADRENALINE, "adrenaline shot");
+
+  skillo(SKILL_BLEED_CRIT, "bleeding criticals");
+  skillo(SKILL_HEAL_CRIT, "healing criticals");
+  skillo(SKILL_RAPID_FIRE, "rapid fire");
+  skillo(SKILL_BESEREK, "berserk");
+  skillo(SKILL_PIERCE_SHOT, "piercing shot");
+  skillo(SKILL_TURRET, "auto-turret");
+
 }
 

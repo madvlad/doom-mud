@@ -879,6 +879,11 @@ int compute_thaco(struct char_data *ch, struct char_data *victim)
   return calc_thaco;
 }
 
+int cac_hits(struct char_data *ch, struct char_data *victim, int w_type, int thaco, int victim_ac)
+{
+  /* roll the die and take your chances... */
+  diceroll = rand_number(1, 100);
+}
 
 void hit(struct char_data *ch, struct char_data *victim, int type)
 {
