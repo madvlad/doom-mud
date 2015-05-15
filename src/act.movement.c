@@ -122,18 +122,6 @@ int do_simple_move(struct char_data *ch, int dir, int need_specials_check)
     }
   }
 
-  /* move points needed is avg. move loss for src and destination sect type */
-  need_movement = (movement_loss[SECT(IN_ROOM(ch))] +
-		   movement_loss[SECT(EXIT(ch, dir)->to_room)]) / 2;
-
-  if (GET_MOVE(ch) < need_movement && !IS_NPC(ch)) {
-    if (need_specials_check && ch->master)
-      send_to_char(ch, "You are too exhausted to follow.\r\n");
-    else
-      send_to_char(ch, "You are too exhausted.\r\n");
-
-    return (0);
-  }
   if (ROOM_FLAGGED(IN_ROOM(ch), ROOM_ATRIUM)) {
     if (!House_can_enter(ch, GET_ROOM_VNUM(EXIT(ch, dir)->to_room))) {
       send_to_char(ch, "That's private property -- no trespassing!\r\n");
@@ -156,8 +144,6 @@ int do_simple_move(struct char_data *ch, int dir, int need_specials_check)
   }
 
   /* Now we know we're allowed to go into the room. */
-  if (GET_LEVEL(ch) < LVL_IMMORT && !IS_NPC(ch))
-    GET_MOVE(ch) -= need_movement;
 
   if (!AFF_FLAGGED(ch, AFF_SNEAK)) {
     char buf2[MAX_STRING_LENGTH];

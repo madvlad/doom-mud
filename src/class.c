@@ -301,7 +301,6 @@ void do_start(struct char_data *ch)
 
   GET_MAX_HIT(ch)  = 10;
   GET_MAX_MANA(ch) = 100;
-  GET_MAX_MOVE(ch) = 99999;
 
   switch (GET_CLASS(ch)) {
 
@@ -338,10 +337,7 @@ void do_start(struct char_data *ch)
 
   GET_HIT(ch) = GET_MAX_HIT(ch);
   GET_MANA(ch) = GET_MAX_MANA(ch);
-  GET_MOVE(ch) = GET_MAX_MOVE(ch);
 
-  GET_COND(ch, THIRST) = 24;
-  GET_COND(ch, FULL) = 24;
   GET_COND(ch, DRUNK) = 0;
 
   if (CONFIG_SITEOK_ALL)
@@ -353,12 +349,12 @@ void do_start(struct char_data *ch)
 
 
 /*
- * This function controls the change to maxmove, maxmana, and maxhp for
+ * This function controls the change to maxmana and maxhp for
  * each class every time they gain a level.
  */
 void advance_level(struct char_data *ch)
 {
-  int add_hp, add_mana = 0, add_move = 0, i;
+  int add_hp, add_mana = 0, i;
 
   add_hp = con_app[GET_CON(ch)].hitp;
 
@@ -368,39 +364,34 @@ void advance_level(struct char_data *ch)
     add_hp += rand_number(3, 8);
     add_mana = rand_number(GET_LEVEL(ch), (int)(1.5 * GET_LEVEL(ch)));
     add_mana = MIN(add_mana, 10);
-    add_move = rand_number(0, 2);
     break;
 
   case CLASS_CLERIC:
     add_hp += rand_number(5, 10);
     add_mana = rand_number(GET_LEVEL(ch), (int)(1.5 * GET_LEVEL(ch)));
     add_mana = MIN(add_mana, 10);
-    add_move = rand_number(0, 2);
     break;
 
   case CLASS_BOUNTY_HUNTER:
     add_hp += rand_number(7, 13);
     add_mana = 0;
-    add_move = rand_number(1, 3);
     break;
 
   case CLASS_WARRIOR:
     add_hp += rand_number(10, 15);
     add_mana = 0;
-    add_move = rand_number(1, 3);
     break;
   }
 
   ch->points.max_hit += MAX(1, add_hp);
-  ch->points.max_move += MAX(1, add_move);
 
   if (GET_LEVEL(ch) > 1)
     ch->points.max_mana += add_mana;
 
   if (IS_MAGIC_USER(ch) || IS_CLERIC(ch))
-    GET_PRACTICES(ch) += MAX(2, wis_app[GET_WIS(ch)].bonus);
+    GET_PRACTICES(ch) += 1 
   else
-    GET_PRACTICES(ch) += MIN(2, MAX(1, wis_app[GET_WIS(ch)].bonus));
+    GET_PRACTICES(ch) += 1 
 
   if (GET_LEVEL(ch) >= LVL_IMMORT) {
     for (i = 0; i < 3; i++)

@@ -410,7 +410,7 @@ const char *apply_types[] = {
   "CHAR_HEIGHT",
   "MAXMANA",
   "MAXHIT",
-  "MAXMOVE",
+  "EVASION",
   "GOLD",
   "EXP",
   "ARMOR",
@@ -754,21 +754,6 @@ int rev_dir[] =
   1,
   5,
   4
-};
-
-
-int movement_loss[] =
-{
-  1,	/* Inside     */
-  1,	/* City       */
-  2,	/* Field      */
-  3,	/* Forest     */
-  4,	/* Hills      */
-  6,	/* Mountains  */
-  4,	/* Swimming   */
-  1,	/* Unswimable */
-  1,	/* Flying     */
-  5     /* Underwater */
 };
 
 /* Not used in sprinttype(). */

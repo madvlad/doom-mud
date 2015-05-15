@@ -22,7 +22,7 @@
 
 #define LOAD_HIT	0
 #define LOAD_MANA	1
-#define LOAD_MOVE	2
+
 #define LOAD_STRENGTH	3
 
 /* local functions */
@@ -260,8 +260,6 @@ int load_char(const char *name, struct char_data *ch)
     GET_INVIS_LEV(ch) = PFDEF_INVISLEV;
     GET_FREEZE_LEV(ch) = PFDEF_FREEZELEV;
     GET_WIMP_LEV(ch) = PFDEF_WIMPLEV;
-    GET_COND(ch, FULL) = PFDEF_HUNGER;
-    GET_COND(ch, THIRST) = PFDEF_THIRST;
     GET_COND(ch, DRUNK) = PFDEF_DRUNK;
     GET_BAD_PWS(ch) = PFDEF_BADPWS;
     PRF_FLAGS(ch) = PFDEF_PREFFLAGS;
@@ -272,6 +270,7 @@ int load_char(const char *name, struct char_data *ch)
     GET_HITROLL(ch) = PFDEF_HITROLL;
     GET_DAMROLL(ch) = PFDEF_DAMROLL;
     GET_AC(ch) = PFDEF_AC;
+    //GET_EVASION(ch) = PFDEF_AC;
     ch->real_abils.str = PFDEF_STR;
     ch->real_abils.str_add = PFDEF_STRADD;
     ch->real_abils.dex = PFDEF_DEX;
@@ -283,8 +282,6 @@ int load_char(const char *name, struct char_data *ch)
     GET_MAX_HIT(ch) = PFDEF_MAXHIT;
     GET_MANA(ch) = PFDEF_MANA;
     GET_MAX_MANA(ch) = PFDEF_MAXMANA;
-    GET_MOVE(ch) = PFDEF_MOVE;
-    GET_MAX_MOVE(ch) = PFDEF_MAXMOVE;
     GET_OLC_ZONE(ch) = PFDEF_OLC;
     GET_HOST(ch) = NULL;
     GET_PAGE_LENGTH(ch) = PFDEF_PAGELENGTH;
@@ -338,7 +335,7 @@ int load_char(const char *name, struct char_data *ch)
 	else if (!strcmp(tag, "Home"))	GET_HOME(ch)		= atoi(line);
 	else if (!strcmp(tag, "Host"))	GET_HOST(ch)		= strdup(line);
 	else if (!strcmp(tag, "Hrol"))	GET_HITROLL(ch)		= atoi(line);
-	else if (!strcmp(tag, "Hung"))	GET_COND(ch, FULL)	= atoi(line);
+
 	break;
 
       case 'I':
@@ -355,7 +352,6 @@ int load_char(const char *name, struct char_data *ch)
 
       case 'M':
 	     if (!strcmp(tag, "Mana"))	load_HMVS(ch, line, LOAD_MANA);
-	else if (!strcmp(tag, "Move"))	load_HMVS(ch, line, LOAD_MOVE);
 	break;
 
       case 'N':
@@ -388,8 +384,7 @@ int load_char(const char *name, struct char_data *ch)
 	break;
 
       case 'T':
-	     if (!strcmp(tag, "Thir"))	GET_COND(ch, THIRST)	= atoi(line);
-	else if (!strcmp(tag, "Thr1"))	GET_SAVE(ch, 0)		= atoi(line);
+	     if (!strcmp(tag, "Thr1"))	GET_SAVE(ch, 0)		= atoi(line);
 	else if (!strcmp(tag, "Thr2"))	GET_SAVE(ch, 1)		= atoi(line);
 	else if (!strcmp(tag, "Thr3"))	GET_SAVE(ch, 2)		= atoi(line);
 	else if (!strcmp(tag, "Thr4"))	GET_SAVE(ch, 3)		= atoi(line);
@@ -415,8 +410,6 @@ int load_char(const char *name, struct char_data *ch)
   if (GET_LEVEL(ch) >= LVL_IMMORT) {
     for (i = 1; i <= MAX_SKILLS; i++)
       GET_SKILL(ch, i) = 100;
-    GET_COND(ch, FULL) = -1;
-    GET_COND(ch, THIRST) = -1;
     GET_COND(ch, DRUNK) = -1;
   }
   fclose(fl);
@@ -590,13 +583,10 @@ void save_char(struct char_data * ch)
   if (GET_BAD_PWS(ch)	   != PFDEF_BADPWS)	fprintf(fl, "Badp: %d\n", GET_BAD_PWS(ch));
   if (GET_PRACTICES(ch)	   != PFDEF_PRACTICES)	fprintf(fl, "Lern: %d\n", GET_PRACTICES(ch));
 
-  if (GET_COND(ch, FULL)   != PFDEF_HUNGER && GET_LEVEL(ch) < LVL_IMMORT) fprintf(fl, "Hung: %d\n", GET_COND(ch, FULL));
-  if (GET_COND(ch, THIRST) != PFDEF_THIRST && GET_LEVEL(ch) < LVL_IMMORT) fprintf(fl, "Thir: %d\n", GET_COND(ch, THIRST));
   if (GET_COND(ch, DRUNK)  != PFDEF_DRUNK  && GET_LEVEL(ch) < LVL_IMMORT) fprintf(fl, "Drnk: %d\n", GET_COND(ch, DRUNK));
 
   if (GET_HIT(ch)	   != PFDEF_HIT  || GET_MAX_HIT(ch)  != PFDEF_MAXHIT)  fprintf(fl, "Hit : %d/%d\n", GET_HIT(ch),  GET_MAX_HIT(ch));
   if (GET_MANA(ch)	   != PFDEF_MANA || GET_MAX_MANA(ch) != PFDEF_MAXMANA) fprintf(fl, "Mana: %d/%d\n", GET_MANA(ch), GET_MAX_MANA(ch));
-  if (GET_MOVE(ch)	   != PFDEF_MOVE || GET_MAX_MOVE(ch) != PFDEF_MAXMOVE) fprintf(fl, "Move: %d/%d\n", GET_MOVE(ch), GET_MAX_MOVE(ch));
 
   if (GET_STR(ch)	   != PFDEF_STR  || GET_ADD(ch)      != PFDEF_STRADD)  fprintf(fl, "Str : %d/%d\n", GET_STR(ch),  GET_ADD(ch));
  
@@ -608,6 +598,7 @@ void save_char(struct char_data * ch)
   if (GET_CHA(ch)	   != PFDEF_CHA)	fprintf(fl, "Cha : %d\n", GET_CHA(ch));
 
   if (GET_AC(ch)	   != PFDEF_AC)		fprintf(fl, "Ac  : %d\n", GET_AC(ch));
+  //if (GET_EVASION(ch)     != PFDEF_EVASION)   fprintf(fl, "AEvasion  : %d\n", GET_EVASION(ch));
   if (GET_GOLD(ch)	   != PFDEF_GOLD)	fprintf(fl, "Gold: %d\n", GET_GOLD(ch));
   if (GET_BANK_GOLD(ch)	   != PFDEF_BANK)	fprintf(fl, "Bank: %d\n", GET_BANK_GOLD(ch));
   if (GET_EXP(ch)	   != PFDEF_EXP)	fprintf(fl, "Exp : %d\n", GET_EXP(ch));
@@ -845,11 +836,6 @@ void load_HMVS(struct char_data *ch, const char *line, int mode)
   case LOAD_MANA:
     GET_MANA(ch) = num;
     GET_MAX_MANA(ch) = num2;
-    break;
-
-  case LOAD_MOVE:
-    GET_MOVE(ch) = num;
-    GET_MAX_MOVE(ch) = num2;
     break;
 
   case LOAD_STRENGTH:

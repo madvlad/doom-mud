@@ -44,10 +44,6 @@
 #define PFDEF_MAXHIT		0
 #define PFDEF_MANA		0
 #define PFDEF_MAXMANA		0
-#define PFDEF_MOVE		0
-#define PFDEF_MAXMOVE		0
-#define PFDEF_HUNGER		0
-#define PFDEF_THIRST		0
 #define PFDEF_DRUNK		0
 #define PFDEF_OLC               65535 
 #define PFDEF_PAGELENGTH        22

@@ -869,18 +869,16 @@ void do_stat_character(struct char_data *ch, struct char_data *k)
 	  CCCYN(ch, C_NRM), GET_CON(k), CCNRM(ch, C_NRM),
 	  CCCYN(ch, C_NRM), GET_CHA(k), CCNRM(ch, C_NRM));
 
-  send_to_char(ch, "Hit p.:[%s%d/%d+%d%s]  Mana p.:[%s%d/%d+%d%s]  Move p.:[%s%d/%d+%d%s]\r\n",
+  send_to_char(ch, "Hit p.:[%s%d/%d+%d%s]  Mana p.:[%s%d/%d+%d%s]\r\n",
 	  CCGRN(ch, C_NRM), GET_HIT(k), GET_MAX_HIT(k), hit_gain(k), CCNRM(ch, C_NRM),
 	  CCGRN(ch, C_NRM), GET_MANA(k), GET_MAX_MANA(k), mana_gain(k), CCNRM(ch, C_NRM),
-	  CCGRN(ch, C_NRM), GET_MOVE(k), GET_MAX_MOVE(k), move_gain(k), CCNRM(ch, C_NRM));
 
   send_to_char(ch, "Coins: [%9d], Bank: [%9d] (Total: %d)\r\n",
 	  GET_GOLD(k), GET_BANK_GOLD(k), GET_GOLD(k) + GET_BANK_GOLD(k));
 
-  send_to_char(ch, "AC: [%d%+d/10], Hitroll: [%2d], Damroll: [%2d], Saving throws: [%d/%d/%d/%d/%d]\r\n",
+  send_to_char(ch, "AC: [%d%+d/10], Hitroll: [%2d], Damroll: [%2d], Evasion: [%d]\r\n",
 	  GET_AC(k), dex_app[GET_DEX(k)].defensive, k->points.hitroll,
-	  k->points.damroll, GET_SAVE(k, 0), GET_SAVE(k, 1), GET_SAVE(k, 2),
-	  GET_SAVE(k, 3), GET_SAVE(k, 4));
+	  k->points.damroll, GET_SAVE(k, 0), GET_EVASION(k));
 
   sprinttype(GET_POS(k), position_types, buf, sizeof(buf));
   send_to_char(ch, "Pos: %s, Fighting: %s", buf, FIGHTING(k) ? GET_NAME(FIGHTING(k)) : "Nobody");
@@ -922,7 +920,7 @@ void do_stat_character(struct char_data *ch, struct char_data *k)
   send_to_char(ch, "eq: %d\r\n", i2);
 
   if (!IS_NPC(k))
-    send_to_char(ch, "Hunger: %d, Thirst: %d, Drunk: %d\r\n", GET_COND(k, FULL), GET_COND(k, THIRST), GET_COND(k, DRUNK));
+    send_to_char(ch, "Drunk: %d\r\n", GET_COND(k, DRUNK));
 
   column = send_to_char(ch, "Master is: %s, Followers are:", k->master ? GET_NAME(k->master) : "<none>");
   if (!k->followers)
@@ -1611,7 +1609,6 @@ ACMD(do_restore)
   else {
     GET_HIT(vict) = GET_MAX_HIT(vict);
     GET_MANA(vict) = GET_MAX_MANA(vict);
-    GET_MOVE(vict) = GET_MAX_MOVE(vict);
 
     if (!IS_NPC(vict) && GET_LEVEL(ch) >= LVL_GRGOD) {
       if (GET_LEVEL(vict) >= LVL_IMMORT)
@@ -2773,10 +2770,10 @@ ACMD(do_show)
    { "nosummon", 	LVL_GRGOD, 	PC, 	BINARY },
    { "maxhit",	      	LVL_GRGOD, 	BOTH, 	NUMBER },
    { "maxmana",       	LVL_GRGOD, 	BOTH, 	NUMBER },  /* 5 */
-   { "maxmove", 	LVL_GRGOD, 	BOTH, 	NUMBER },
+   { "maxmove", 	LVL_GRGOD, 	BOTH, 	NUMBER },     //bananakick
    { "hit", 		LVL_GRGOD, 	BOTH, 	NUMBER },
    { "mana",		LVL_GRGOD, 	BOTH, 	NUMBER },
-   { "move",		LVL_GRGOD, 	BOTH, 	NUMBER },
+   { "move",		LVL_GRGOD, 	BOTH, 	NUMBER },      //bananakick
    { "align",		LVL_GOD, 	BOTH, 	NUMBER },  /* 10 */
    { "str",		LVL_GRGOD, 	BOTH, 	NUMBER },
    { "stradd",		LVL_GRGOD, 	BOTH, 	NUMBER },
@@ -2797,8 +2794,8 @@ ACMD(do_show)
    { "practices", 	LVL_GRGOD, 	PC, 	NUMBER },
    { "lessons", 	LVL_GRGOD, 	PC, 	NUMBER },
    { "drunk",		LVL_GRGOD, 	BOTH, 	MISC },
-   { "hunger",		LVL_GRGOD, 	BOTH, 	MISC },    /* 30 */
-   { "thirst",		LVL_GRGOD, 	BOTH, 	MISC },
+   { "hunger",		LVL_GRGOD, 	BOTH, 	MISC },    /* 30 */ //bananakick
+   { "thirst",		LVL_GRGOD, 	BOTH, 	MISC },              //bananakick
    { "killer",		LVL_GOD, 	PC, 	BINARY },
    { "thief",		LVL_GOD, 	PC, 	BINARY },
    { "level",		LVL_IMPL, 	BOTH, 	NUMBER },
@@ -2895,20 +2892,12 @@ int perform_set(struct char_data *ch, struct char_data *vict, int mode,
     vict->points.max_mana = RANGE(1, 5000);
     affect_total(vict);
     break;
-  case 6:
-    vict->points.max_move = RANGE(1, 5000);
-    affect_total(vict);
-    break;
   case 7:
     vict->points.hit = RANGE(-9, vict->points.max_hit);
     affect_total(vict);
     break;
   case 8:
     vict->points.mana = RANGE(0, vict->points.max_mana);
-    affect_total(vict);
-    break;
-  case 9:
-    vict->points.move = RANGE(0, vict->points.max_move);
     affect_total(vict);
     break;
   case 10:
@@ -3017,21 +3006,21 @@ int perform_set(struct char_data *ch, struct char_data *vict, int mode,
     GET_PRACTICES(vict) = RANGE(0, 100);
     break;
   case 29:
-  case 30:
+  /*case 30:
   case 31:
     if (!str_cmp(val_arg, "off")) {
       GET_COND(vict, (mode - 29)) = -1; /* warning: magic number here */
-      send_to_char(ch, "%s's %s now off.\r\n", GET_NAME(vict), set_fields[mode].cmd);
+      /*send_to_char(ch, "%s's %s now off.\r\n", GET_NAME(vict), set_fields[mode].cmd);
     } else if (is_number(val_arg)) {
       value = atoi(val_arg);
       RANGE(0, 24);
       GET_COND(vict, (mode - 29)) = value; /* and here too */
-      send_to_char(ch, "%s's %s set to %d.\r\n", GET_NAME(vict), set_fields[mode].cmd, value);
+     /* send_to_char(ch, "%s's %s set to %d.\r\n", GET_NAME(vict), set_fields[mode].cmd, value);
     } else {
       send_to_char(ch, "Must be 'off' or a value from 0 to 24.\r\n");
       return (0);
     }
-    break;
+    break;*/
   case 32:
     SET_OR_REMOVE(PLR_FLAGS(vict), PLR_KILLER);
     break;
@@ -3415,7 +3404,6 @@ struct zcheck_affs {
   {APPLY_CHAR_HEIGHT,-50,  50, "character height"},
   {APPLY_MANA,       -50,  50, "mana"},
   {APPLY_HIT,        -50,  50, "hit points"},
-  {APPLY_MOVE,       -50,  50, "movement"},
   {APPLY_GOLD,         0,   0, "gold"},
   {APPLY_EXP,          0,   0, "experience"},
   {APPLY_AC,         -10,  10, "magical AC"},

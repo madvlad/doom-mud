@@ -56,7 +56,7 @@ int graf(int grafage, int p0, int p1, int p2, int p3, int p4, int p5, int p6)
 
 
 /*
- * The hit_limit, mana_limit, and move_limit functions are gone.  They
+ * The hit_limit and mana_limit functions are gone. They
  * added an unnecessary level of complexity to the internal structure,
  * weren't particularly useful, and led to some annoying bugs.  From the
  * players' point of view, the only difference the removal of these
@@ -94,9 +94,6 @@ int mana_gain(struct char_data *ch)
 
     if (IS_MAGIC_USER(ch) || IS_CLERIC(ch))
       gain *= 2;
-
-    if ((GET_COND(ch, FULL) == 0) || (GET_COND(ch, THIRST) == 0))
-      gain /= 4;
   }
 
   if (AFF_FLAGGED(ch, AFF_POISON))
@@ -138,9 +135,6 @@ int hit_gain(struct char_data *ch)
 
     if (IS_MAGIC_USER(ch) || IS_CLERIC(ch))
       gain /= 2;	/* Ouch. */
-
-    if ((GET_COND(ch, FULL) == 0) || (GET_COND(ch, THIRST) == 0))
-      gain /= 4;
   }
 
   if (AFF_FLAGGED(ch, AFF_POISON))
@@ -148,49 +142,6 @@ int hit_gain(struct char_data *ch)
 
   return (gain);
 }
-
-
-
-/* move gain pr. game hour */
-int move_gain(struct char_data *ch)
-{
-  int gain;
-
-  if (IS_NPC(ch)) {
-    /* Neat and fast */
-    gain = GET_LEVEL(ch);
-  } else {
-    gain = graf(age(ch)->year, 16, 20, 24, 20, 16, 12, 10);
-
-    /* Class/Level calculations */
-
-    /* Skill/Spell calculations */
-
-
-    /* Position calculations    */
-    switch (GET_POS(ch)) {
-    case POS_SLEEPING:
-      gain += (gain / 2);	/* Divide by 2 */
-      break;
-    case POS_RESTING:
-      gain += (gain / 4);	/* Divide by 4 */
-      break;
-    case POS_SITTING:
-      gain += (gain / 8);	/* Divide by 8 */
-      break;
-    }
-
-    if ((GET_COND(ch, FULL) == 0) || (GET_COND(ch, THIRST) == 0))
-      gain /= 4;
-  }
-
-  if (AFF_FLAGGED(ch, AFF_POISON))
-    gain /= 4;
-
-  return (gain);
-}
-
-
 
 void set_title(struct char_data *ch, char *title)
 {
@@ -333,12 +284,6 @@ void gain_condition(struct char_data *ch, int condition, int value)
     return;
 
   switch (condition) {
-  case FULL:
-    send_to_char(ch, "You are hungry.\r\n");
-    break;
-  case THIRST:
-    send_to_char(ch, "You are thirsty.\r\n");
-    break;
   case DRUNK:
     if (intoxicated)
       send_to_char(ch, "You are now sober.\r\n");
@@ -401,14 +346,11 @@ void point_update(void)
   for (i = character_list; i; i = next_char) {
     next_char = i->next;
 	
-    gain_condition(i, FULL, -1);
     gain_condition(i, DRUNK, -1);
-    gain_condition(i, THIRST, -1);
 	
     if (GET_POS(i) >= POS_STUNNED) {
       GET_HIT(i) = MIN(GET_HIT(i) + hit_gain(i), GET_MAX_HIT(i));
       GET_MANA(i) = MIN(GET_MANA(i) + mana_gain(i), GET_MAX_MANA(i));
-      GET_MOVE(i) = MIN(GET_MOVE(i) + move_gain(i), GET_MAX_MOVE(i));
       if (AFF_FLAGGED(i, AFF_POISON))
 	if (damage(i, i, 2, SPELL_POISON) == -1)
 	  continue;	/* Oops, they died. -gg 6/24/98 */

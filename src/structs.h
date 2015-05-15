@@ -198,7 +198,6 @@
 #define PRF_NOTELL	(1 << 3)  /* Can't receive tells		*/
 #define PRF_DISPHP	(1 << 4)  /* Display hit points in prompt	*/
 #define PRF_DISPMANA	(1 << 5)  /* Display mana points in prompt	*/
-#define PRF_DISPMOVE	(1 << 6)  /* Display move points in prompt	*/
 #define PRF_AUTOEXIT	(1 << 7)  /* Display exits in a room		*/
 #define PRF_NOHASSLE	(1 << 8)  /* Aggr mobs won't attack		*/
 #define PRF_QUEST	(1 << 9)  /* On quest				*/
@@ -243,6 +242,8 @@
 #define AFF_HIDE              	(1 << 19)	   /* Char is hidden		*/
 #define AFF_FATIGUED	      	(1 << 20)	   /* Char is fatigued	*/
 #define AFF_CHARM             	(1 << 21)	   /* Char is charmed		*/
+#define AFF_BLEED            	(1 << 22)	   /* Char is bleeding		*/
+#define AFF_SLOW             	(1 << 23)	   /* Char is slowed		*/
 
 
 /* Modes of connectedness: used by descriptor_data.state */
@@ -374,7 +375,7 @@
 #define APPLY_INT               3	/* Apply to intelligence	*/
 #define APPLY_WIS               4	/* Apply to wisdom		*/
 #define APPLY_CON               5	/* Apply to constitution	*/
-#define APPLY_CHA		6	/* Apply to charisma		*/
+#define APPLY_CHA				6	/* Apply to charisma		*/
 #define APPLY_CLASS             7	/* Reserved			*/
 #define APPLY_LEVEL             8	/* Reserved			*/
 #define APPLY_AGE               9	/* Apply to age			*/
@@ -382,18 +383,12 @@
 #define APPLY_CHAR_HEIGHT      11	/* Apply to height		*/
 #define APPLY_MANA             12	/* Apply to max mana		*/
 #define APPLY_HIT              13	/* Apply to max hit points	*/
-#define APPLY_MOVE             14	/* Apply to max move points	*/
+
 #define APPLY_GOLD             15	/* Reserved			*/
 #define APPLY_EXP              16	/* Reserved			*/
 #define APPLY_AC               17	/* Apply to Armor Class		*/
 #define APPLY_HITROLL          18	/* Apply to hitroll		*/
 #define APPLY_DAMROLL          19	/* Apply to damage roll		*/
-#define APPLY_SAVING_PARA      20	/* Apply to save throw: paralz	*/
-#define APPLY_SAVING_ROD       21	/* Apply to save throw: rods	*/
-#define APPLY_SAVING_PETRI     22	/* Apply to save throw: petrif	*/
-#define APPLY_SAVING_BREATH    23	/* Apply to save throw: breath	*/
-#define APPLY_SAVING_SPELL     24	/* Apply to save throw: spells	*/
-
 
 /* Container flags - value[1] */
 #define CONT_CLOSEABLE      (1 << 0)	/* Container can be closed	*/
@@ -426,9 +421,6 @@
 
 /* Player conditions */
 #define DRUNK        0
-#define FULL         1
-#define THIRST       2
-
 
 /* Sun state for weather_data */
 #define SUN_DARK	0
@@ -797,9 +789,7 @@ struct char_point_data {
    sh_int mana;
    sh_int max_mana;     /* Max mana for PC/NPC			   			*/
    sh_int hit;
-   sh_int max_hit;      /* Max hit for PC/NPC                      	*/
-   sh_int move;
-   sh_int max_move;     /* Max move for PC/NPC                  	*/
+   sh_int max_hit;      /* Max hit for PC/NPC                       	*/
    sh_int evasion;		/* Evasion rating of the Character 			*/
 
    sh_int armor;        /* Internal -100..100, external -10..10 AC 	*/
@@ -856,14 +846,14 @@ struct char_special_data {
  */
 struct player_special_data_saved {
    byte skills[MAX_SKILLS+1];	/* array of skills plus skill 0		*/
-   byte PADDING0;		/* used to be spells_to_learn		*/
-   bool talks[MAX_TONGUE];	/* PC s Tongues 0 for NPC		*/
-   int	wimp_level;		/* Below this # of hit points, flee!	*/
-   byte freeze_level;		/* Level of god who froze char, if any	*/
-   sh_int invis_level;		/* level of invisibility		*/
-   room_vnum load_room;		/* Which room to place char in		*/
+   byte PADDING0;			/* used to be spells_to_learn		*/
+   bool talks[MAX_TONGUE];		/* PC s Tongues 0 for NPC		*/
+   int	wimp_level;				/* Below this # of hit points, flee!	*/
+   byte freeze_level;			/* Level of god who froze char, if any	*/
+   sh_int invis_level;			/* level of invisibility		*/
+   room_vnum load_room;			/* Which room to place char in		*/
    long /*bitvector_t*/	pref;	/* preference flags for PC's.		*/
-   ubyte bad_pws;		/* number of bad password attemps	*/
+   ubyte bad_pws;				/* number of bad password attemps	*/
    sbyte conditions[3];         /* Drunk, full, thirsty			*/
 
    /* spares below for future expansion.  You can change the names from
@@ -1211,7 +1201,6 @@ struct game_data {
   int pk_allowed;         /* Is player killing allowed? 	  */
   int pt_allowed;         /* Is player thieving allowed?	  */
   int level_can_shout;	  /* Level player must be to shout.	  */
-  int holler_move_cost;	  /* Cost to holler in move points.	  */
   int tunnel_size;        /* Number of people allowed in a tunnel.*/
   int max_exp_gain;       /* Maximum experience gainable per kill.*/
   int max_exp_loss;       /* Maximum experience losable per death.*/

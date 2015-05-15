@@ -127,12 +127,6 @@ void convert(char *filename)
       sprintascii(bits, psds->pref);
       fprintf(outfile, "Pref: %s\n", bits);
     }
-    if (psds->conditions[FULL] && player.level < LVL_IMMORT &&
-	psds->conditions[FULL] != PFDEF_HUNGER)
-      fprintf(outfile, "Hung: %d\n", (int)psds->conditions[0]);
-    if (psds->conditions[THIRST] && player.level < LVL_IMMORT &&
-	psds->conditions[THIRST] != PFDEF_THIRST)
-      fprintf(outfile, "Thir: %d\n", (int)psds->conditions[1]);
     if (psds->conditions[2] && player.level < LVL_IMMORT &&
 	psds->conditions[DRUNK] != PFDEF_DRUNK)
       fprintf(outfile, "Drnk: %d\n", (int)psds->conditions[2]);
@@ -160,10 +154,10 @@ void convert(char *filename)
       fprintf(outfile, "Hit : %d/%d\n", cpd->hit, cpd->max_hit);
     if (cpd->mana != PFDEF_MANA || cpd->max_mana != PFDEF_MAXMANA)
       fprintf(outfile, "Mana: %d/%d\n", cpd->mana, cpd->max_mana);
-    if (cpd->move != PFDEF_MOVE || cpd->max_move != PFDEF_MAXMOVE)
-      fprintf(outfile, "Move: %d/%d\n", cpd->move, cpd->max_move);
     if (cpd->armor != PFDEF_AC)
       fprintf(outfile, "Ac  : %d\n", cpd->armor);
+    //if (cpd->evasion != PFDEF_EVASION)
+    //  fprintf(outfile, "Evasion  : %d\n", cpd->evasion);
     if (cpd->gold != PFDEF_GOLD)
       fprintf(outfile, "Gold: %d\n", cpd->gold);
     if (cpd->bank_gold != PFDEF_BANK)

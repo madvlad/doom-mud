@@ -767,9 +767,8 @@ ACMD(do_score)
   else
     send_to_char(ch, "\r\n");
 
-  send_to_char(ch, "You have %d(%d) hit, %d(%d) mana and %d(%d) movement points.\r\n",
-	  GET_HIT(ch), GET_MAX_HIT(ch), GET_MANA(ch), GET_MAX_MANA(ch),
-	  GET_MOVE(ch), GET_MAX_MOVE(ch));
+  send_to_char(ch, "You have %d(%d) hit, %d(%d) mana.\r\n",
+	  GET_HIT(ch), GET_MAX_HIT(ch), GET_MANA(ch), GET_MAX_MANA(ch));
 
   send_to_char(ch, "Your armor class is %d/10, and your alignment is %d.\r\n",
 	  compute_armor_class(ch), GET_ALIGNMENT(ch));
@@ -825,12 +824,6 @@ ACMD(do_score)
 
   if (GET_COND(ch, DRUNK) > 10)
     send_to_char(ch, "You are intoxicated.\r\n");
-
-  if (GET_COND(ch, FULL) == 0)
-    send_to_char(ch, "You are hungry.\r\n");
-
-  if (GET_COND(ch, THIRST) == 0)
-    send_to_char(ch, "You are thirsty.\r\n");
 
   if (AFF_FLAGGED(ch, AFF_BLIND))
     send_to_char(ch, "You have been blinded!\r\n");
@@ -1775,7 +1768,7 @@ ACMD(do_toggle)
 	  "     Brief Mode: %-3s    "
 	  " Summon Protect: %-3s\r\n"
 
-	  "   Move Display: %-3s    "
+	  //"   Move Display: %-3s    "
 	  "   Compact Mode: %-3s    "
 	  "       On Quest: %-3s\r\n"
 
@@ -1798,7 +1791,7 @@ ACMD(do_toggle)
 	  ONOFF(PRF_FLAGGED(ch, PRF_BRIEF)),
 	  ONOFF(!PRF_FLAGGED(ch, PRF_SUMMONABLE)),
 
-	  ONOFF(PRF_FLAGGED(ch, PRF_DISPMOVE)),
+	  //ONOFF(PRF_FLAGGED(ch, PRF_DISPMOVE)),
 	  ONOFF(PRF_FLAGGED(ch, PRF_COMPACT)),
 	  YESNO(PRF_FLAGGED(ch, PRF_QUEST)),
 

@@ -86,7 +86,6 @@ int	perform_move(struct char_data *ch, int dir, int following);
 /* in limits.c */
 int	mana_gain(struct char_data *ch);
 int	hit_gain(struct char_data *ch);
-int	move_gain(struct char_data *ch);
 void	advance_level(struct char_data *ch);
 void	set_title(struct char_data *ch, char *title);
 void	gain_exp(struct char_data *ch, int gain);
@@ -300,8 +299,6 @@ void	update_pos(struct char_data *victim);
 #define GET_EVASION(ch)        ((ch)->points.evasion)
 #define GET_HIT(ch)	  ((ch)->points.hit)
 #define GET_MAX_HIT(ch)	  ((ch)->points.max_hit)
-#define GET_MOVE(ch)	  ((ch)->points.move)
-#define GET_MAX_MOVE(ch)  ((ch)->points.max_move)
 #define GET_MANA(ch)	  ((ch)->points.mana)
 #define GET_MAX_MANA(ch)  ((ch)->points.max_mana)
 #define GET_GOLD(ch)	  ((ch)->points.gold)

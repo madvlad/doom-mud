@@ -868,14 +868,10 @@ ACMD(do_drink)
     send_to_char(ch, "You have to be holding that to drink from it.\r\n");
     return;
   }
-  if ((GET_COND(ch, DRUNK) > 10) && (GET_COND(ch, THIRST) > 0)) {
+  if (GET_COND(ch, DRUNK) > 10) {
     /* The pig is drunk */
     send_to_char(ch, "You can't seem to get close enough to your mouth.\r\n");
     act("$n tries to drink but misses $s mouth!", TRUE, ch, 0, 0, TO_ROOM);
-    return;
-  }
-  if ((GET_COND(ch, FULL) > 20) && (GET_COND(ch, THIRST) > 0)) {
-    send_to_char(ch, "Your stomach can't contain anymore!\r\n");
     return;
   }
   if (!GET_OBJ_VAL(temp, 1)) {
@@ -895,7 +891,7 @@ ACMD(do_drink)
     send_to_char(ch, "You drink the %s.\r\n", drinks[GET_OBJ_VAL(temp, 2)]);
 
     if (drink_aff[GET_OBJ_VAL(temp, 2)][DRUNK] > 0)
-      amount = (25 - GET_COND(ch, THIRST)) / drink_aff[GET_OBJ_VAL(temp, 2)][DRUNK];
+      amount = (25) / drink_aff[GET_OBJ_VAL(temp, 2)][DRUNK];
     else
       amount = rand_number(3, 10);
 
@@ -913,17 +909,9 @@ ACMD(do_drink)
   weight_change_object(temp, -weight);	/* Subtract amount */
 
   gain_condition(ch, DRUNK,  drink_aff[GET_OBJ_VAL(temp, 2)][DRUNK]  * amount / 4);
-  gain_condition(ch, FULL,   drink_aff[GET_OBJ_VAL(temp, 2)][FULL]   * amount / 4);
-  gain_condition(ch, THIRST, drink_aff[GET_OBJ_VAL(temp, 2)][THIRST] * amount / 4);
 
   if (GET_COND(ch, DRUNK) > 10)
     send_to_char(ch, "You feel drunk.\r\n");
-
-  if (GET_COND(ch, THIRST) > 20)
-    send_to_char(ch, "You don't feel thirsty any more.\r\n");
-
-  if (GET_COND(ch, FULL) > 20)
-    send_to_char(ch, "You are full.\r\n");
 
   if (GET_OBJ_VAL(temp, 3)) {	/* The crap was poisoned ! */
     send_to_char(ch, "Oops, it tasted rather strange!\r\n");
@@ -977,9 +965,6 @@ ACMD(do_eat)
     send_to_char(ch, "You can't eat THAT!\r\n");
     return;
   }
-  if (GET_COND(ch, FULL) > 20) {/* Stomach full */
-    send_to_char(ch, "You are too full to eat more!\r\n");
-    return;
   }
 
   if (!consume_otrigger(food, ch, OCMD_EAT))  /* check trigger */
@@ -994,11 +979,6 @@ ACMD(do_eat)
   }
 
   amount = (subcmd == SCMD_EAT ? GET_OBJ_VAL(food, 0) : 1);
-
-  gain_condition(ch, FULL, amount);
-
-  if (GET_COND(ch, FULL) > 20)
-    send_to_char(ch, "You are full.\r\n");
 
   if (GET_OBJ_VAL(food, 3) && (GET_LEVEL(ch) < LVL_IMMORT)) {
     /* The crap was poisoned ! */
