@@ -58,9 +58,10 @@ int rand_number(int from, int to)
 
 
 /* simulates dice roll */
-int dice_roll(int num, int min, int max)
+int dice_roll(int min, int max)
 {
   int sum = 0;
+  //Ensure agrguments are correct and valid.
   if(num <= 0 ||  min <= 0 || max <= 0 || max <= min)
     return 0;
   while (num-- > 0)
