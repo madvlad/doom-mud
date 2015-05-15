@@ -10,13 +10,14 @@ Levl: 34
 Home: 1
 Id  : 1
 Brth: 1431225977
-Plyd: 252346
-Last: 1431478323
+Plyd: 421440
+Last: 1431647417
 Host: localhost
 Hite: 172
 Wate: 148
 Alin: 23
-Room: 37
+Act : g
+Room: 65535
 Hit : 500/500
 Mana: 100/100
 Move: 82/82

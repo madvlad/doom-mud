@@ -873,7 +873,7 @@ int compute_thaco(struct char_data *ch, struct char_data *victim)
   else{		/* Moster hit is modified by lvl difference */
     calc_thaco = 90 - 2*(GET_LEVEL(victim) - GET_LEVEL(ch));
     if(calc_thaco > 100) calc_thaco = 100;
-    else if(calc_thaco < 50) calc_thaco = 50
+    else if(calc_thaco < 50) calc_thaco = 50;
   }
 
   return calc_thaco;
@@ -882,7 +882,7 @@ int compute_thaco(struct char_data *ch, struct char_data *victim)
 int cac_hits(struct char_data *ch, struct char_data *victim, int w_type, int thaco, int victim_ac)
 {
   /* roll the die and take your chances... */
-  diceroll = rand_number(1, 100);
+  int diceroll = rand_number(1, 100);
 }
 
 void hit(struct char_data *ch, struct char_data *victim, int type)

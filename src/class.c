@@ -198,7 +198,7 @@ int thaco(struct char_data *ch) {
   struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
 
   if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON && GET_OBJ_VAL(wielded, 0)) {
-    switch(GET_OBJ_VAL(wielded, 0){
+    switch(GET_OBJ_VAL(wielded, 0)){
       case(141): // Machine gun
         return(HIT_SHOTGUN);
         break;

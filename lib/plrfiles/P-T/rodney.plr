@@ -12,12 +12,12 @@ Last: 1431478848
 Host: localhost
 Hite: 183
 Wate: 135
-Act : h
-Room: 65535
-Lern: 2
+Act : gh
+Room: 7
+Lern: 1
 Hit : 16/16
 Mana: 100/100
-Move: 83/83
+Move: 77/83
 Str : 25/0
 Int : 25
 Wis : 25
@@ -25,8 +25,7 @@ Dex : 25
 Con : 25
 Cha : 25
 Exp : 1
-Page: 0
 Skil:
 95 1
-141 1
+141 70
 0 0

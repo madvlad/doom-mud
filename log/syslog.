@@ -1,34 +1,169 @@
-autorun starting game Tue May 12 21:39:46 EDT 2015
+autorun starting game Thu May 14 19:42:25 EDT 2015
 running bin/circle -q 4000
 nohup: ignoring input
 Game Config File: etc/config: No such file or directory
-May 12 21:39:46 :: Using etc/config for configuration.
-May 12 21:39:46 :: CircleMUD, version 3.5
-May 12 21:39:46 :: OasisOLC 2.0.6
-May 12 21:39:46 :: DG Scripts 1.0.14
-May 12 21:39:46 :: ASCII Player Files 3.0.1
-May 12 21:39:46 :: Using lib as data directory.
-May 12 21:39:46 :: Running game on port 4000.
-May 12 21:39:46 :: Finding player limit.
-May 12 21:39:46 ::    Setting player limit to 300 using rlimit.
-May 12 21:39:46 :: Opening mother connection.
-May 12 21:39:46 :: Binding to all IP interfaces on this host.
-May 12 21:39:46 :: Boot db -- BEGIN.
-May 12 21:39:46 :: Resetting the game time:
-May 12 21:39:46 ::    Current Gametime: 23H 3D 6M 729Y.
-May 12 21:39:46 :: Reading news, credits, help, ihelp, bground, info & motds.
-May 12 21:39:46 :: Loading spell definitions.
-May 12 21:39:46 :: Loading zone table.
-May 12 21:39:46 ::    1 zones, 32 bytes.
-May 12 21:39:46 :: Loading triggers and generating index.
-May 12 21:39:46 :: Loading rooms.
-May 12 21:39:46 ::    42 rooms, 3024 bytes.
-May 12 21:39:46 :: Renumbering rooms.
-May 12 21:39:46 :: Checking start rooms.
-May 12 21:39:46 :: Loading mobs and generating index.
-May 12 21:39:46 ::    4 mobs, 80 bytes in index, 1328 bytes in prototypes.
-May 12 21:39:46 :: SYSERR: Format error in last line of mob #3
-...expecting line of form '# # #'
+May 14 19:42:25 :: Using etc/config for configuration.
+May 14 19:42:25 :: CircleMUD, version 3.5
+May 14 19:42:25 :: OasisOLC 2.0.6
+May 14 19:42:25 :: DG Scripts 1.0.14
+May 14 19:42:25 :: ASCII Player Files 3.0.1
+May 14 19:42:25 :: Using lib as data directory.
+May 14 19:42:25 :: Running game on port 4000.
+May 14 19:42:25 :: Finding player limit.
+May 14 19:42:25 ::    Setting player limit to 300 using rlimit.
+May 14 19:42:25 :: Opening mother connection.
+May 14 19:42:25 :: Binding to all IP interfaces on this host.
+May 14 19:42:25 :: Boot db -- BEGIN.
+May 14 19:42:25 :: Resetting the game time:
+May 14 19:42:26 ::    Current Gametime: 1H 26D 8M 729Y.
+May 14 19:42:26 :: Reading news, credits, help, ihelp, bground, info & motds.
+May 14 19:42:26 :: Loading spell definitions.
+May 14 19:42:26 :: Loading zone table.
+May 14 19:42:26 ::    1 zones, 32 bytes.
+May 14 19:42:26 :: Loading triggers and generating index.
+May 14 19:42:26 :: Loading rooms.
+May 14 19:42:26 ::    42 rooms, 3024 bytes.
+May 14 19:42:26 :: Renumbering rooms.
+May 14 19:42:26 :: Checking start rooms.
+May 14 19:42:26 :: Loading mobs and generating index.
+May 14 19:42:26 ::    4 mobs, 80 bytes in index, 1328 bytes in prototypes.
+May 14 19:42:26 :: Loading objs and generating index.
+May 14 19:42:26 ::    6 objs, 120 bytes in index, 840 bytes in prototypes.
+May 14 19:42:26 :: Renumbering zone table.
+May 14 19:42:26 :: Loading shops.
+May 14 19:42:26 :: Loading help entries.
+May 14 19:42:26 ::    2242 entries, 44840 bytes.
+May 14 19:42:26 :: Setting up context sensitive help system for OLC
+May 14 19:42:27 :: Generating player index.
+May 14 19:42:27 :: Loading fight messages.
+May 14 19:42:27 :: Loading social messages.
+May 14 19:42:27 :: Social table contains 486 socials.
+May 14 19:42:27 :: Building command list.
+May 14 19:42:27 :: Command info rebuilt, 750 total commands.
+May 14 19:42:27 :: Assigning function pointers:
+May 14 19:42:27 ::    Mobiles.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: assign_kings_castle(): can't find mob #65535.
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #3095
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #120
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #121
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #122
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #123
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #2556
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #2559
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #2562
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #2564
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #3020
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #3021
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #3022
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #3023
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #5400
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #5401
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #5402
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #5403
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #11518
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #25720
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #25721
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #25722
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #25723
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #25726
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #25732
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #27572
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #27573
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #27574
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #27575
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #27721
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #29204
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #29227
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #31601
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #31603
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #31605
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #31607
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #31609
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #31611
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #31639
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #31641
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #3105
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #110
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #1201
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #3010
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #10412
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #10719
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #25710
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #27164
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #30128
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #31510
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #1200
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #3005
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #5404
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #27713
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant mob #27730
+May 14 19:42:27 ::    Shopkeepers.
+May 14 19:42:27 ::    Objects.
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant obj #1226
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant obj #1227
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant obj #1228
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant obj #3096
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant obj #3097
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant obj #3098
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant obj #3099
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant obj #115
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant obj #334
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant obj #336
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant obj #3034
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant obj #3036
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant obj #3907
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant obj #10640
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant obj #10751
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant obj #25758
+May 14 19:42:27 ::    Rooms.
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant room #3031
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant room #10738
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant room #23281
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant room #25722
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant room #27155
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant room #27616
+May 14 19:42:27 :: SYSERR: Attempt to assign spec to non-existant room #31523
+May 14 19:42:27 :: Assigning spell and skill levels.
+May 14 19:42:27 :: Sorting command list and spells.
+May 14 19:42:27 :: Booting mail system.
+May 14 19:42:27 ::    Mail file read -- 0 messages.
+May 14 19:42:27 :: Reading banned site and invalid-name list.
+May 14 19:42:27 :: Booting houses.
+May 14 19:42:27 :: Cleaning up last log.
+May 14 19:42:27 :: Resetting #0: The Original Hub Zone (rooms 1-44).
+May 14 19:42:27 :: Boot db -- DONE.
+May 14 19:42:27 :: Signal trapping.
+May 14 19:42:27 :: Entering game loop.
+May 14 19:42:27 :: No connections.  Going to sleep.
+May 14 19:44:08 :: New connection.  Waking up.
+May 14 19:44:18 :: SYSERR: a depressed looking dog named Dutchess (#2): Attempting to call non-existing mob function.
+May 14 19:44:41 :: NewCharacter [localhost] new player.
+May 14 19:44:50 :: NewCharacter had no variable file
+May 14 19:44:50 :: NewCharacter entering game with no equipment.
+May 14 19:44:50 :: NewCharacter advanced to level 1
+May 14 19:45:14 :: SYSERR: Received SIGHUP, SIGINT, or SIGTERM.  Shutting down...
 Quick boot mode -- rent check supressed.
 Using file descriptor for logging.
-autoscript killed Tue May 12 21:39:46 EDT 2015
+Improper shutdown of autorun detected, rotating syslogs before startup.

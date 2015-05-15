@@ -1041,7 +1041,7 @@ void mag_assign_spells(void)
   skillo(SKILL_BLEED_CRIT, "bleeding criticals");
   skillo(SKILL_HEAL_CRIT, "healing criticals");
   skillo(SKILL_RAPID_FIRE, "rapid fire");
-  skillo(SKILL_BESEREK, "berserk");
+  skillo(SKILL_BESERK, "berserk");
   skillo(SKILL_PIERCE_SHOT, "piercing shot");
   skillo(SKILL_TURRET, "auto-turret");
 
