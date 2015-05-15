@@ -505,13 +505,6 @@ ACMD(do_gen_comm)
     send_to_char(ch, "Yes, %s, fine, %s we must, but WHAT???\r\n", com_msgs[subcmd][1], com_msgs[subcmd][1]);
     return;
   }
-  if (subcmd == SCMD_HOLLER) {
-    if (GET_MOVE(ch) < CONFIG_HOLLER_MOVE_COST) {
-      send_to_char(ch, "You're too exhausted to holler.\r\n");
-      return;
-    } else
-      GET_MOVE(ch) -= CONFIG_HOLLER_MOVE_COST;
-  }
   /* set up the color on code */
   strlcpy(color_on, com_msgs[subcmd][3], sizeof(color_on));
 

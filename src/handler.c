@@ -179,10 +179,6 @@ void affect_modify(struct char_data *ch, byte loc, sbyte mod,
     GET_MAX_HIT(ch) += mod;
     break;
 
-  case APPLY_MOVE:
-    GET_MAX_MOVE(ch) += mod;
-    break;
-
   case APPLY_GOLD:
     break;
 

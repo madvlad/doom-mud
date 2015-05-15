@@ -398,8 +398,8 @@ void print_group(struct char_data *ch)
     k = (ch->master ? ch->master : ch);
 
     if (AFF_FLAGGED(k, AFF_GROUP)) {
-      snprintf(buf, sizeof(buf), "     [%3dH %3dM %3dV] [%2d %s] $N (Head of group)",
-	      GET_HIT(k), GET_MANA(k), GET_MOVE(k), GET_LEVEL(k), CLASS_ABBR(k));
+      snprintf(buf, sizeof(buf), "     [%3dH %3dM] [%2d %s] $N (Head of group)",
+	      GET_HIT(k), GET_MANA(k), GET_LEVEL(k), CLASS_ABBR(k));
       act(buf, FALSE, ch, 0, k, TO_CHAR);
     }
 
@@ -407,9 +407,8 @@ void print_group(struct char_data *ch)
       if (!AFF_FLAGGED(f->follower, AFF_GROUP))
 	continue;
 
-      snprintf(buf, sizeof(buf), "     [%3dH %3dM %3dV] [%2d %s] $N", GET_HIT(f->follower),
-	      GET_MANA(f->follower), GET_MOVE(f->follower),
-	      GET_LEVEL(f->follower), CLASS_ABBR(f->follower));
+      snprintf(buf, sizeof(buf), "     [%3dH %3dM] [%2d %s] $N", GET_HIT(f->follower),
+	      GET_MANA(f->follower), GET_LEVEL(f->follower), CLASS_ABBR(f->follower));
       act(buf, FALSE, ch, 0, f->follower, TO_CHAR);
     }
   }
@@ -531,10 +530,9 @@ ACMD(do_report)
     return;
   }
 
-  snprintf(buf, sizeof(buf), "$n reports: %d/%dH, %d/%dM, %d/%dV\r\n",
+  snprintf(buf, sizeof(buf), "$n reports: %d/%dH, %d/%dM\r\n",
 	  GET_HIT(ch), GET_MAX_HIT(ch),
-	  GET_MANA(ch), GET_MAX_MANA(ch),
-	  GET_MOVE(ch), GET_MAX_MOVE(ch));
+	  GET_MANA(ch), GET_MAX_MANA(ch));
 
   k = (ch->master ? ch->master : ch);
 
@@ -755,11 +753,11 @@ ACMD(do_display)
   }
 
   if (!str_cmp(argument, "on") || !str_cmp(argument, "all"))
-    SET_BIT(PRF_FLAGS(ch), PRF_DISPHP | PRF_DISPMANA | PRF_DISPMOVE);
+    SET_BIT(PRF_FLAGS(ch), PRF_DISPHP | PRF_DISPMANA);
   else if (!str_cmp(argument, "off") || !str_cmp(argument, "none"))
-    REMOVE_BIT(PRF_FLAGS(ch), PRF_DISPHP | PRF_DISPMANA | PRF_DISPMOVE);
+    REMOVE_BIT(PRF_FLAGS(ch), PRF_DISPHP | PRF_DISPMANA);
   else {
-    REMOVE_BIT(PRF_FLAGS(ch), PRF_DISPHP | PRF_DISPMANA | PRF_DISPMOVE);
+    REMOVE_BIT(PRF_FLAGS(ch), PRF_DISPHP | PRF_DISPMANA);
 
     for (i = 0; i < strlen(argument); i++) {
       switch (LOWER(argument[i])) {
@@ -768,9 +766,6 @@ ACMD(do_display)
 	break;
       case 'm':
 	SET_BIT(PRF_FLAGS(ch), PRF_DISPMANA);
-	break;
-      case 'v':
-	SET_BIT(PRF_FLAGS(ch), PRF_DISPMOVE);
 	break;
       default:
 	send_to_char(ch, "Usage: prompt { { H | M | V } | all | auto | none }\r\n");

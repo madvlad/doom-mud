@@ -176,7 +176,7 @@
 #define TYPE_PUNCH		               313
 #define TYPE_STAB		                 314   
 #define TYPE_SHOT                    315
-#define TYPE_BLAST                   316
+#define TYPE_SHRED                   316
 
 /* new attack types can be added here - up to TYPE_SUFFERING */
 #define TYPE_SUFFERING		     399

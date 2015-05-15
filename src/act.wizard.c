@@ -871,7 +871,7 @@ void do_stat_character(struct char_data *ch, struct char_data *k)
 
   send_to_char(ch, "Hit p.:[%s%d/%d+%d%s]  Mana p.:[%s%d/%d+%d%s]\r\n",
 	  CCGRN(ch, C_NRM), GET_HIT(k), GET_MAX_HIT(k), hit_gain(k), CCNRM(ch, C_NRM),
-	  CCGRN(ch, C_NRM), GET_MANA(k), GET_MAX_MANA(k), mana_gain(k), CCNRM(ch, C_NRM),
+	  CCGRN(ch, C_NRM), GET_MANA(k), GET_MAX_MANA(k), mana_gain(k), CCNRM(ch, C_NRM));
 
   send_to_char(ch, "Coins: [%9d], Bank: [%9d] (Total: %d)\r\n",
 	  GET_GOLD(k), GET_BANK_GOLD(k), GET_GOLD(k) + GET_BANK_GOLD(k));
@@ -1006,8 +1006,9 @@ void do_stat_character(struct char_data *ch, struct char_data *k)
         if (*(tv->value) == UID_CHAR) {
           find_uid_name(tv->value, uname, sizeof(uname));
           send_to_char(ch, "    %10s:  [UID]: %s\r\n", tv->name, uname);
-        } else
+        } else {
           send_to_char(ch, "    %10s:  %s\r\n", tv->name, tv->value);
+	    }
       }
     }
   }

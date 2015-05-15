@@ -812,22 +812,6 @@ in the vault (vnum: 453) now and then. you can just use
             snprintf(str, slen, "%d", GET_MAX_MANA(c));
           }
     
-          else if (!str_cmp(field, "move")) {
-            if (subfield && *subfield) {
-              int addition = atoi(subfield);
-              GET_MOVE(c) += addition;
-            }
-            snprintf(str, slen, "%d", GET_MOVE(c));
-          }
-    
-          else if (!str_cmp(field, "maxmove")) {
-            if (subfield && *subfield) {
-              int addition = atoi(subfield);
-              GET_MAX_MOVE(c) = MAX(GET_MAX_MOVE(c) + addition, 1);
-            }
-            snprintf(str, slen, "%d", GET_MAX_MOVE(c));
-          }
-    
           else if (!str_cmp(field, "master")) {
             if (!c->master)
               *str = '\0';

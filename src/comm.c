@@ -1259,11 +1259,6 @@ char *make_prompt(struct descriptor_data *d)
         if (count >= 0)
           len += count;
       }
-      if (GET_MOVE(ch) << 2 < GET_MAX_MOVE(ch) && len < sizeof(prompt)) {
-        count = snprintf(prompt + len, sizeof(prompt) - len, "%dV ", GET_MOVE(ch));
-        if (count >= 0)
-          len += count;
-      }
     } else { /* not auto prompt */
       if (PRF_FLAGGED(d->character, PRF_DISPHP) && len < sizeof(prompt)) {
         count = snprintf(prompt + len, sizeof(prompt) - len, "%dH ", GET_HIT(d->character));
@@ -1277,11 +1272,11 @@ char *make_prompt(struct descriptor_data *d)
           len += count;
       }
   
-      if (PRF_FLAGGED(d->character, PRF_DISPMOVE) && len < sizeof(prompt)) {
-        count = snprintf(prompt + len, sizeof(prompt) - len, "%dV ", GET_MOVE(d->character));
-        if (count >= 0)
-          len += count;
-      }
+     // if (PRF_FLAGGED(d->character, PRF_DISPMOVE) && len < sizeof(prompt)) {
+      //  count = snprintf(prompt + len, sizeof(prompt) - len, "%dV ", GET_MOVE(d->character));
+       // if (count >= 0)
+        //  len += count;
+     // }
     }
 
     if (PRF_FLAGGED(d->character, PRF_BUILDWALK) && len < sizeof(prompt)) {

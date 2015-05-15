@@ -570,7 +570,6 @@ void	update_pos(struct char_data *victim);
 #define CONFIG_PK_ALLOWED       config_info.play.pk_allowed
 #define CONFIG_PT_ALLOWED       config_info.play.pt_allowed
 #define CONFIG_LEVEL_CAN_SHOUT  config_info.play.level_can_shout
-#define CONFIG_HOLLER_MOVE_COST config_info.play.holler_move_cost
 #define CONFIG_TUNNEL_SIZE      config_info.play.tunnel_size
 #define CONFIG_MAX_EXP_GAIN     config_info.play.max_exp_gain
 #define CONFIG_MAX_EXP_LOSS     config_info.play.max_exp_loss

@@ -211,10 +211,10 @@ int thaco(struct char_data *ch) {
       case(144): // Rifle
         return(HIT_SHOTGUN);
         break;
-    }
+   	 }
+	}
     //return (GET_SKILL(ch, GET_OBJ_VAL(wielded, 0)));
-  } else
-    return 50;
+   return 50;
 }
 
 
@@ -389,9 +389,9 @@ void advance_level(struct char_data *ch)
     ch->points.max_mana += add_mana;
 
   if (IS_MAGIC_USER(ch) || IS_CLERIC(ch))
-    GET_PRACTICES(ch) += 1 
+    GET_PRACTICES(ch) += 1; 
   else
-    GET_PRACTICES(ch) += 1 
+    GET_PRACTICES(ch) += 1; 
 
   if (GET_LEVEL(ch) >= LVL_IMMORT) {
     for (i = 0; i < 3; i++)

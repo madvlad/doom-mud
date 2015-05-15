@@ -965,7 +965,6 @@ ACMD(do_eat)
     send_to_char(ch, "You can't eat THAT!\r\n");
     return;
   }
-  }
 
   if (!consume_otrigger(food, ch, OCMD_EAT))  /* check trigger */
     return;

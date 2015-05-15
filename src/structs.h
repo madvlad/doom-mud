@@ -389,6 +389,11 @@
 #define APPLY_AC               17	/* Apply to Armor Class		*/
 #define APPLY_HITROLL          18	/* Apply to hitroll		*/
 #define APPLY_DAMROLL          19	/* Apply to damage roll		*/
+#define APPLY_SAVING_PARA      20   /* Apply to save throw: paralz */
+#define APPLY_SAVING_ROD       21   /* Apply to save throw: rods   */
+#define APPLY_SAVING_PETRI     22   /* Apply to save throw: petrif */
+#define APPLY_SAVING_BREATH    23   /* Apply to save throw: breath */
+#define APPLY_SAVING_SPELL     24   /* Apply to save throw: spells */
 
 /* Container flags - value[1] */
 #define CONT_CLOSEABLE      (1 << 0)	/* Container can be closed	*/

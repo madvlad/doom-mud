@@ -300,7 +300,6 @@ void init_mobile(struct char_data *mob)
   clear_char(mob);
 
   GET_HIT(mob) = GET_MANA(mob) = 1;
-  GET_MAX_MANA(mob) = GET_MAX_MOVE(mob) = 100;
   GET_NDD(mob) = GET_SDD(mob) = 1;
   GET_WEIGHT(mob) = 200;
   GET_HEIGHT(mob) = 198;
@@ -591,7 +590,7 @@ void medit_disp_menu(struct descriptor_data *d)
   "%s6%s) Level:       [%s%4d%s],  %s7%s) Alignment:    [%s%4d%s]\r\n"
   "%s8%s) Hitroll:     [%s%4d%s],  %s9%s) Damroll:      [%s%4d%s]\r\n"
   "%sA%s) NumDamDice:  [%s%4d%s],  %sB%s) SizeDamDice:  [%s%4d%s]\r\n"
-  "%sC%s) Num HP Dice: [%s%4d%s],  %sD%s) Size HP Dice: [%s%4d%s],  %sE%s) HP Bonus: [%s%5d%s]\r\n"
+  "%sC%s) Num HP Dice: [%s%4d%s],  %sD%s) Size HP Dice: [%s%4d%s]\r\n"
   "%sF%s) Armor Class: [%s%4d%s],  %sG%s) Exp:     [%s%9d%s],  %sH%s) Gold:  [%s%8d%s]\r\n",
 
 	  cyn, OLC_NUM(d), nrm,
@@ -608,7 +607,6 @@ void medit_disp_menu(struct descriptor_data *d)
 	  grn, nrm, cyn, GET_SDD(mob), nrm,
 	  grn, nrm, cyn, GET_HIT(mob), nrm,
 	  grn, nrm, cyn, GET_MANA(mob), nrm,
-	  grn, nrm, cyn, GET_MOVE(mob), nrm,
 	  grn, nrm, cyn, GET_AC(mob), nrm,
 	  grn, nrm, cyn, GET_EXP(mob), nrm,
 	  grn, nrm, cyn, GET_GOLD(mob), nrm
@@ -1041,10 +1039,6 @@ void medit_parse(struct descriptor_data *d, char *arg)
     GET_MANA(OLC_MOB(d)) = LIMIT(i, 0, 1000);
     break;
 
-  case MEDIT_ADD_HP:
-    GET_MOVE(OLC_MOB(d)) = LIMIT(i, 0, 30000);
-    break;
-
   case MEDIT_AC:
     GET_AC(OLC_MOB(d)) = LIMIT(i, -200, 200);
     break;
@@ -1074,7 +1068,6 @@ void medit_parse(struct descriptor_data *d, char *arg)
     {
       int mob_lev = GET_LEVEL(OLC_MOB(d));
 
-      GET_MOVE(OLC_MOB(d))    = mob_lev*10;          /* hit point bonus         */
       GET_HIT(OLC_MOB(d))     = mob_lev/5;           /* number of hitpoint dice */
       GET_MANA(OLC_MOB(d))    = mob_lev/5;           /* size of hitpoint dice   */
       GET_HITROLL(OLC_MOB(d)) = mob_lev/3;           /* hitroll 0-10            */

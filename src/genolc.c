@@ -553,10 +553,10 @@ int export_mobile_record(mob_vnum mvnum, struct char_data *mob, FILE *fd)
   sprintascii(bit2, AFF_FLAGS(mob));
 
   fprintf(fd,	"%s %s %d E\n"
-		"%d %d %d %dd%d+%d %dd%d+%d\n",
+		"%d %d %d %dd%d %dd%d+%d\n",
 		bit1, bit2, GET_ALIGNMENT(mob),
 		GET_LEVEL(mob), 20 - GET_HITROLL(mob), GET_AC(mob) / 10, GET_HIT(mob),
-		GET_MANA(mob), GET_MOVE(mob), GET_NDD(mob), GET_SDD(mob),
+		GET_MANA(mob), GET_NDD(mob), GET_SDD(mob),
 		GET_DAMROLL(mob)
   );
   fprintf(fd, 	"%d %d\n"

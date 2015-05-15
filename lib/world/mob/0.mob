@@ -52,4 +52,22 @@ abelnop dh 1000 E
 2 115600
 8 8 1
 E
+#4
+questmaster~
+the questmaster~
+The questmaster is waiting for a brave adventurer to step forth.
+~
+   Many adventurers come here to seek glory by attempting to solve the quests
+given to them by this old man.  The quests are not easy, sometimes nearly
+impossible.  But they will always be a challenge.  The questmaster looks at you
+and says, 'help autoquest should show you all you need to know'.  
+~
+bdnopr 0 0 E
+34 9 -10 6d6+340 5d5+5
+340 115600
+8 8 1
+E
+T 138
+T 139
+T 143
 $

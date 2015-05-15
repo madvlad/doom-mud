@@ -1281,10 +1281,8 @@ void parse_simple_mob(FILE *mob_f, int i, int nr)
   GET_MAX_HIT(mob_proto + i) = 0;
   GET_HIT(mob_proto + i) = t[3];
   GET_MANA(mob_proto + i) = t[4];
-  GET_MOVE(mob_proto + i) = t[5];
 
   GET_MAX_MANA(mob_proto + i) = 10;
-  GET_MAX_MOVE(mob_proto + i) = 50;
 
   mob_proto[i].mob_specials.damnodice = t[6];
   mob_proto[i].mob_specials.damsizedice = t[7];
@@ -1948,14 +1946,12 @@ struct char_data *read_mobile(mob_vnum nr, int type) /* and mob_rnum */
   character_list = mob;
 
   if (!mob->points.max_hit) {
-    mob->points.max_hit = dice(mob->points.hit, mob->points.mana) +
-      mob->points.move;
+    mob->points.max_hit = dice(mob->points.hit, mob->points.mana);
   } else
     mob->points.max_hit = rand_number(mob->points.hit, mob->points.mana);
 
   mob->points.hit = mob->points.max_hit;
   mob->points.mana = mob->points.max_mana;
-  mob->points.move = mob->points.max_move;
 
   mob->player.time.birth = time(0);
   mob->player.time.played = 0;
@@ -2644,8 +2640,6 @@ void reset_char(struct char_data *ch)
 
   if (GET_HIT(ch) <= 0)
     GET_HIT(ch) = 1;
-  if (GET_MOVE(ch) <= 0)
-    GET_MOVE(ch) = 1;
   if (GET_MANA(ch) <= 0)
     GET_MANA(ch) = 1;
 
@@ -2704,10 +2698,8 @@ void init_char(struct char_data *ch)
     /* The implementor never goes through do_start(). */
     GET_MAX_HIT(ch) = 500;
     GET_MAX_MANA(ch) = 100;
-    GET_MAX_MOVE(ch) = 82;
     GET_HIT(ch) = GET_MAX_HIT(ch);
     GET_MANA(ch) = GET_MAX_MANA(ch);
-    GET_MOVE(ch) = GET_MAX_MOVE(ch);
   }
 
   set_title(ch, NULL);
@@ -3081,7 +3073,6 @@ void load_default_config( void )
   CONFIG_PK_ALLOWED 	        = pk_allowed;
   CONFIG_PT_ALLOWED             = pt_allowed;
   CONFIG_LEVEL_CAN_SHOUT 	= level_can_shout;
-  CONFIG_HOLLER_MOVE_COST 	= holler_move_cost;
   CONFIG_TUNNEL_SIZE 	        = tunnel_size;
   CONFIG_MAX_EXP_GAIN	        = max_exp_gain;
   CONFIG_MAX_EXP_LOSS 	        = max_exp_loss;
@@ -3234,11 +3225,6 @@ void load_config( void )
           CONFIG_FREE_RENT = num;
         else if (!str_cmp(tag, "frozen_start_room"))
           CONFIG_FROZEN_START = num;
-        break;
-        
-      case 'h':
-        if (!str_cmp(tag, "holler_move_cost"))
-          CONFIG_HOLLER_MOVE_COST = num;
         break;
         
       case 'i':
