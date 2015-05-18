@@ -24,10 +24,12 @@ int write_mobile_mobprog(mob_vnum mvnum, struct char_data *mob, FILE *fd);
 #endif
 
 /* Handy macros. */
-#define GET_NDD(mob)	((mob)->mob_specials.damnodice)
-#define GET_SDD(mob)	((mob)->mob_specials.damsizedice)
-#define GET_ALIAS(mob)	((mob)->player.name)
-#define GET_SDESC(mob)	((mob)->player.short_descr)
-#define GET_LDESC(mob)	((mob)->player.long_descr)
-#define GET_DDESC(mob)	((mob)->player.description)
-#define GET_ATTACK(mob)	((mob)->mob_specials.attack_type)
+#define GET_NDD(mob)	((mob)->mob_specials.damnodice)			/** Number of dice per damage roll */
+#define GET_SDD(mob)	((mob)->mob_specials.damsizedice)		/** Max roll per die */
+#define GET_ALIAS(mob)	((mob)->player.name)					/** Name of the mob */
+#define GET_SDESC(mob)	((mob)->player.short_descr)				/** short description of the mob */
+#define GET_LDESC(mob)	((mob)->player.long_descr)				/** long description of the mob */
+#define GET_DDESC(mob)	((mob)->player.description)				/** normal descripton of the mob */
+#define GET_ATTACK(mob)	((mob)->mob_specials.attack_type)		/**  */
+
+#define GET_MSDD(mob)	((mob)->mob_specials.min_damdice)		/** Min roll per die */	

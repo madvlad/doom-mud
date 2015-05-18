@@ -910,11 +910,12 @@ struct player_special_data {
 
 /* Specials used by NPCs, not PCs */
 struct mob_special_data {
-   memory_rec *memory;	    /* List of attackers to remember	       */
-   byte	attack_type;        /* The Attack Type Bitvector for NPC's     */
-   byte default_pos;        /* Default position for NPC                */
-   byte damnodice;          /* The number of damage dice's	       */
-   byte damsizedice;        /* The size of the damage dice's           */
+   memory_rec *memory;	    /* List of attackers to remember	       	*/
+   byte	attack_type;        /* The Attack Type Bitvector for NPC's     	*/
+   byte default_pos;        /* Default position for NPC                	*/
+   byte damnodice;          /* The number of damage dice's	       		*/
+   byte min_damdice;		/* The minimum damage number 				*/
+   byte damsizedice;        /* The size of the damage dice's           	*/
 };
 
 

@@ -4,6 +4,48 @@ EDIT
 
 See Also: OLC
 #0
+SKILLS SKILL-LIST
+ ___________________________________
+|      SKILL          SKILL POINTS  |
+|===================================|
+|   Machine Gun     +       1       |
+|   Shotgun         |       1       |
+|   Pistol          +       1       |
+|   Rifle           |       1       |
+|   Heal Pack       +       1       |
+|   Armor           |       1       |
+|-----------------------------------|
+|   Evasion         +       2       |
+|   Dual Pistol     |       2       |
+|   Quick Reload    +       2       |
+|   Masochism       |       2       |
+|   Toughness       +       2       |
+|   Accuracy        |       2       |
+|   Critical        +       2       |
+|   Adrenaline      |       2       |
+|-----------------------------------|
+|   Counter Attack  +       3       |
+|   Bleed Critical  |       3       |
+|   Heal Critical   +       3       |
+|   Rapid Fire      |       3       |
+|   Berserk         +       3       |
+|   Piercing Shot   |       3       |
+|   Turret          +       3       |
+|-----------------------------------|
+|   Counter Attack  +       4       |
+|   Bleed Critical  |       4       |
+|   Heal Critical   +       4       |
+|   Rapid Fire      |       4       |
+|   Berserk         +       4       |
+|   Piercing Shot   |       4       |
+|   Turret          +       4       |
+
+Headshot
+Slow Shot
+Extended Clip
+
+
+#0
 RELOAD RELOADING
 
   Syntax: reload <weapon>
@@ -25,6 +67,19 @@ SKILLS:
 \   1     |    Rifle    /
 /   1     |    Pistol   \
 \_________|_____________/
+
+#0
+HEAD-SHOT HEADSHOT HEAD
+
+  Syntax: headshot <target>
+
+  Before starting a battle, aim for the head of your opponent. The attack
+has a higher chance to critical, but is less accurate. Headshot can only
+be used before fighting.
+
+#0
+SLOW-SHOT SLOWSHOT SLOW
+
 
 #0
 MACHINEGUN MACHINE GUN

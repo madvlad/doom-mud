@@ -58,6 +58,7 @@ void perform_violence(void);
 int compute_armor_class(struct char_data *ch);
 int compute_evasion(struct char_data *ch);
 int compute_thaco(struct char_data *ch, struct char_data *vict);
+void calc_hits(struct obj_data *wielded, struct char_data *ch, struct char_data *victim, int thaco, int victim_evasion)
 
 /* Weapon attack texts */
 struct attack_hit_type attack_hit_text[] =
@@ -115,6 +116,7 @@ int compute_evasion(struct char_data *ch) //bananakick
 {
   int evasion = GET_EVASION(ch);
   //possibly check for evasion feats
+  return evasion;
 }
 
 void free_messages_type(struct msg_type *msg)
@@ -146,7 +148,7 @@ void free_messages(void)
 
 void load_messages(void)
 {
-  FILE *fl;
+  FILE *fl;, error
   int i, type;
   struct message_type *messages;
   char chk[128];
@@ -162,12 +164,12 @@ void load_messages(void)
     fight_messages[i].msg = NULL;
   }
 
-  fgets(chk, 128, fl);
+  error = fgets(chk, 128, fl);
   while (!feof(fl) && (*chk == '\n' || *chk == '*'))
-    fgets(chk, 128, fl);
+    error = fgets(chk, 128, fl);
 
   while (*chk == 'M') {
-    fgets(chk, 128, fl);
+    error = fgets(chk, 128, fl);
     sscanf(chk, " %d\n", &type);
     for (i = 0; (i < MAX_MESSAGES) && (fight_messages[i].a_type != type) &&
 	 (fight_messages[i].a_type); i++);
@@ -193,9 +195,9 @@ void load_messages(void)
     messages->god_msg.attacker_msg = fread_action(fl, i);
     messages->god_msg.victim_msg = fread_action(fl, i);
     messages->god_msg.room_msg = fread_action(fl, i);
-    fgets(chk, 128, fl);
+    error = fgets(chk, 128, fl);
     while (!feof(fl) && (*chk == '\n' || *chk == '*'))
-      fgets(chk, 128, fl);
+      error = fgets(chk, 128, fl);
   }
 
   fclose(fl);
@@ -879,10 +881,15 @@ int compute_thaco(struct char_data *ch, struct char_data *victim)
   return calc_thaco;
 }
 
-int calc_hits(struct obj_data *wielded, struct char_data *ch, struct char_data *victim, int thaco, int victim_evasion)
+void calc_hits(struct char_data *ch, struct char_data *victim)
 {
-  int max_crit = 20, dam, w_type, diceroll, crit_roll;
+  int max_crit = 20, dam, w_type, diceroll, crit_roll, victim_evasion, thaco;
   bool is_crit = FALSE;
+
+  /* Calculate chance of hit. */
+  thaco = compute_thaco(ch, victim);
+  //victim_ac = compute_armor_class(victim) / 10;
+  victim_evasion = compute_evasion(victim);
 
   /* Find the weapon type (for display purposes only) */
   if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON)
@@ -909,6 +916,8 @@ int calc_hits(struct obj_data *wielded, struct char_data *ch, struct char_data *
     }
     /* at least 1 hp damage min per hit */
     dam = MAX(1, dam);
+    if(is_crit)
+      //Add something to notify ch/victim of crit
     damage(ch, victim, dam, w_type);
   } else {
     damage(ch, victim, 0, w_type);
@@ -918,7 +927,7 @@ int calc_hits(struct obj_data *wielded, struct char_data *ch, struct char_data *
 void hit(struct char_data *ch, struct char_data *victim, int type)
 {
   struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
-  int w_type, victim_ac, victim_evasion, calc_thaco, num_attacks;
+  int thaco, num_attacks;
 
   /* check if the character has a fight trigger */
   fight_mtrigger(ch);
@@ -930,15 +939,10 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
     return;
   }
 
-  /* Calculate chance of hit. */
-  calc_thaco = compute_thaco(ch, victim);
-  //victim_ac = compute_armor_class(victim) / 10;
-  victim_evasion = compute_evasion(victim);
-
-  /* Perform each attack */
+  /* Perform each attack seperately*/
   num_attacks = GET_OBJ_VAL(wielded, 1);
   while (num_attacks-- > 0)
-    calc_hits(wielded, ch, victim, thaco, victim_evasion);
+    calc_hits(wielded, ch, victim);
 
     /*
      * Include a damage multiplier if victim isn't ready to fight:
