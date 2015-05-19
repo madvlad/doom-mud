@@ -926,7 +926,6 @@ void calc_hits(struct char_data *ch, struct char_data *victim)
 
 void hit(struct char_data *ch, struct char_data *victim, int type)
 {
-  struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
   int thaco, num_attacks;
 
   /* check if the character has a fight trigger */
@@ -942,7 +941,7 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
   /* Perform each attack seperately*/
   num_attacks = GET_OBJ_VAL(wielded, 1);
   while (num_attacks-- > 0)
-    calc_hits(wielded, ch, victim);
+    calc_hits(ch, victim);
 
     /*
      * Include a damage multiplier if victim isn't ready to fight:

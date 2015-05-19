@@ -40,6 +40,7 @@ void die(struct char_data *ch, struct char_data * killer);
 void Crash_rentsave(struct char_data *ch, int cost);
 
 /* local functions */
+ACMD(do_reload);        //reload the gun.
 ACMD(do_quit);
 ACMD(do_save);
 ACMD(do_not_here);
@@ -63,6 +64,28 @@ ACMD(do_gen_tog);
 ACMD(do_file);
 ACMD(do_pagelength);
 
+ACMD(do_reload)
+{
+  struct affected_type af;
+
+  if (GET_POS(ch) == POS_RELADING)
+    send_to_char(ch, "You are already reloading!\r\n");
+
+  send_to_char(ch, "You are reloading...\r\n");
+  //send_to_room = "$n glows slightly and $s face is set with determination.";
+  //bananakick: send message to characters in the room.
+  act("$n begins reloading.", FALSE, ch, 0, 0, TO_ROOM);
+
+  GET_POS(ch) = POS_RELADING;
+
+
+  /*af.type = SKILL_SNEAK;
+  af.duration = GET_LEVEL(ch);
+  af.modifier = 0;
+  af.location = APPLY_NONE;
+  af.bitvector = AFF_SNEAK;
+  affect_to_char(ch, &af);*/
+}
 ACMD(do_quit)
 {
   if (IS_NPC(ch) || !ch->desc)

@@ -199,17 +199,20 @@ int thaco(struct char_data *ch) {
 
   if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON && GET_OBJ_VAL(wielded, 0)) {
     switch(GET_OBJ_VAL(wielded, 0)){
-      case(141): // Machine gun
+      case(SKILL_MACHINE): // Machine gun
+        return(HIT_MACHINE);
+        break;
+      case(SKILL_SHOTGUN): // Shotgun
         return(HIT_SHOTGUN);
         break;
-      case(142): // Shotgun
-        return(HIT_SHOTGUN);
+      case(SKILL_PISTOL): // Pistol
+        return(HIT_PISTOL);
         break;
-      case(143): // Pistol
-        return(HIT_SHOTGUN);
+      case(SKILL_RIFLE): // Rifle
+        return(HIT_RIFLE);
         break;
-      case(144): // Rifle
-        return(HIT_SHOTGUN);
+      default:
+        return(50);
         break;
    	 }
 	}
@@ -285,6 +288,14 @@ void roll_real_abils(struct char_data *ch)
     if (ch->real_abils.str == 18)
       ch->real_abils.str_add = rand_number(0, 100);
     break;
+  case CLASS_HELL_RAISER:
+    ch->real_abils.con = table[0];
+    ch->real_abils.dex = table[1];
+    ch->real_abils.str = table[2];
+    ch->real_abils.intel = table[3];
+    ch->real_abils.wis = table[4];
+    ch->real_abils.cha = table[5];
+    break;
   }
   ch->aff_abils = ch->real_abils;
 }
@@ -299,7 +310,7 @@ void do_start(struct char_data *ch)
   set_title(ch, NULL);
   roll_real_abils(ch);
 
-  GET_MAX_HIT(ch)  = 10;
+  GET_MAX_HIT(ch)  = 100;
   GET_MAX_MANA(ch) = 100;
 
   switch (GET_CLASS(ch)) {
@@ -356,6 +367,9 @@ void advance_level(struct char_data *ch)
 {
   int add_hp, add_mana = 0, i;
 
+  if (GET_SKILL(ch, SKILL_TOUGHNESS)) // Give bonus hp
+    add_hp = TOUGHNESS_BONUS_HP;
+
   add_hp = con_app[GET_CON(ch)].hitp;
 
   switch (GET_CLASS(ch)) {
@@ -381,6 +395,8 @@ void advance_level(struct char_data *ch)
     add_hp += rand_number(10, 15);
     add_mana = 0;
     break;
+  default:
+    add_hp += rand_number(5, 10);
   }
 
   ch->points.max_hit += MAX(1, add_hp);
@@ -427,7 +443,24 @@ int backstab_mult(int level)
   else
     return 20;	  /* immortals */
 }
-
+/* Returns the percentage to get a headshot. */
+int headshot_percentage(int level)
+{
+  if (level <= 0)
+    return 0;   /* level 0 */
+  else if (level <= 7)
+    return 65;   /* level 1 - 7 */
+  else if (level <= 13)
+    return 70;   /* level 8 - 13 */
+  else if (level <= 20)
+    return 75;   /* level 14 - 20 */
+  else if (level <= 28)
+    return 80;   /* level 21 - 28 */
+  else if (level < LVL_IMMORT)
+    return 85;   /* all remaining mortal levels */
+  else
+    return 100;    /* immortals */
+}
 
 /*
  * invalid_class is used by handler.c to determine if a piece of equipment is

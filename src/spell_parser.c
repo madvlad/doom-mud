@@ -771,6 +771,11 @@ void mag_assign_spells(void)
     unused_spell(i);
   /* Do not change the loop above. */
 
+  /* The ones I created! */
+  spello(SKILL_BESERK, "BERSERK", 0, 0, 0, POS_STANDING, TAR_SELF_ONLY, FALSE,
+    MAG_AFFECTS, "Your blood begins to cool");
+
+/** Built in spells */
   spello(SPELL_ANIMATE_DEAD, "animate dead", 35, 10, 3, POS_STANDING,
 	TAR_OBJ_ROOM, FALSE, MAG_SUMMONS,
 	NULL);

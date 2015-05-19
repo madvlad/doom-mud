@@ -174,7 +174,7 @@ SPECIAL(guild)
 
   if (skill_num < 1 ||
       GET_LEVEL(ch) < spell_info[skill_num].min_level[(int) GET_CLASS(ch)]) {
-    send_to_char(ch, "You do not know of that %s.\r\n", SPLSKL(ch));
+    send_to_char(ch, "You have no idea where to even begin %s.\r\n", SPLSKL(ch));
     return (TRUE);
   }
   if (GET_SKILL(ch, skill_num) >= LEARNED(ch)) {
@@ -182,7 +182,7 @@ SPECIAL(guild)
     return (TRUE);
   }
   send_to_char(ch, "You practice for a while...\r\n");
-  GET_PRACTICES(ch)-= skill_cost;
+  GET_PRACTICES(ch) -= skill_cost;
 
   //percent = GET_SKILL(ch, skill_num);
   percent = 100;
@@ -190,8 +190,12 @@ SPECIAL(guild)
 
   SET_SKILL(ch, skill_num, MIN(LEARNED(ch), percent));
 
-  if (GET_SKILL(ch, skill_num) >= LEARNED(ch))
+  if (GET_SKILL(ch, skill_num) >= LEARNED(ch)){
     send_to_char(ch, "You have matered a new skill!\r\n");
+    if(skill_num == SKILL_TOUGHNESS) //Add past level hp
+      ch->points.max_hit += ((GET_LEVEL(ch)-1) * TOUGHNESS_BONUS_HP);
+
+  }
 
   return (TRUE);
 }

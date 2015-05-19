@@ -31,10 +31,12 @@
 #define MAG_MANUAL	(1 << 10)
 
 /* WEAPON HIT PERCENTAGES */
+//#define HIT_PERCENTAGE(weapon)
 #define HIT_MACHINE         70
 #define HIT_SHOTGUN         95
 #define HIT_PISTOL          85
 #define HIT_RIFLE           90
+#define TOUGHNESS_BONUS_HP  3
 
 #define TYPE_UNDEFINED               (-1)
 #define SPELL_RESERVED_DBC            0  /* SKILL NUMBER ZERO -- RESERVED */
@@ -132,6 +134,9 @@
 #define SKILL_PIERCE_SHOT     160
 #define SKILL_TURRET          161
 
+#define SKILL_HEADSHOT        166
+#define SKILL_EXTEND_MAG      167
+#define SKILL_SLOW_SHOT       168
 
 
 /*

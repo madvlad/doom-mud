@@ -26,6 +26,8 @@ void check_killer(struct char_data *ch, struct char_data *vict);
 int compute_armor_class(struct char_data *ch);
 
 /* local functions */
+ACMD(do_berserk);
+ACMD(do_headshot);    //bananakick
 ACMD(do_assist);
 ACMD(do_hit);
 ACMD(do_kill);
@@ -151,8 +153,67 @@ ACMD(do_kill)
   }
 }
 
+ACMD(do_berserk)
+{
+  struct affected_type af;
 
+  if (!GET_SKILL(ch, SKILL_BERSERK)) {
+    send_to_char(ch, "You have no idea how to do that.\r\n");
+    return;
+  }
+  if (AFF_FLAGGED(ch, AFF_BERSERK) {
+    send_to_char(ch, "A fire already burns inside your head!\r\n");
+    return;
+  }
+  if (AFF_FLAGGED(ch, AFF_FATIGUED) {
+    send_to_char(ch, "You are too exhauted to call upon your demons.\r\n");
+    return;
+  }
+  af.type = SKILL_BERSERK; //Banankick: not sure if this works.
+  af.duration = GET_LEVEL(ch);
+  af.modifier = 0;
+  af.location = 0;        //APPLY_NONE?
+  af.bitvector = AFF_BERSERK;
+  affect_to_char(ch, &af);
 
+}
+
+ACMD(do_headshot)
+{
+  struct char_data *vict;
+
+  if (!GET_SKILL(ch, SKILL_HEADSHOT)) {
+    send_to_char(ch, "You have no idea how to do that.\r\n");
+    return;
+  }
+  if (!(vict = get_char_vis(ch, buf, NULL, FIND_CHAR_ROOM))) {
+    send_to_char(ch, "Which head do you want to shoot?\r\n");
+    return;
+  }
+  if (vict == ch) {
+    send_to_char(ch, "Don't shot your head. Is life reall that bad?\r\n");
+    return;
+  }
+  if (!GET_EQ(ch, WEAR_WIELD)) {
+    send_to_char(ch, "You can't headshot with your fists.\r\n");
+    return;
+  }
+  if (FIGHTING(vict)) {
+    send_to_char(ch, "You don't have time to aim for the head!\r\n");
+    return;
+  }
+  //prob = GET_SKILL(ch, SKILL_HEADSHOT);
+  percent = rand_number(1, 100);
+  prob = headshot_percentage(GET_LEVEL(ch))
+
+  if (AWAKE(vict) && (percent > prob))
+    damage(ch, vict, 0, SKILL_HEADSHOT);
+  else
+    hit(ch, vict, SKILL_HEADSHOT);
+
+  WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+
+}
 ACMD(do_backstab)
 {
   char buf[MAX_INPUT_LENGTH];
