@@ -153,10 +153,14 @@ SPECIAL(guild)
   skill_num = find_skill_num(argument);
   if(skill_num <= 146)
     skill_cost = 1;
-  else if(skill_num <= 154)
+  else if(skill_num <= 153)
     skill_cost = 2;
-  else if(skill_num <= 161)
+  else if(skill_num <= 158)
     skill_cost = 3;
+  else if(skill_num <= 163)
+    skill_cost = 4;
+  else
+    skill_cost = 5;
 
   if (IS_NPC(ch) || !CMD_IS("practice"))
     return (FALSE);

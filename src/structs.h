@@ -797,10 +797,11 @@ struct char_point_data {
    sh_int mana;
    sh_int max_mana;     /* Max mana for PC/NPC			   			*/
    sh_int hit;
-   sh_int max_hit;      /* Max hit for PC/NPC                       	*/
+   sh_int max_hit;      /* Max hit for PC/NPC                       */
    sh_int evasion;		/* Evasion rating of the Character 			*/
+   sh_int attacks;		/* Number of attacks per round 				*/
 
-   sh_int armor;        /* Internal -100..100, external -10..10 AC 	*/
+   sh_int armor;        /* Internal -100..100, external -10..10 AC 	*/ //switch to DR?
    int	gold;           /* Money carried                           	*/
    int	bank_gold;		/* Gold the char has in a bank account	   	*/
    int	exp;            /* The experience of the player            	*/

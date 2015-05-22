@@ -306,6 +306,7 @@ void do_start(struct char_data *ch)
 {
   GET_LEVEL(ch) = 1;
   GET_EXP(ch) = 1;
+  GET_ATTACKS(ch) = 1;
 
   set_title(ch, NULL);
   roll_real_abils(ch);
@@ -461,6 +462,23 @@ int headshot_percentage(int level)
   else
     return 100;    /* immortals */
 }
+int headshot_percentage(int level)
+{
+  if (level <= 0)
+    return 0;         /* level 0 */
+  else if (level <= 7)
+    return 3;         /* level 1 - 7 */
+  else if (level <= 13)
+    return 4;         /* level 8 - 13 */
+  else if (level <= 20)
+    return 5;         /* level 14 - 20 */
+  else if (level <= 28)
+    return 6;         /* level 21 - 28 */
+  else if (level < LVL_IMMORT)
+    return 7;         /* all remaining mortal levels */
+  else
+    return 100;       /* immortals */
+}
 
 /*
  * invalid_class is used by handler.c to determine if a piece of equipment is
@@ -565,7 +583,34 @@ void init_spell_levels(void)
 
   /* HELL RAISERS */
   spell_level(SKILL_MACHINE, CLASS_HELL_RAISER, 1);
-  spell_level(SKILL_SHOTGUN, CLASS_HELL_RAISER,  1);
+  spell_level(SKILL_SHOTGUN, CLASS_HELL_RAISER,  1);  
+  spell_level(SKILL_PISTOL, CLASS_HELL_RAISER, 1);
+  spell_level(SKILL_RIFLE, CLASS_HELL_RAISER, 1);
+
+  spell_level(SKILL_HEAL_PACK, CLASS_HELL_RAISER, 1);
+  spell_level(SKILL_EVASION, CLASS_HELL_RAISER,  1);  
+  spell_level(SKILL_DUAL_PISTOL, CLASS_HELL_RAISER, 1);   //Need secondary weapon first.
+  spell_level(SKILL_QUICK_RELOAD, CLASS_HELL_RAISER, 1); // Need reload to work first
+
+  spell_level(SKILL_MASOCHISM, CLASS_HELL_RAISER, 1);
+  spell_level(SKILL_TOUGHNESS, CLASS_HELL_RAISER,  1);  
+  spell_level(SKILL_ACCURACY, CLASS_HELL_RAISER, 1);
+  spell_level(SKILL_CRITICAL, CLASS_HELL_RAISER, 1);
+
+  spell_level(SKILL_ADRENALINE, CLASS_HELL_RAISER, 1);
+  spell_level(SKILL_COUNTER_ATTACK, CLASS_HELL_RAISER,  1);  
+  spell_level(SKILL_BLEED_CRIT, CLASS_HELL_RAISER, 1);
+  spell_level(SKILL_HEAL_CRIT, CLASS_HELL_RAISER, 1);
+
+  spell_level(SKILL_RAPID_FIRE, CLASS_HELL_RAISER, 1);    // Need attack speed working
+  spell_level(SKILL_BESERK, CLASS_HELL_RAISER,  1);  
+  spell_level(SKILL_PIERCE_SHOT, CLASS_HELL_RAISER, 1); // Need armor working first
+  spell_level(SKILL_TURRET, CLASS_HELL_RAISER, 1);      // Turret as a pet?
+
+  spell_level(SKILL_HEADSHOT, CLASS_HELL_RAISER, 1);
+  spell_level(SKILL_EXTEND_MAG, CLASS_HELL_RAISER,  1);  
+  spell_level(SKILL_PIERCE_SHOT, CLASS_HELL_RAISER, 1);
+  spell_level(SKILL_SLOW_SHOT, CLASS_HELL_RAISER, 1);   // Need attack speed working
 }
 
 

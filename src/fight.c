@@ -885,6 +885,7 @@ void calc_hits(struct char_data *ch, struct char_data *victim)
 {
   int max_crit = 20, dam, w_type, diceroll, crit_roll, victim_evasion, thaco;
   bool is_crit = FALSE;
+  struct obj_data wielded = GET_EQ(ch, WEAR_WIELD);
 
   /* Calculate chance of hit. */
   thaco = compute_thaco(ch, victim);
@@ -893,7 +894,7 @@ void calc_hits(struct char_data *ch, struct char_data *victim)
 
   /* Find the weapon type (for display purposes only) */
   if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON)
-    w_type = GET_OBJ_VAL(wielded, 6);
+    w_type = GET_OBJ_VAL(wielded, 5);
   else {
     if (IS_NPC(ch) && ch->mob_specials.attack_type != 0)
       w_type = ch->mob_specials.attack_type + TYPE_HIT;
@@ -904,14 +905,14 @@ void calc_hits(struct char_data *ch, struct char_data *victim)
   /* roll the die and take your chances... */
   diceroll = rand_number(1, 100);
   if (diceroll <= thaco - victim_evasion || !AWAKE(victim)){ // HIT
-    dam = dice_roll(GET_OBJ_VAL(wielded, 2), GET_OBJ_VAL(wielded, 3));
+    dam = dice_roll(GET_OBJ_VAL(wielded, 1), GET_OBJ_VAL(wielded, 2));
     /***** HERE IS WHERE COUNTER ATTACK STUFF WILL GO ****/
     /* Check to see if it's a crit*/
     if(GET_SKILL(ch, SKILL_CRITICAL) == 100)
       max_crit = 13;
     crit_roll = rand_number(1, max_crit);
     if(crit_roll == max_crit){ // CRITICAL HIT
-      dam *= GET_OBJ_VAL(wielded, 5);
+      dam *= GET_OBJ_VAL(wielded, 4);
       is_crit = TRUE;
     }
     /* at least 1 hp damage min per hit */
@@ -926,7 +927,7 @@ void calc_hits(struct char_data *ch, struct char_data *victim)
 
 void hit(struct char_data *ch, struct char_data *victim, int type)
 {
-  int thaco, num_attacks;
+  int num_attacks;
 
   /* check if the character has a fight trigger */
   fight_mtrigger(ch);
@@ -939,7 +940,7 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
   }
 
   /* Perform each attack seperately*/
-  num_attacks = GET_OBJ_VAL(wielded, 1);
+  num_attacks = GET_SPEED(ch);
   while (num_attacks-- > 0)
     calc_hits(ch, victim);
 
