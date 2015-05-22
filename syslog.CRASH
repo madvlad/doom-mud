@@ -1,29 +1,30 @@
-autorun starting game Fri May 22 13:59:22 EDT 2015
-running bin/circle -q 4000
-nohup: ignoring input
-Game Config File: etc/config: No such file or directory
-May 22 13:59:22 :: Using etc/config for configuration.
-May 22 13:59:22 :: CircleMUD, version 3.5
-May 22 13:59:22 :: OasisOLC 2.0.6
-May 22 13:59:22 :: DG Scripts 1.0.14
-May 22 13:59:22 :: ASCII Player Files 3.0.1
-May 22 13:59:22 :: Using lib as data directory.
-May 22 13:59:22 :: Running game on port 4000.
-May 22 13:59:22 :: Finding player limit.
-May 22 13:59:22 ::    Setting player limit to 300 using rlimit.
-May 22 13:59:22 :: Opening mother connection.
-May 22 13:59:22 :: Binding to all IP interfaces on this host.
-May 22 13:59:22 :: Boot db -- BEGIN.
-May 22 13:59:22 :: Resetting the game time:
-May 22 13:59:22 ::    Current Gametime: 14H 13D 2M 730Y.
-May 22 13:59:22 :: Reading news, credits, help, ihelp, bground, info & motds.
-May 22 13:59:22 :: Loading spell definitions.
-May 22 13:59:22 :: Loading zone table.
-May 22 13:59:22 ::    2 zones, 64 bytes.
-May 22 13:59:22 :: Loading triggers and generating index.
-May 22 13:59:22 :: Loading rooms.
-May 22 13:59:22 ::    90 rooms, 6480 bytes.
-May 22 13:59:22 :: SYSERR: Format error, room #65536, direction D3
-Quick boot mode -- rent check supressed.
-Using file descriptor for logging.
-autoscript killed Fri May 22 13:59:22 EDT 2015
+May 22 17:47:49 ::    Rooms.
+May 22 17:47:49 :: SYSERR: Attempt to assign spec to non-existant room #3031
+May 22 17:47:49 :: SYSERR: Attempt to assign spec to non-existant room #10738
+May 22 17:47:49 :: SYSERR: Attempt to assign spec to non-existant room #23281
+May 22 17:47:49 :: SYSERR: Attempt to assign spec to non-existant room #25722
+May 22 17:47:49 :: SYSERR: Attempt to assign spec to non-existant room #27155
+May 22 17:47:49 :: SYSERR: Attempt to assign spec to non-existant room #27616
+May 22 17:47:49 :: SYSERR: Attempt to assign spec to non-existant room #31523
+May 22 17:47:49 :: Assigning spell and skill levels.
+May 22 17:47:49 :: Sorting command list and spells.
+May 22 17:47:49 :: Booting mail system.
+May 22 17:47:49 ::    Mail file read -- 0 messages.
+May 22 17:47:49 :: Reading banned site and invalid-name list.
+May 22 17:47:49 :: Booting houses.
+May 22 17:47:49 :: Cleaning up last log.
+May 22 17:47:49 :: Resetting #0: The Original Hub Zone (rooms 1-44).
+May 22 17:47:49 :: Resetting #10: The First Level (rooms 1001-1048).
+May 22 17:47:49 :: Boot db -- DONE.
+May 22 17:47:49 :: Signal trapping.
+May 22 17:47:49 :: Entering game loop.
+May 22 17:47:49 :: No connections.  Going to sleep.
+May 22 17:48:07 :: New connection.  Waking up.
+May 22 17:48:09 :: Losing player: <null>.
+May 22 17:48:09 :: No connections.  Going to sleep.
+May 22 17:48:13 :: New connection.  Waking up.
+May 22 17:48:17 :: Losing player: <null>.
+May 22 17:48:17 :: No connections.  Going to sleep.
+May 22 17:48:19 :: New connection.  Waking up.
+May 22 17:48:22 :: SYSERR: a depressed looking dog named Dutchess (#2): Attempting to call non-existing mob function.
+Segmentation fault (core dumped)

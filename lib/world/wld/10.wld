@@ -516,7 +516,7 @@ D2
 Towards the Exits
 ~
 ~
-0 0 1040
+0 0 1046
 D3
 Towards the Left Side of the Control Room
 ~
@@ -559,6 +559,9 @@ Towards the right control room Terminal
 0 0 1036
 D3
 Towards the center of the control room
+~
+~
+0 0 1033
 S
 #1036
 The Right Control room Terminal~
