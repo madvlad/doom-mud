@@ -58,7 +58,7 @@ void perform_violence(void);
 int compute_armor_class(struct char_data *ch);
 int compute_evasion(struct char_data *ch);
 int compute_thaco(struct char_data *ch, struct char_data *vict);
-void calc_hits(struct obj_data *wielded, struct char_data *ch, struct char_data *victim, int thaco, int victim_evasion)
+void calc_hits(struct char_data *ch, struct char_data *victim);
 
 /* Weapon attack texts */
 struct attack_hit_type attack_hit_text[] =
@@ -148,8 +148,8 @@ void free_messages(void)
 
 void load_messages(void)
 {
-  FILE *fl;, error
-  int i, type;
+  FILE *fl;
+  int i, type, error;
   struct message_type *messages;
   char chk[128];
 
@@ -885,7 +885,7 @@ void calc_hits(struct char_data *ch, struct char_data *victim)
 {
   int max_crit = 20, dam, w_type, diceroll, crit_roll, victim_evasion, thaco;
   bool is_crit = FALSE;
-  struct obj_data wielded = GET_EQ(ch, WEAR_WIELD);
+  struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
 
   /* Calculate chance of hit. */
   thaco = compute_thaco(ch, victim);
@@ -940,7 +940,7 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
   }
 
   /* Perform each attack seperately*/
-  num_attacks = GET_SPEED(ch);
+  num_attacks = GET_ATTACKS(ch);
   while (num_attacks-- > 0)
     calc_hits(ch, victim);
 

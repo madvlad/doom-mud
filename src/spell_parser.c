@@ -772,7 +772,7 @@ void mag_assign_spells(void)
   /* Do not change the loop above. */
 
   /* The ones I created! */
-  spello(SKILL_BESERK, "berserk", 0, 0, 0, POS_STANDING, TAR_SELF_ONLY, FALSE,
+  spello(SKILL_BERSERK, "berserk", 0, 0, 0, POS_STANDING, TAR_SELF_ONLY, FALSE,
     MAG_AFFECTS, "Your blood begins to cool");
 
   spello(SKILL_SLOW_SHOT, "slow shot", 0, 0, 0, POS_STANDING, TAR_CHAR_ROOM | TAR_FIGHT_VICT, FALSE,
@@ -1049,7 +1049,7 @@ void mag_assign_spells(void)
   skillo(SKILL_BLEED_CRIT, "bleeding criticals");
   skillo(SKILL_HEAL_CRIT, "healing criticals");
   skillo(SKILL_RAPID_FIRE, "rapid fire");
-  //skillo(SKILL_BESERK, "berserk");
+  //skillo(SKILL_BERSERK, "berserk");
   skillo(SKILL_PIERCE_SHOT, "piercing shot");
   skillo(SKILL_TURRET, "auto-turret");
   skillo(SKILL_HEADSHOT, "headshot");

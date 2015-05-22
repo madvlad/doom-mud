@@ -134,7 +134,7 @@
 #define SKILL_BLEED_CRIT      159 /* Cost 4 skill points */
 #define SKILL_HEAL_CRIT       160
 #define SKILL_RAPID_FIRE      161
-#define SKILL_BESERK          162
+#define SKILL_BERSERK          162
 #define SKILL_PIERCE_SHOT     163
 
 #define SKILL_TURRET          164 /* Cost 5 skill points */

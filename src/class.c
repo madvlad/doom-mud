@@ -462,7 +462,7 @@ int headshot_percentage(int level)
   else
     return 100;    /* immortals */
 }
-int headshot_percentage(int level)
+int headshot_damage(int level)
 {
   if (level <= 0)
     return 0;         /* level 0 */
@@ -603,7 +603,7 @@ void init_spell_levels(void)
   spell_level(SKILL_HEAL_CRIT, CLASS_HELL_RAISER, 1);
 
   spell_level(SKILL_RAPID_FIRE, CLASS_HELL_RAISER, 1);    // Need attack speed working
-  spell_level(SKILL_BESERK, CLASS_HELL_RAISER,  1);  
+  spell_level(SKILL_BERSERK, CLASS_HELL_RAISER,  1);  
   spell_level(SKILL_PIERCE_SHOT, CLASS_HELL_RAISER, 1); // Need armor working first
   spell_level(SKILL_TURRET, CLASS_HELL_RAISER, 1);      // Turret as a pet?
 

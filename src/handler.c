@@ -222,7 +222,7 @@ void affect_modify(struct char_data *ch, byte loc, sbyte mod,
     break;
 
   case APPLY_SPEED:
-    GET_SPEED(ch) += mod;
+    GET_ATTACKS(ch) += mod;
     break;
 
   default:

@@ -1,30 +1,29 @@
-May 18 17:00:49 :: SYSERR: Attempt to assign spec to non-existant room #10738
-May 18 17:00:49 :: SYSERR: Attempt to assign spec to non-existant room #23281
-May 18 17:00:49 :: SYSERR: Attempt to assign spec to non-existant room #25722
-May 18 17:00:49 :: SYSERR: Attempt to assign spec to non-existant room #27155
-May 18 17:00:49 :: SYSERR: Attempt to assign spec to non-existant room #27616
-May 18 17:00:49 :: SYSERR: Attempt to assign spec to non-existant room #31523
-May 18 17:00:49 :: Assigning spell and skill levels.
-May 18 17:00:49 :: Sorting command list and spells.
-May 18 17:00:49 :: Booting mail system.
-May 18 17:00:49 ::    Mail file read -- 0 messages.
-May 18 17:00:49 :: Reading banned site and invalid-name list.
-May 18 17:00:49 :: Booting houses.
-May 18 17:00:49 :: Cleaning up last log.
-May 18 17:00:49 :: Resetting #0: The Original Hub Zone (rooms 1-44).
-May 18 17:00:49 :: Boot db -- DONE.
-May 18 17:00:49 :: Signal trapping.
-May 18 17:00:49 :: Entering game loop.
-May 18 17:00:49 :: No connections.  Going to sleep.
-May 18 17:01:01 :: New connection.  Waking up.
-May 18 17:01:09 :: Bad PW: David [localhost]
-May 18 17:01:11 :: SYSERR: a depressed looking dog named Dutchess (#2): Attempting to call non-existing mob function.
-May 18 17:01:20 :: Bad PW: David [localhost]
-May 18 17:01:31 :: Losing player: David.
-May 18 17:01:31 :: No connections.  Going to sleep.
-May 18 17:01:37 :: New connection.  Waking up.
-May 18 17:01:48 :: David [localhost] has connected.
-May 18 17:01:51 :: David un-renting and entering game.
-May 18 17:01:51 :: David (level 34) has 2 objects (max 30).
-Segmentation fault (core dumped)
-Improper shutdown of autorun detected, rotating syslogs before startup.
+autorun starting game Fri May 22 12:47:28 EDT 2015
+running bin/circle -q 4000
+nohup: ignoring input
+Game Config File: etc/config: No such file or directory
+May 22 12:47:28 :: Using etc/config for configuration.
+May 22 12:47:28 :: CircleMUD, version 3.5
+May 22 12:47:28 :: OasisOLC 2.0.6
+May 22 12:47:28 :: DG Scripts 1.0.14
+May 22 12:47:28 :: ASCII Player Files 3.0.1
+May 22 12:47:28 :: Using lib as data directory.
+May 22 12:47:28 :: Running game on port 4000.
+May 22 12:47:28 :: Finding player limit.
+May 22 12:47:28 ::    Setting player limit to 300 using rlimit.
+May 22 12:47:28 :: Opening mother connection.
+May 22 12:47:28 :: Binding to all IP interfaces on this host.
+May 22 12:47:28 :: Boot db -- BEGIN.
+May 22 12:47:28 :: Resetting the game time:
+May 22 12:47:28 ::    Current Gametime: 5H 11D 2M 730Y.
+May 22 12:47:28 :: Reading news, credits, help, ihelp, bground, info & motds.
+May 22 12:47:28 :: Loading spell definitions.
+May 22 12:47:28 :: Loading zone table.
+May 22 12:47:28 ::    2 zones, 64 bytes.
+May 22 12:47:28 :: Loading triggers and generating index.
+May 22 12:47:28 :: Loading rooms.
+May 22 12:47:28 ::    90 rooms, 6480 bytes.
+May 22 12:47:28 :: SYSERR: Format error, room #65536, direction D3
+Quick boot mode -- rent check supressed.
+Using file descriptor for logging.
+autoscript killed Fri May 22 12:47:28 EDT 2015

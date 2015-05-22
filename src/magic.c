@@ -92,12 +92,12 @@ void affect_update(void)
         affect_remove(i, af);
         /** Add Fatigue if coming down from berserk */
         if(af->type == SKILL_BERSERK){ //|| af->type == adrenaline shot){
-          af.type = 1; //Banankick: not sure if this works.
-          af.duration = 10;
-          af.modifier = -10;
-          af.location = APPLY_EVASION;        //APPLY_NONE?
-          af.bitvector = AFF_FATIGUED;
-          affect_to_char(ch, &af);
+          af->type = 1; //Banankick: not sure if this works.
+          af->duration = 10;
+          af->modifier = -10;
+          af->location = APPLY_EVASION;        //APPLY_NONE?
+          af->bitvector = AFF_FATIGUED;
+          affect_to_char(i, &af);
         }
       }
     }

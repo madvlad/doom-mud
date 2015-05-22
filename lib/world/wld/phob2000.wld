@@ -38,7 +38,7 @@ A passage towards a green hallway
 ~
 0 0 1006
 D2
-Towards the middleo f the room
+Towards the middle of the room
 ~
 ~
 0 0 1001
@@ -452,6 +452,7 @@ Back towards the back alcove
 ~
 ~
 0 0 1027
+S
 #1029
 The back of the Alcove~
 ~
@@ -759,4 +760,4 @@ Down the hole
 ~
 0 0 -1
 S
-~$
+$~
