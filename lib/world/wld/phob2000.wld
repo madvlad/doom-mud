@@ -1,0 +1,29 @@
+#1001
+A Blue Carpeted Foyer~
+~
+0 d 0
+D1
+A passage way towards a window
+~
+~
+0 0 1002
+D3
+A passage way towards a green generator
+~
+~
+0 0 1003
+S
+#1002
+By a Window~
+~
+0 d 0
+D0
+A passage towards a green hallway
+~
+0 0 1006
+D2
+Towards the middle of the room
+~
+0 0 1001
+S
+~$
