@@ -294,17 +294,18 @@ void	update_pos(struct char_data *victim);
 #define GET_CON(ch)     ((ch)->aff_abils.con)
 #define GET_CHA(ch)     ((ch)->aff_abils.cha)
 
-#define GET_EXP(ch)	  ((ch)->points.exp)
-#define GET_AC(ch)        ((ch)->points.armor)
-#define GET_EVASION(ch)        ((ch)->points.evasion)
-#define GET_HIT(ch)	  ((ch)->points.hit)
+#define GET_EXP(ch)	      ((ch)->points.exp)
+#define GET_AC(ch)        ((ch)->points.armor)      //The armor rating
+#define GET_EVASION(ch)   ((ch)->points.evasion)    //Percent chance to evade.
+#define GET_HIT(ch)	      ((ch)->points.hit)
 #define GET_MAX_HIT(ch)	  ((ch)->points.max_hit)
-#define GET_MANA(ch)	  ((ch)->points.mana)
+#define GET_MANA(ch)	    ((ch)->points.mana)
 #define GET_MAX_MANA(ch)  ((ch)->points.max_mana)
-#define GET_GOLD(ch)	  ((ch)->points.gold)
+#define GET_GOLD(ch)	    ((ch)->points.gold)
 #define GET_BANK_GOLD(ch) ((ch)->points.bank_gold)
 #define GET_HITROLL(ch)	  ((ch)->points.hitroll)
 #define GET_DAMROLL(ch)   ((ch)->points.damroll)
+#define GET_ATTACKS(ch)   ((ch)->points.attacks)    //number of attacks for the character
 
 #define GET_POS(ch)	  ((ch)->char_specials.position)
 #define GET_IDNUM(ch)	  ((ch)->char_specials.saved.idnum)

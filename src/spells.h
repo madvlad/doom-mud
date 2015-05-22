@@ -118,26 +118,26 @@
 #define SKILL_ARMOR           146
 
 #define SKILL_EVASION         147 /* Cost 2 skill points */
-#define SKILL_DUAL_PISTOL     148
-#define SKILL_QUICK_RELOAD    149
-#define SKILL_MASOCHISM       150 //3?
-#define SKILL_TOUGHNESS       151
-#define SKILL_ACCURACY        152
-#define SKILL_CRITICAL        153
-#define SKILL_ADRENALINE      154
+#define SKILL_QUICK_RELOAD    148 /* Please review in BoardRoom 104 with Dr. Brennen */
+#define SKILL_TOUGHNESS       149 /* Make sure you don't reach this before the delegated call! */
+#define SKILL_ACCURACY        150 /* Help I am in need of this */
+#define SKILL_ADRENALINE      151 /* Get rid of the stuff */
+#define SKILL_HEADSHOT        152 /* Make sure that this is this */
+#define SKILL_EXTEND_MAG      153 /* Break All The Things - Heather Schmidt */
 
-#define SKILL_COUNTER_ATTACK  155
-#define SKILL_BLEED_CRIT      156 /* Cost 3 skill points */
-#define SKILL_HEAL_CRIT       157
-#define SKILL_RAPID_FIRE      158
-#define SKILL_BESERK          159
-#define SKILL_PIERCE_SHOT     160
-#define SKILL_TURRET          161
+#define SKILL_DUAL_PISTOL     154 /* Cost 3 skill points */
+#define SKILL_MASOCHISM       155 
+#define SKILL_CRITICAL        156
+#define SKILL_COUNTER_ATTACK  157
+#define SKILL_SLOW_SHOT       158
 
-#define SKILL_HEADSHOT        166
-#define SKILL_EXTEND_MAG      167
-#define SKILL_SLOW_SHOT       168
+#define SKILL_BLEED_CRIT      159 /* Cost 4 skill points */
+#define SKILL_HEAL_CRIT       160
+#define SKILL_RAPID_FIRE      161
+#define SKILL_BESERK          162
+#define SKILL_PIERCE_SHOT     163
 
+#define SKILL_TURRET          164 /* Cost 5 skill points */
 
 /*
  *  NON-PLAYER AND OBJECT SPELLS AND SKILLS
