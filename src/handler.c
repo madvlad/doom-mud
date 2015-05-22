@@ -217,6 +217,14 @@ void affect_modify(struct char_data *ch, byte loc, sbyte mod,
     GET_SAVE(ch, SAVING_SPELL) += mod;
     break;
 
+  case APPLY_EVASION:
+    GET_EVASION(ch) += mod;
+    break;
+
+  case APPLY_SPEED:
+    //GET_SAVE(ch) += mod; //BANANAKICK
+    break;
+
   default:
     log("SYSERR: Unknown apply adjust %d attempt (%s, affect_modify).", loc, __FILE__);
     break;

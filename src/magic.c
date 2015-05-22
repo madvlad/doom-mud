@@ -77,22 +77,31 @@ void affect_update(void)
   struct affected_type *af, *next;
   struct char_data *i;
 
-  for (i = character_list; i; i = i->next)
+  for (i = character_list; i; i = i->next) {
     for (af = i->affected; af; af = next) {
       next = af->next;
       if (af->duration >= 1)
-	af->duration--;
+        af->duration--;
       else if (af->duration == -1)	/* No action */
-	af->duration = -1;	/* GODs only! unlimited */
+        af->duration = -1;	/* GODs only! unlimited */
       else {
-	if ((af->type > 0) && (af->type <= MAX_SPELLS))
-	  if (!af->next || (af->next->type != af->type) ||
-	      (af->next->duration > 0))
-	    if (spell_info[af->type].wear_off_msg)
-	      send_to_char(i, "%s\r\n", spell_info[af->type].wear_off_msg);
-	affect_remove(i, af);
+        if ((af->type > 0) && (af->type <= MAX_SPELLS))
+          if (!af->next || (af->next->type != af->type) || (af->next->duration > 0))
+            if (spell_info[af->type].wear_off_msg)
+              send_to_char(i, "%s\r\n", spell_info[af->type].wear_off_msg);
+        affect_remove(i, af);
+        /** Add Fatigue if coming down from berserk */
+        if(af->type == SKILL_BERSERK){ //|| af->type == adrenaline shot){
+          af.type = 1; //Banankick: not sure if this works.
+          af.duration = 10;
+          af.modifier = -10;
+          af.location = APPLY_EVASION;        //APPLY_NONE?
+          af.bitvector = AFF_FATIGUED;
+          affect_to_char(ch, &af);
+        }
       }
     }
+  }
 }
 
 

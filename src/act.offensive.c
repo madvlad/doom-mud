@@ -155,7 +155,12 @@ ACMD(do_kill)
 
 ACMD(do_berserk)
 {
-  struct affected_type af;
+  struct affected_type af[3];
+  for (int i=0; i<3; i++){
+    af[i].type = SKILL_BERSERK;
+    af[i].duration = GET_LEVEL(ch);
+    af[i].bitvector = AFF_BERSERK;
+  }
 
   if (!GET_SKILL(ch, SKILL_BERSERK)) {
     send_to_char(ch, "You have no idea how to do that.\r\n");
@@ -169,11 +174,12 @@ ACMD(do_berserk)
     send_to_char(ch, "You are too exhauted to call upon your demons.\r\n");
     return;
   }
-  af.type = SKILL_BERSERK; //Banankick: not sure if this works.
-  af.duration = GET_LEVEL(ch);
-  af.modifier = 0;
-  af.location = 0;        //APPLY_NONE?
-  af.bitvector = AFF_BERSERK;
+  af[0].modifier = 5;
+  af[0].location = APPLY_DAMROLL;
+  af[1].modifier = -5;
+  af[1].location = APPLY_EVASION;
+  af[2].modifier = 20;
+  af[2].location = APPLY_HIT;
   affect_to_char(ch, &af);
 
 }
