@@ -888,7 +888,7 @@ void calc_hits(struct char_data *ch, struct char_data *victim)
   struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
 
   /* Calculate chance of hit. */
-  thaco = compute_thaco(ch, victim);
+  thaco = compute_thaco(ch, victim); //look at mob version
   //victim_ac = compute_armor_class(victim) / 10;
   victim_evasion = compute_evasion(victim);
 
@@ -901,11 +901,19 @@ void calc_hits(struct char_data *ch, struct char_data *victim)
     else
       w_type = TYPE_HIT;
   }
-
+  int min_dam, max_dam;
+  if(IS_NPC(ch)) {
+    min_dam = 1;
+    max_dam = ch->mob_specials.damsizedice;
+  }
+  else {
+    min_dam = GET_OBJ_VAL(wielded, 1);
+    max_dam = GET_OBJ_VAL(wielded, 2);
+  }
   /* roll the die and take your chances... */
   diceroll = rand_number(1, 100);
   if (diceroll <= thaco - victim_evasion || !AWAKE(victim)){ // HIT
-    dam = dice_roll(GET_OBJ_VAL(wielded, 1), GET_OBJ_VAL(wielded, 2));
+    dam = dice_roll(min_dam, max_dam);
     /***** HERE IS WHERE COUNTER ATTACK STUFF WILL GO ****/
     /* Check to see if it's a crit*/
     if(GET_SKILL(ch, SKILL_CRITICAL) == 100)
@@ -940,7 +948,11 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
   }
 
   /* Perform each attack seperately*/
-  num_attacks = GET_ATTACKS(ch);
+  //dice(ch->mob_specials.damnodice, ch->mob_specials.damsizedice);
+  if (IS_NPC(ch))
+    num_attacks = ch->mob_specials.damnodice;
+  else
+    num_attacks = GET_ATTACKS(ch);
   while (num_attacks-- > 0)
     calc_hits(ch, victim);
 
