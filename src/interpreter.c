@@ -65,6 +65,10 @@ int reserved_word(char *argument);
 int _parse_name(char *arg, char *name);
 int enter_player_game (struct descriptor_data *d);
 
+/* Personally added */
+ACMD(do_headshot);
+ACMD(do_berserk);
+ACMD(do_slow);
 /* prototypes for all do_x functions. */
 ACMD(do_action);
 ACMD(do_advance);
@@ -253,6 +257,9 @@ struct command_info *complete_cmd_info;
 
 cpp_extern const struct command_info cmd_info[] = {
   { "RESERVED", "", 0, 0, 0, 0 },	/* this must be first -- for specprocs */
+  /* My personal stuff */
+  { "berserk" , "ber"        , POS_STANDING, do_berserk , 0, 0 },
+  { "headshot" , "head"      , POS_STANDING, do_headshot , 1, 0 },
 
   /* directions must come before other commands but after RESERVED */
   { "north"    , "n"       , POS_STANDING, do_move     , 0, SCMD_NORTH },

@@ -598,7 +598,6 @@ void save_char(struct char_data * ch)
   if (GET_CHA(ch)	   != PFDEF_CHA)	fprintf(fl, "Cha : %d\n", GET_CHA(ch));
 
   if (GET_AC(ch)	   != PFDEF_AC)		fprintf(fl, "Ac  : %d\n", GET_AC(ch));
-  //if (GET_EVASION(ch)     != PFDEF_EVASION)   fprintf(fl, "AEvasion  : %d\n", GET_EVASION(ch));
   if (GET_GOLD(ch)	   != PFDEF_GOLD)	fprintf(fl, "Gold: %d\n", GET_GOLD(ch));
   if (GET_BANK_GOLD(ch)	   != PFDEF_BANK)	fprintf(fl, "Bank: %d\n", GET_BANK_GOLD(ch));
   if (GET_EXP(ch)	   != PFDEF_EXP)	fprintf(fl, "Exp : %d\n", GET_EXP(ch));
@@ -606,6 +605,10 @@ void save_char(struct char_data * ch)
   if (GET_DAMROLL(ch)	   != PFDEF_DAMROLL)	fprintf(fl, "Drol: %d\n", GET_DAMROLL(ch));
   if (GET_OLC_ZONE(ch)     != PFDEF_OLC)        fprintf(fl, "Olc : %d\n", GET_OLC_ZONE(ch));
   if (GET_PAGE_LENGTH(ch)  != PFDEF_PAGELENGTH) fprintf(fl, "Page: %d\n", GET_PAGE_LENGTH(ch));
+
+  //if (GET_EVASION(ch)     != PFDEF_EVASION)   fprintf(fl, "Evasion  : %d\n", GET_EVASION(ch));
+  //if (GET_ATTACKS(ch)     != GET_ATTACKS)   fprintf(fl, "Attacks  : %d\n", GET_ATTACKS(ch));
+  //if (GET_EVASION(ch)     != PFDEF_EVASION)   fprintf(fl, "Evasion  : %d\n", GET_EVASION(ch)); BANANAKICK: ammo?
 
   /* Save skills */
   if (GET_LEVEL(ch) < LVL_IMMORT) {
