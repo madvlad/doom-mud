@@ -198,15 +198,565 @@ Towards the Core Server
 ~
 0 0 1012
 D1
-Towards the Technical Service Desk~
+Towards the Technical Service Desk
 ~
 ~
 0 0 1015
 D3
-Towards the Datbase Servers~
+Towards the Database Servers
 ~
 ~
 0 0 1010
 S
 #1014
+The Application Development terminals~
+~
+0 d 0
+D1
+Towards the Maintenance Shed
+~
+~
+0 0 1016
+D2
+Towards the Core Server
+~
+~
+0 0 1012
+D3
+Towards the Application Server
+~
+~
+0 0 1011
+S
+#1015
+The Technical Service Desk~
+~
+0 d 0
+D0
+Towards the Maintenance Shed
+~
+~
+0 0 1016
+D1
+Towards the Long Hallway
+~
+~
+0 0 1017
+D2
+Towards the Application Development terminals
+~
+~
+0 0 1013
+S
+#1016
+The Maintenance Shed~
+~
+0 d 0
+D2
+Towards the Technical Service Desk
+~
+~
+0 0 1015
+D3
+Towards the Database Query terminals
+~
+~
+0 0 1014
+S
+#1017
+The entrance of along, winding hallway~
+~
+0 d 0
+D2
+Towards the middle of the Long Winding Hallway
+~
+~
+0 0 1018
+D3
+Towards the Technical Service Desk
+~
+~
+0 0 1015
+S
+#1018
+The middle of the Long Winding Hallway~
+~
+0 d 0
+D0
+Towards the entrance of the hallway
+~
+~
+0 0 1017
+D2
+Towards the Bridge over Acid
+~
+~
+0 0 1019
+S
+#1019
+The entrance of the Bridge over Acid~
+~
+0 d 0
+D0
+Towards the middle of the long winding hallway
+~
+~
+0 0 1018
+D2
+Toward the middle of the Bridge over Acid
+~
+~
+0 0 1020
+S
+#1020
+The middle of the Bridge over Acid~
+~
+0 d 0
+D0
+Towards the entrance of the Bridge over Acid
+~
+~
+0 0 1019
+D2
+Towards the end of the Bridge over Acid
+~
+~
+0 0 1021
+S
+#1021
+The end of the Bridge over Acid~
+~
+0 d 0
+D0
+Towards the middle of the Bridge over Acid
+~
+~
+0 0 1020
+D1
+Toward the island in acid
+~
+~
+0 0 1023
+D3
+Toward the entrance to the Hallway
+~
+~
+0 0 1022
+S
+#1022
+The Entrance to the Hallway~
+~
+0 d 0
+D0
+Toward the end of the Bridge over Acid
+~
+~
+0 0 1021
+D2
+Toward the junction of the hallway
+~
+~
+0 0 1024
+S
+#1023
+The Island in Acid~
+~
+0 d 0
+D2
+Behind the Wall
+~
+~
+0 0 1025
+D3
+Back to the end of the Bridge over Acid
+~
+~
+0 0 1021
+S
+#1024
+The junction of the hallway~
+~
+0 d 0
+D0
+Towards the entrance of the hallway
+~
+~
+0 0 1022
+D2
+Towards the entrance of the Control Room
+~
+~
+0 0 1031
+D3
+Towards the Walkway to Outside
+~
+~
+0 0 1032
+S
+#1025
+Behind the Wall~
+~
+0 d 0
+D0
+Back towards the Island in Acid
+~
+~
+0 0 1023
+D1
+Towards the back alcove
+~
+~
+0 0 1027
+D4
+Towards the top of the Elevator
+~
+~
+0 0 1026
+S
+#1026
+The top of the Elevator~
+~
+0 d 0
+D5
+Towards the bottom of the Elevator
+~
+~
+0 0 1025
+S
+#1027
+The back alcove~
+~
+0 d 0
+D0
+Towards the inner Alcove
+~
+~
+0 0 1028
+D3
+Towards the area behind the wall
+~
+~
+0 0 1025
+S
+#1028
+The Inner Alcove~
+~
+0 d 0
+D0
+The upper alcove
+~
+~
+0 0 1029
+D2
+Back towards the back alcove
+~
+~
+0 0 1027
+#1029
+The back of the Alcove~
+~
+0 d 0
+D0
+Above the Bridge
+~
+~
+0 0 1030
+D2
+Towards the inner alcove
+~
+~
+0 0 1028
+S
+#1030
+Above the Bridge~
+~
+0 d 0
+D2
+Towards the back of the Alcove
+~
+~
+0 0 1029
+D5
+Back to the Bridge
+~
+~
+0 0 1019
+S
+#1031
+The Entrance of the Control Room~
+~
+0 d 0
+D0
+Towards the junction in the hallway
+~
+~
+0 0 1024
+D2
+Towards the inner control room
+~
+~
+0 0 1032
+S
+#1032
+The inner Control Room~
+~
+0 d 0
+D0
+Towards the Entrance of the Control Room
+~
+~
+0 0 1031
+D1
+Towards the Right Side of the Control Room
+~
+~
+0 0 1035
+D2
+Towards the Exits
+~
+~
+0 0 1040
+D3
+Towards the Left Side of the Control Room
+~
+~
+0 0 1033
+S
+#1033
+The Left Side of the Control Room~
+~
+0 d 0
+D0
+Towards the left control room Terminal
+~
+~
+0 0 1034
+D1
+Towards the center of the Control Room
+~
+~
+0 0 1032
+S
+#1034
+The Left Control Room Terminal~
+~
+0 d 0
+D2
+Towards the center of the left control room
+~
+~
+0 0 1033
+S
+#1035
+The Right Side of the Control Room~
+~
+0 d 0
+D0
+Towards the right control room Terminal
+~
+~
+0 0 1036
+D3
+Towards the center of the control room
+S
+#1036
+The Right Control room Terminal~
+~
+0 d 0
+D2
+Towards the Right Control Room center
+~
+~
+0 0 1035
+S
+#1037
+Entrance to the Hallway Outside~
+~
+0 d 0
+D1
+Towards the Hallways Junction
+~
+~
+0 0 1024
+D3
+Middle of the Hallway to Outside
+~
+~
+0 0 1038
+S
+#1038
+Middle of the Hallway to Outside~
+~
+0 d 0
+D1
+Towards the entrance of the Hallway to Outside
+~
+~
+0 0 1037
+D3
+Towards the exit of the Hallway to Outside
+~
+~
+0 0 1039
+S
+#1039
+The exit of the Hallway to Outside~
+~
+0 d 0
+D0
+Towards outside
+~
+~
+0 0 1040
+D1
+Towards the middle of the hallway
+~
+~
+0 0 1038
+S
+#1040
+Entrance of the hallway towards to inside~
+~
+0 d 0
+D0
+Towards the middle of the Courtyard
+~
+~
+0 0 1041
+D1
+Towards the south east corner of the Courtyard
+~
+~
+0 0 1042
+D2
+Inside towards the hallway
+~
+~
+0 0 1039
+D3
+Towards the south west corner of the Courtyard
+~
+~
+0 0 1043
+S
+#1041
+Middle of the courtyard~
+~
+0 d 0
+D2
+Towards the entrance of the Hallway
+~
+~
+0 0 1040
+S
+#1042
+The Southeast Corner of the Courtyard~
+~
+0 d 0
+D0
+The Northeast Corner of the Courtyard
+~
+~
+0 0 1045
+D3
+The entrance of the hallways
+~
+~
+0 0 1040
+S
+#1043
+The Southwest Corner of the Courtyard~
+~
+0 d 0
+D0
+The Northwest Corner of the Courtyard
+~
+~
+0 0 1044
+D1
+The Entrance of the hallway
+~
+~
+0 0 1040
+S
+#1044
+The Northwest Corner of the Courtyard~
+~
+0 d 0
+D1
+The Northeast Corner of the Courtyard
+~
+~
+0 0 1045
+D2
+The Southwest Corner of the Courtyard
+~
+~
+0 0 1043
+S
+#1045
+The Northeast Corner of the Courtyard~
+~
+0 d 0
+D2
+The Southeast corner of the courtyard
+~
+~
+0 0 1042
+D3
+The Northwest corner of the courtyard
+~
+~
+0 0 1044
+S
+#1046
+The area near the exit~
+~
+0 d 0
+D0
+Back towards the control room
+~
+~
+0 0 1032
+D2
+Towards a portal to the HUB
+~
+~
+0 0 1047
+D3
+Towards a pathway even deeper
+~
+~
+0 0 1048
+S
+#1047
+A portal back to the Hub~
+~
+0 d 0
+D0
+Towards the area behind the door
+~
+~
+0 0 1040
+D5
+Through the Portal
+~
+~
+0 0 31
+S
+#1048
+A passage way down even deeper~
+~
+0 d 0
+D1
+Towards the area beind the door
+~
+~
+0 0 1040
+D5
+Down the hole
+~
+~
+0 0 -1
+S
 ~$
