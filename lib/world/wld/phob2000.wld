@@ -20,10 +20,193 @@ By a Window~
 D0
 A passage towards a green hallway
 ~
+~
 0 0 1006
 D2
 Towards the middle of the room
 ~
+~
 0 0 1001
 S
+#1003
+Near the Green Generator~
+~
+0 d 0
+D0
+A passage towards a green hallway
+~
+~
+0 0 1006
+D2
+Towards the middleo f the room
+~
+~
+0 0 1001
+S
+#1004
+A Green Generator~
+~
+0 d 0
+D1
+Towards the foyer
+~
+~
+0 0 1003
+D4
+To the top of the green generator
+~
+~
+0 0 1005
+S
+#1005
+Top of the Generator~
+~
+0 d 0
+D5
+Bottom of the Generator
+~
+~
+0 0 1004
+S
+#1006
+Near the Green Hallway~
+~
+0 d 0
+D0
+Entrance to the Green Hallway
+~
+~
+0 0 1007
+D2
+Middle of the Foyer
+~
+~
+0 0 1003
+S
+#1007
+Entrance of the Green Hallway~
+~
+0 d 0
+D1
+Middle of a hallway flooded with Acid
+~
+~
+0 0 1008
+D2
+Entrance of a hallway flooded with Acid
+~
+~
+0 0 1006
+S
+#1008
+End of a hallway flooded with Acid~
+~
+0 d 0
+D1
+Entrance to a Server Room
+~
+~
+0 0 1009
+D3
+Walkway to the middle of a hallway flooded with Acid
+~
+~
+0 0 1007
+S
+#1009
+The Server Room~
+~
+0 d 0
+D0
+Towards the Application Servers
+~
+~
+0 0 1011
+D1
+Towards the Core Server
+~
+~
+0 0 1012
+D2
+Towards the Database Servers
+~
+~
+0 0 1010
+D3
+Towards a hallway flooded with Acid
+~
+~
+0 0 1008
+S
+#1010
+The Database Servers~
+~
+0 d 0
+D0
+Towards the Entrance of the Server Room
+~
+~
+0 0 1009
+D1
+Towards The Database Terminals
+~
+~
+0 0 1013
+S
+#1011
+The Application Servers~
+~
+0 d 0
+D1
+Towards the Application Development Terminals
+~
+~
+0 0 1014
+D2
+Towards the Entrance of the Server Room
+~
+~
+0 0 1009
+S
+#1012
+The Core Server~
+~
+0 d 0
+D0
+Towards the Application Development terminals
+~
+~
+0 0 1014
+D2
+Towards the Database Query terminals
+~
+~
+0 0 1013
+D3
+Towards the entrance of the Server Room
+~
+~
+0 0 1009
+S
+#1013
+The Database Query Terminals~
+~
+0 d 0
+D0
+Towards the Core Server
+~
+~
+0 0 1012
+D1
+Towards the Technical Service Desk~
+~
+~
+0 0 1015
+D3
+Towards the Datbase Servers~
+~
+~
+0 0 1010
+S
+#1014
 ~$
