@@ -2277,8 +2277,6 @@ May 12 01:25:00 :: SYSERR: File 'world/zon/\Òìç¿ìç¿' listed in 'world/zon//i
 May 12 01:25:00 :: SYSERR: File 'world/zon/\Òìç¿ìç¿' listed in 'world/zon//index': No such file or directory
 May 12 01:25:00 :: SYSERR: File 'world/zon/\Òìç¿ìç¿' listed in 'world/zon//index': No such file or directory
 May 12 01:25:00 :: SYSERR: File 'world/zon/\Òìç¿ìç¿' listed in 'world/zon//index': No such file or directory
-May 12 01:25:00 :: SYSERR: File 'world/zon/\Òìç¿ìç¿' listed in 'world/zon//index': No such file or directory
-May 12 01:25:00 :: SYSERR: File 'world/zon/\Òìç¿ìç¿' listed in 'world/zon//index': No such file or directory
 May 12 01:25:40 :: SYSERR: Format error in numeric constant line of world/zon/0.zon, attempting to fix.
 May 12 01:25:40 :: SYSERR: Zone command count mismatch for world/zon/0.zon. Estimated: 1, Actual: 2
 May 12 01:26:55 :: SYSERR: Zone command count mismatch for world/zon/0.zon. Estimated: 1, Actual: 2
@@ -4998,3 +4996,5 @@ May 22 12:45:29 :: SYSERR: Format error in numeric constant line of world/zon/10
 May 22 12:45:29 :: SYSERR: Could not fix previous error, aborting game.
 May 22 12:46:36 :: SYSERR: Format error, room #65536, direction D3
 May 22 12:47:28 :: SYSERR: Format error, room #65536, direction D3
+May 22 13:47:24 :: SYSERR: Format error, room #65536, direction D3
+May 22 13:59:22 :: SYSERR: Format error, room #65536, direction D3
