@@ -379,21 +379,24 @@
 #define APPLY_CLASS             7	/* Reserved			*/
 #define APPLY_LEVEL             8	/* Reserved			*/
 #define APPLY_AGE               9	/* Apply to age			*/
-#define APPLY_CHAR_WEIGHT      10	/* Apply to weight		*/
-#define APPLY_CHAR_HEIGHT      11	/* Apply to height		*/
-#define APPLY_MANA             12	/* Apply to max mana		*/
-#define APPLY_HIT              13	/* Apply to max hit points	*/
+#define APPLY_CHAR_WEIGHT      	10	/* Apply to weight		*/
+#define APPLY_CHAR_HEIGHT      	11	/* Apply to height		*/
+#define APPLY_MANA             	12	/* Apply to max mana		*/
+#define APPLY_HIT              	13	/* Apply to max hit points	*/
 
-#define APPLY_GOLD             15	/* Reserved			*/
-#define APPLY_EXP              16	/* Reserved			*/
-#define APPLY_AC               17	/* Apply to Armor Class		*/
-#define APPLY_HITROLL          18	/* Apply to hitroll		*/
-#define APPLY_DAMROLL          19	/* Apply to damage roll		*/
-#define APPLY_SAVING_PARA      20   /* Apply to save throw: paralz */
-#define APPLY_SAVING_ROD       21   /* Apply to save throw: rods   */
-#define APPLY_SAVING_PETRI     22   /* Apply to save throw: petrif */
-#define APPLY_SAVING_BREATH    23   /* Apply to save throw: breath */
-#define APPLY_SAVING_SPELL     24   /* Apply to save throw: spells */
+#define APPLY_GOLD             	15	/* Reserved			*/
+#define APPLY_EXP              	16	/* Reserved			*/
+#define APPLY_AC               	17	/* Apply to Armor Class		*/
+#define APPLY_HITROLL          	18	/* Apply to hitroll		*/
+#define APPLY_DAMROLL          	19 	/* Apply to damage roll		*/
+#define APPLY_SAVING_PARA      	20  /* Apply to save throw: paralz */
+#define APPLY_SAVING_ROD       	21  /* Apply to save throw: rods   */
+#define APPLY_SAVING_PETRI     	22  /* Apply to save throw: petrif */
+#define APPLY_SAVING_BREATH    	23  /* Apply to save throw: breath */
+#define APPLY_SAVING_SPELL     	24  /* Apply to save throw: spells */
+
+#define APPLY_EVASION 			25 	/* Apply to evasion*/
+#define APPLY_SPEED				26 	/* Apply to attack speed */
 
 /* Container flags - value[1] */
 #define CONT_CLOSEABLE      (1 << 0)	/* Container can be closed	*/
