@@ -901,18 +901,19 @@ void calc_hits(struct char_data *ch, struct char_data *victim)
     else
       w_type = TYPE_HIT;
   }
-  int min_dam, max_dam;
+  int min_dam = 1, max_dam = 3;
   if(IS_NPC(ch)) {
-    min_dam = 1;
     max_dam = ch->mob_specials.damsizedice;
   }
   else {
-    min_dam = GET_OBJ_VAL(wielded, 1);
-    max_dam = GET_OBJ_VAL(wielded, 2);
+    if (wielded){
+      min_dam = GET_OBJ_VAL(wielded, 1);
+      max_dam = GET_OBJ_VAL(wielded, 2);
+    }
   }
   /* roll the die and take your chances... */
   diceroll = rand_number(1, 100);
-  if (diceroll <= thaco - victim_evasion || !AWAKE(victim)){ // HIT
+  if (!AWAKE(victim) || diceroll <= headshot_percentage(GET_LEVEL(ch)) ){ // HIT
     dam = dice_roll(min_dam, max_dam);
     /***** HERE IS WHERE COUNTER ATTACK STUFF WILL GO ****/
     /* Check to see if it's a crit*/
@@ -925,8 +926,9 @@ void calc_hits(struct char_data *ch, struct char_data *victim)
     }
     /* at least 1 hp damage min per hit */
     dam = MAX(1, dam);
-    if(is_crit)
+    if(is_crit){
       //Add something to notify ch/victim of crit
+    }
     damage(ch, victim, dam, w_type);
   } else {
     damage(ch, victim, 0, w_type);
@@ -946,6 +948,9 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
       stop_fighting(ch);
     return;
   }
+  if (type) {
+
+  } 
 
   /* Perform each attack seperately*/
   //dice(ch->mob_specials.damnodice, ch->mob_specials.damsizedice);

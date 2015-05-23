@@ -775,7 +775,7 @@ void mag_assign_spells(void)
   spello(SKILL_BERSERK, "berserk", 0, 0, 0, POS_STANDING, TAR_SELF_ONLY, FALSE,
     MAG_AFFECTS, "Your blood begins to cool");
 
-  spello(SKILL_SLOW_SHOT, "slow shot", 0, 0, 0, POS_STANDING, TAR_CHAR_ROOM | TAR_FIGHT_VICT, FALSE,
+  spello(SKILL_SLOW_SHOT, "slowshot", 0, 0, 0, POS_STANDING, TAR_CHAR_ROOM | TAR_FIGHT_VICT, FALSE,
     MAG_AFFECTS, "You regain speed");
 
 /** Built in spells */

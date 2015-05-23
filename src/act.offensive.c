@@ -112,8 +112,13 @@ ACMD(do_headshot)
 
   if (AWAKE(vict) && (percent > prob))
     damage(ch, vict, 0, SKILL_HEADSHOT);
-  else
-    hit(ch, vict, SKILL_HEADSHOT);
+  else { // HIT
+    diceroll = rand_number(1, 100); 
+      dam = dice_roll(GET_OBJ_VAL(wielded, 1), GET_OBJ_VAL(wielded, 2));
+      dam *= headshot_damage;
+      damage(ch, vict, dam, SKILL_HEADSHOT);
+    }
+  }
 
   WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 
