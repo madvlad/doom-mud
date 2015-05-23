@@ -257,10 +257,6 @@ struct command_info *complete_cmd_info;
 
 cpp_extern const struct command_info cmd_info[] = {
   { "RESERVED", "", 0, 0, 0, 0 },	/* this must be first -- for specprocs */
-  /* My personal stuff */
-  { "berserk" , "ber"        , POS_STANDING, do_berserk , 0, 0 },
-  { "headshot" , "head"      , POS_STANDING, do_headshot , 1, 0 },
-  { "slowshot" , "slow"      , POS_STANDING, do_slow , 1, 0 },
 
   /* directions must come before other commands but after RESERVED */
   { "north"    , "n"       , POS_STANDING, do_move     , 0, SCMD_NORTH },
@@ -552,6 +548,11 @@ cpp_extern const struct command_info cmd_info[] = {
   { "mzoneecho", "mzoneecho", POS_DEAD   , do_mzoneecho, -1, 0 },
   { "vdelete"  , "vdelete" , POS_DEAD    , do_vdelete  , LVL_BUILDER, 0 },
   { "mfollow"  , "mfollow" , POS_DEAD    , do_mfollow  , -1, 0 },
+
+  /* My personal stuff */
+  { "berserk" , "ber"        , POS_STANDING, do_berserk , 0, 0 },
+  { "headshot" , "head"      , POS_STANDING, do_headshot , 1, 0 },
+  { "slowshot" , "slow"      , POS_STANDING, do_slow , 1, 0 },
 
   { "\n", "zzzzzzz", 0, 0, 0, 0 } };	/* this must be last */
 

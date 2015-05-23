@@ -480,6 +480,11 @@ int headshot_damage(int level)
     return 100;       /* immortals */
 }
 
+int masochism_damage(ch){
+  int missing_health = GET_MAX_HIT(ch) - GET_HIT(ch);
+  return  (missing_health - 10)/15;
+}
+
 /*
  * invalid_class is used by handler.c to determine if a piece of equipment is
  * usable by a particular class, based on the ITEM_ANTI_{class} bitvectors.

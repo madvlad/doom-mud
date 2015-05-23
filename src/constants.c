@@ -233,6 +233,10 @@ const char *affected_bits[] = //bananakick add stuff here
   "HIDE",
   "UNUSED",
   "CHARM",
+  "BERSERK",
+  "ADRENALIZED",
+  "SLOW",
+  "BLEED"
   "\n"
 };
 
