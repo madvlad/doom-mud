@@ -149,7 +149,8 @@ void free_messages(void)
 void load_messages(void)
 {
   FILE *fl;
-  int i, type, error;
+  int i, type;
+  char *error;
   struct message_type *messages;
   char chk[128];
 
@@ -199,6 +200,7 @@ void load_messages(void)
     while (!feof(fl) && (*chk == '\n' || *chk == '*'))
       error = fgets(chk, 128, fl);
   }
+  log("Return value of fgets is: %s", error);
 
   fclose(fl);
 }
@@ -894,14 +896,17 @@ void calc_hits(struct char_data *ch, struct char_data *victim)
   victim_evasion = compute_evasion(victim);
 
   /* Find the weapon type (for display purposes only) */
-  if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON)
+  if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON){
+    log("Player has weapon");
     w_type = GET_OBJ_VAL(wielded, 5);
+  }
   else {
     if (IS_NPC(ch) && ch->mob_specials.attack_type != 0)
       w_type = ch->mob_specials.attack_type + TYPE_HIT;
     else
       w_type = TYPE_HIT;
   }
+  log("%s has weapon type: %d", ch->player.name, w_type);
   int min_dam = 1, max_dam = 3;
   if(IS_NPC(ch)) {
     max_dam = ch->mob_specials.damsizedice;
@@ -914,11 +919,11 @@ void calc_hits(struct char_data *ch, struct char_data *victim)
   }
   /* roll the die and take your chances... */
   diceroll = rand_number(1, 100);
-  if (!AWAKE(victim) || diceroll <= headshot_percentage(GET_LEVEL(ch)) ){ // HIT
+  if (!AWAKE(victim) || diceroll <= thaco - victim_evasion ){ // HIT
     dam = dice_roll(min_dam, max_dam);
     /***** HERE IS WHERE COUNTER ATTACK STUFF WILL GO ****/
     /* Check to see if it's a crit*/
-    if(GET_SKILL(ch, SKILL_CRITICAL) == 100)
+    if(!IS_NPC(ch) && GET_SKILL(ch, SKILL_CRITICAL) == 100)
       max_crit = 13;
     crit_roll = rand_number(1, max_crit);
     if(crit_roll == max_crit){ // CRITICAL HIT
@@ -927,6 +932,7 @@ void calc_hits(struct char_data *ch, struct char_data *victim)
     }
     /* at least 1 hp damage min per hit */
     dam = MAX(1, dam);
+    if(w_type == 0) w_type = 300;
     if(is_crit){
       //Add something to notify ch/victim of crit
     }
