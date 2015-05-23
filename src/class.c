@@ -48,7 +48,7 @@ const char *class_abbrevs[] = {
   "Cl",
   "Bh",
   "Wa",
-  "Hr"
+  "Hr",
   "\n"
 };
 
@@ -58,7 +58,7 @@ const char *pc_class_types[] = {
   "Cleric",
   "Bounty Hunter",
   "Warrior",
-  "Hell Raiser"
+  "Hell Raiser",
   "\n"
 };
 
@@ -480,8 +480,10 @@ int headshot_damage(int level)
     return 100;       /* immortals */
 }
 
-int masochism_damage(ch){
-  int missing_health = GET_MAX_HIT(ch) - GET_HIT(ch);
+int masochism_damage(struct char_data *ch){
+  int max_hit = GET_MAX_HIT(ch);
+  int hit = GET_HIT(ch);
+  int missing_health = max_hit - hit;
   return  (missing_health - 10)/15;
 }
 
