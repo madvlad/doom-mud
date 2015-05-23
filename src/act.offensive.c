@@ -82,7 +82,8 @@ ACMD(do_headshot)
 {
   char buf[MAX_INPUT_LENGTH];
   struct char_data *vict;
-  int percent, prob;
+  int percent, prob, dam, diceroll;
+  struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
 
   if (!GET_SKILL(ch, SKILL_HEADSHOT)) {
     send_to_char(ch, "You have no idea how to do that.\r\n");
@@ -115,9 +116,8 @@ ACMD(do_headshot)
   else { // HIT
     diceroll = rand_number(1, 100); 
       dam = dice_roll(GET_OBJ_VAL(wielded, 1), GET_OBJ_VAL(wielded, 2));
-      dam *= headshot_damage;
+      dam *= headshot_damage(GET_LEVEL(ch));
       damage(ch, vict, dam, SKILL_HEADSHOT);
-    }
   }
 
   WAIT_STATE(ch, 2 * PULSE_VIOLENCE);

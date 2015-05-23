@@ -34,7 +34,7 @@ A dog who upon closer inspection seems to be suffering a heart attack.
 Dutchess is a dog (at least, one would think so) who seems to be wondering around, lost.
 ~
 afghq p -200 E
-0 20 10 1d6+50 1d4+0
+0 20 10 1d6+999999999999999 1d4+0
 0 25
 8 8 1
 BareHandAttack: 4

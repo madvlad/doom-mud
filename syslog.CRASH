@@ -1,30 +1,30 @@
-May 22 19:32:43 :: Assigning spell and skill levels.
-May 22 19:32:43 :: Sorting command list and spells.
-May 22 19:32:43 :: Booting mail system.
-May 22 19:32:43 ::    Mail file read -- 0 messages.
-May 22 19:32:43 :: Reading banned site and invalid-name list.
-May 22 19:32:43 :: Booting houses.
-May 22 19:32:43 :: Cleaning up last log.
-May 22 19:32:43 :: Resetting #0: The Original Hub Zone (rooms 1-44).
-May 22 19:32:43 :: Resetting #10: The First Level (rooms 1001-1048).
-May 22 19:32:43 :: Boot db -- DONE.
-May 22 19:32:43 :: Signal trapping.
-May 22 19:32:43 :: Entering game loop.
-May 22 19:32:43 :: No connections.  Going to sleep.
-May 22 19:32:45 :: New connection.  Waking up.
-May 22 19:32:49 :: Bazinga [localhost] has connected.
-May 22 19:32:50 :: Bazinga had no variable file
-May 22 19:32:50 :: Bazinga un-renting and entering game.
-May 22 19:32:50 :: Bazinga (level 1) has 1 objects (max 30).
-May 22 19:32:51 :: SYSERR: XP tables not set up correctly in class.c!
-May 22 19:32:55 :: SYSERR: a depressed looking dog named Dutchess (#2): Attempting to call non-existing mob function.
-May 22 19:33:05 :: SYSERR: Mob using '((ch)->player_specials->saved.skills[156])' at fight.c:919.
-May 22 19:33:07 :: SYSERR: Mob using '((ch)->player_specials->saved.skills[156])' at fight.c:919.
-May 22 19:33:09 :: SYSERR: Mob using '((ch)->player_specials->saved.skills[156])' at fight.c:919.
-May 22 19:33:15 :: SYSERR: Mob using '((ch)->player_specials->saved.skills[156])' at fight.c:919.
-May 22 19:33:19 :: SYSERR: Mob using '((ch)->player_specials->saved.skills[156])' at fight.c:919.
-May 22 19:33:21 :: SYSERR: Mob using '((ch)->player_specials->saved.skills[156])' at fight.c:919.
-May 22 19:33:23 :: SYSERR: Mob using '((ch)->player_specials->saved.skills[156])' at fight.c:919.
-May 22 19:33:27 :: SYSERR: Mob using '((ch)->player_specials->saved.skills[156])' at fight.c:919.
-May 22 19:33:31 :: SYSERR: Mob using '((ch)->player_specials->saved.skills[156])' at fight.c:919.
+May 23 00:05:44 :: SYSERR: Attempt to assign spec to non-existant obj #10751
+May 23 00:05:44 :: SYSERR: Attempt to assign spec to non-existant obj #25758
+May 23 00:05:44 ::    Rooms.
+May 23 00:05:44 :: SYSERR: Attempt to assign spec to non-existant room #3031
+May 23 00:05:44 :: SYSERR: Attempt to assign spec to non-existant room #10738
+May 23 00:05:44 :: SYSERR: Attempt to assign spec to non-existant room #23281
+May 23 00:05:44 :: SYSERR: Attempt to assign spec to non-existant room #25722
+May 23 00:05:44 :: SYSERR: Attempt to assign spec to non-existant room #27155
+May 23 00:05:44 :: SYSERR: Attempt to assign spec to non-existant room #27616
+May 23 00:05:44 :: SYSERR: Attempt to assign spec to non-existant room #31523
+May 23 00:05:44 :: Assigning spell and skill levels.
+May 23 00:05:44 :: Sorting command list and spells.
+May 23 00:05:44 :: Booting mail system.
+May 23 00:05:44 ::    Mail file read -- 0 messages.
+May 23 00:05:44 :: Reading banned site and invalid-name list.
+May 23 00:05:44 :: Booting houses.
+May 23 00:05:44 :: Cleaning up last log.
+May 23 00:05:44 :: Resetting #0: The Original Hub Zone (rooms 1-44).
+May 23 00:05:44 :: Resetting #10: The First Level (rooms 1001-1048).
+May 23 00:05:44 :: Boot db -- DONE.
+May 23 00:05:44 :: Signal trapping.
+May 23 00:05:44 :: Entering game loop.
+May 23 00:05:44 :: No connections.  Going to sleep.
+May 23 00:05:47 :: New connection.  Waking up.
+May 23 00:05:53 :: Bazinga [localhost] has connected.
+May 23 00:05:54 :: Bazinga had no variable file
+May 23 00:05:54 :: Bazinga un-renting and entering game.
+May 23 00:05:54 :: Bazinga (level 1) has 2 objects (max 30).
+May 23 00:05:57 :: SYSERR: a depressed looking dog named Dutchess (#2): Attempting to call non-existing mob function.
 Segmentation fault (core dumped)
