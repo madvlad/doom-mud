@@ -625,7 +625,7 @@ int skill_message(int dam, struct char_data *ch, struct char_data *vict,
 		      int attacktype)
 {
   int i, j, nr;
-  struct message_type *msg;
+  struct message_type *msg = malloc(sizeof(struct message_type));
 
   struct obj_data *weap = GET_EQ(ch, WEAR_WIELD);
 
@@ -671,16 +671,16 @@ int skill_message(int dam, struct char_data *ch, struct char_data *vict,
 	}
       } else if (ch != vict) {	/* Dam == 0 */
         if (msg->miss_msg.attacker_msg) {
-	  send_to_char(ch, CCYEL(ch, C_CMP));
-	  act(msg->miss_msg.attacker_msg, FALSE, ch, weap, vict, TO_CHAR);
-	  send_to_char(ch, CCNRM(ch, C_CMP));
+		  send_to_char(ch, CCYEL(ch, C_CMP));
+		  act(msg->miss_msg.attacker_msg, FALSE, ch, weap, vict, TO_CHAR);
+		  send_to_char(ch, CCNRM(ch, C_CMP));
         }
 
-	send_to_char(vict, CCRED(vict, C_CMP));
-	act(msg->miss_msg.victim_msg, FALSE, ch, weap, vict, TO_VICT | TO_SLEEP);
-	send_to_char(vict, CCNRM(vict, C_CMP));
+		send_to_char(vict, CCRED(vict, C_CMP));
+		act(msg->miss_msg.victim_msg, FALSE, ch, weap, vict, TO_VICT | TO_SLEEP);
+		send_to_char(vict, CCNRM(vict, C_CMP));
 
-	act(msg->miss_msg.room_msg, FALSE, ch, weap, vict, TO_NOTVICT);
+		act(msg->miss_msg.room_msg, FALSE, ch, weap, vict, TO_NOTVICT);
       }
       return (1);
     }

@@ -10,15 +10,15 @@ Levl: 34
 Home: 1
 Id  : 1
 Brth: 1431225977
-Plyd: 1110311
-Last: 1432336288
+Plyd: 1120169
+Last: 1432346146
 Host: localhost
 Hite: 172
 Wate: 148
-Alin: 34
+Alin: 53
 Act : g
-Room: 7
-Hit : 500/500
+Room: 6
+Hit : 520/500
 Mana: 100/100
 Str : 25/100
 Int : 25
@@ -28,3 +28,8 @@ Con : 25
 Cha : 25
 Ac  : 100
 Exp : 7000000
+Affs:
+162 19 5 19 65536
+162 19 -5 25 65536
+162 19 20 13 65536
+0 0 0 0 0
