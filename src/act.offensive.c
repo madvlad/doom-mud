@@ -29,6 +29,7 @@ int compute_armor_class(struct char_data *ch);
 ACMD(do_berserk);
 ACMD(do_headshot);    //bananakick
 ACMD(do_slow);
+
 ACMD(do_assist);
 ACMD(do_hit);
 ACMD(do_kill);

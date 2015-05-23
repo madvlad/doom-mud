@@ -260,6 +260,7 @@ cpp_extern const struct command_info cmd_info[] = {
   /* My personal stuff */
   { "berserk" , "ber"        , POS_STANDING, do_berserk , 0, 0 },
   { "headshot" , "head"      , POS_STANDING, do_headshot , 1, 0 },
+  { "slowshot" , "slow"      , POS_STANDING, do_slow , 1, 0 },
 
   /* directions must come before other commands but after RESERVED */
   { "north"    , "n"       , POS_STANDING, do_move     , 0, SCMD_NORTH },

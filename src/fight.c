@@ -953,6 +953,7 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
     num_attacks = ch->mob_specials.damnodice;
   else
     num_attacks = GET_ATTACKS(ch);
+  if (num_attacks < 1) num_attacks = 1;
   while (num_attacks-- > 0)
     calc_hits(ch, victim);
 

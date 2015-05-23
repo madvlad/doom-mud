@@ -47,6 +47,9 @@
 #define PFDEF_DRUNK		0
 #define PFDEF_OLC               65535 
 #define PFDEF_PAGELENGTH        22
+#define PFDEF_ATTACKS		1
+#define PFDEF_EVASION		3
+
 
 #endif
 

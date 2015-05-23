@@ -285,6 +285,8 @@ int load_char(const char *name, struct char_data *ch)
     GET_OLC_ZONE(ch) = PFDEF_OLC;
     GET_HOST(ch) = NULL;
     GET_PAGE_LENGTH(ch) = PFDEF_PAGELENGTH;
+    GET_ATTACKS(ch) = PFDEF_ATTACKS;
+    GET_EVASION(ch) = PFDEF_EVASION;
 
     while (get_line(fl, line)) {
       tag_argument(line, tag);
@@ -296,6 +298,7 @@ int load_char(const char *name, struct char_data *ch)
 	else if (!strcmp(tag, "Aff "))	AFF_FLAGS(ch)		= asciiflag_conv(line);
 	else if (!strcmp(tag, "Affs"))	load_affects(fl, ch);
 	else if (!strcmp(tag, "Alin"))	GET_ALIGNMENT(ch)	= atoi(line);
+  else if (!strcmp(tag, "Attacks"))  GET_ATTACKS(ch) = atoi(line);
 	break;
 
       case 'B':
@@ -319,6 +322,7 @@ int load_char(const char *name, struct char_data *ch)
 
       case 'E':
 	     if (!strcmp(tag, "Exp "))	GET_EXP(ch)		= atoi(line);
+       else if (!strcmp(tag, "Evasion ")) GET_EVASION(ch)   = atoi(line);
 	break;
 
       case 'F':
@@ -606,8 +610,8 @@ void save_char(struct char_data * ch)
   if (GET_OLC_ZONE(ch)     != PFDEF_OLC)        fprintf(fl, "Olc : %d\n", GET_OLC_ZONE(ch));
   if (GET_PAGE_LENGTH(ch)  != PFDEF_PAGELENGTH) fprintf(fl, "Page: %d\n", GET_PAGE_LENGTH(ch));
 
-  //if (GET_EVASION(ch)     != PFDEF_EVASION)   fprintf(fl, "Evasion  : %d\n", GET_EVASION(ch));
-  //if (GET_ATTACKS(ch)     != GET_ATTACKS)   fprintf(fl, "Attacks  : %d\n", GET_ATTACKS(ch));
+  if (GET_EVASION(ch)     != PFDEF_EVASION)   fprintf(fl, "Evasion  : %d\n", GET_EVASION(ch));
+  if (GET_ATTACKS(ch)     != PFDEF_ATTACKS)   fprintf(fl, "Attacks  : %d\n", GET_ATTACKS(ch));
   //if (GET_EVASION(ch)     != PFDEF_EVASION)   fprintf(fl, "Evasion  : %d\n", GET_EVASION(ch)); BANANAKICK: ammo?
 
   /* Save skills */
