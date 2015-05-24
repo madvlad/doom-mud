@@ -225,6 +225,14 @@ void affect_modify(struct char_data *ch, byte loc, sbyte mod,
     GET_ATTACKS(ch) += mod;
     break;
 
+  case APPLY_AMMO:
+    GET_AMMO(ch) += mod;
+    break;
+
+  case APPLY_MAX_AMMO:
+    GET_MAX_AMMO(ch) += mod;
+    break;
+
   default:
     log("SYSERR: Unknown apply adjust %d attempt (%s, affect_modify).", loc, __FILE__);
     break;

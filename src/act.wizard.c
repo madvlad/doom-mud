@@ -3414,7 +3414,12 @@ struct zcheck_affs {
   {APPLY_SAVING_ROD,  -2,   2, "saving throw (rod)"},
   {APPLY_SAVING_PETRI,-2,   2, "saving throw (death)"},
   {APPLY_SAVING_BREATH,-2,  2, "saving throw (breath)"},
-  {APPLY_SAVING_SPELL,-2,   2, "saving throw (spell)"}
+  {APPLY_SAVING_SPELL,-2,   2, "saving throw (spell)"},
+
+  {APPLY_APPLY_EVASION, -10,   10, "evasion"},
+  {APPLY_SAVING_SPEED,  -2,    15, "attack speed"},
+  {APPLY_SAVING_AMMO,    0,   500, "ammo"},
+  {APPLY_SAVING_MAX_AMMO,0,   500, "max ammo"}
 };
 
 /* These are ABS() values. */

@@ -761,16 +761,16 @@ ACMD(do_score)
   if (IS_NPC(ch))
     return;
 
-  send_to_char(ch, "+------------------------------------------------------------------------+");
+  send_to_char(ch, "+------------------------------------------------------------------------+\r\n");
   send_to_char(ch, "|\t\t\tName:%s %s\t\t\t\t\t\t\t|", GET_PC_NAME(ch), GET_TITLE(ch));
-  send_to_char(ch, "| \t\tLevel: %d\t\tAge: %d\t\t Gender: %d\t\t|", GET_LEVEL(ch), GET_AGE(ch),GET_SEX(ch));
-  send_to_char(ch, "| \t\tExperience: %d/%d\t\t\tHeight: %d\t\t\tWeight: %d\t\t|", GET_EXP(ch), exp_to_level, GET_HEIGHT(ch), GET_WEIGHT(ch));
-  send_to_char(ch, "+----Abilities-----------------------------------------------------------+");
-  send_to_char(ch, "|\t\t\tStr: %d\t\t\tDex: %d\t\t\tCon: %d\t\t\t|", GET_STR(ch), GET_DEX(ch), GET_CON(ch));
-  send_to_char(ch, "|\t\t\tInt: %d\t\t\tWis: %d\t\t\tCha: %d\t\t\t|", GET_INT(ch), GET_WIS(ch), GET_CHA(ch));
-  send_to_char(ch, "+----Vitals--------------------------------------------------------------+");
-  send_to_char(ch, "|\t\t\tHit Points: %d/%d\t\t\tAttack Speed: %d\t\t\t|", GET_HIT(ch), GET_MAX_HIT(ch), GET_ATTACKS(ch));
-  send_to_char(ch, "|\t\t\tAmmo: %d/%d\t\t\t\t\t\t\t\t\t\t\t\t\t|", GET_AMMO(ch), GET_MAX_AMMO(ch));
+  send_to_char(ch, "| \t\tLevel: %d\t\tAge: %d\t\t Gender: %d\t\t|\r\n", GET_LEVEL(ch), GET_AGE(ch),GET_SEX(ch));
+  send_to_char(ch, "| \t\tExperience: %d/%d\t\t\tHeight: %d\t\t\tWeight: %d\t\t|\r\n", GET_EXP(ch), exp_to_level, GET_HEIGHT(ch), GET_WEIGHT(ch));
+  send_to_char(ch, "+----Abilities-----------------------------------------------------------+\r\n");
+  send_to_char(ch, "|\t\t\tStr: %d\t\t\tDex: %d\t\t\tCon: %d\t\t\t|\r\n", GET_STR(ch), GET_DEX(ch), GET_CON(ch));
+  send_to_char(ch, "|\t\t\tInt: %d\t\t\tWis: %d\t\t\tCha: %d\t\t\t|\r\n", GET_INT(ch), GET_WIS(ch), GET_CHA(ch));
+  send_to_char(ch, "+----Vitals--------------------------------------------------------------+\r\n");
+  send_to_char(ch, "|\t\t\tHit Points: %d/%d\t\t\tAttack Speed: %d\t\t\t|\r\n", GET_HIT(ch), GET_MAX_HIT(ch), GET_ATTACKS(ch));
+  send_to_char(ch, "|\t\t\tAmmo: %d/%d\t\t\t\t\t\t\t\t\t\t\t\t\t|\r\n", GET_AMMO(ch), GET_MAX_AMMO(ch));
 
   send_to_char(ch, "|\t\t\tGold: %d  |", GET_GOLD(ch));
   send_to_char(ch, "+------------------------------------------------------------------------+");

@@ -65,6 +65,7 @@ ACMD(do_berserk)
     send_to_char(ch, "You are too exhauted to call upon your demons.\r\n");
     return;
   }
+  send_to_char(ch, "Your blood begins to boil");
   af[0].modifier = 5;
   af[0].location = APPLY_DAMROLL;
   af[1].modifier = -5;

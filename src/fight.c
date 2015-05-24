@@ -56,7 +56,6 @@ void solo_gain(struct char_data *ch, struct char_data *victim);
 char *replace_string(const char *str, const char *weapon_singular, const char *weapon_plural);
 void perform_violence(void);
 int compute_armor_class(struct char_data *ch);
-int compute_evasion(struct char_data *ch);
 int compute_thaco(struct char_data *ch, struct char_data *vict);
 int calc_hits(struct char_data *ch, struct char_data *victim);
 
@@ -101,22 +100,14 @@ void appear(struct char_data *ch)
 }
 
 
-int compute_armor_class(struct char_data *ch) //bananakick
+int compute_armor_class(struct char_data *ch)
 {
   int armorclass = GET_AC(ch);
 
   if (AWAKE(ch))
     armorclass += dex_app[GET_DEX(ch)].defensive * 10;
 
-  return (MAX(-100, armorclass));      /* -100 is lowest */
-}
-
-/* Compute the evasion rating */ 
-int compute_evasion(struct char_data *ch) //bananakick
-{
-  int evasion = GET_EVASION(ch);
-  //possibly check for evasion feats
-  return evasion;
+  return (MAX(-100, armorclass));
 }
 
 void free_messages_type(struct msg_type *msg)
@@ -891,7 +882,8 @@ int calc_hits(struct char_data *ch, struct char_data *victim)
     return 0;
 }
   GET_AMMO(ch)--;
-  int max_crit = 20, dam, w_type, diceroll, crit_roll, victim_evasion, thaco;
+  int max_crit = 20, dam, w_type, diceroll, crit_roll, thaco;
+  int victim_evasion = GET_EVASION(ch);
   bool is_crit = FALSE;
   struct affected_type *af;
   struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
@@ -901,7 +893,6 @@ int calc_hits(struct char_data *ch, struct char_data *victim)
   /* Calculate chance of hit. */
   thaco = compute_thaco(ch, victim); //look at mob version
   //victim_ac = compute_armor_class(victim) / 10;
-  victim_evasion = compute_evasion(victim);
 
   /* Find the weapon type (for display purposes only) */
   if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON){

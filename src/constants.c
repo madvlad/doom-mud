@@ -209,7 +209,7 @@ const char *preference_bits[] = {
 
 
 /* AFF_x */
-const char *affected_bits[] = //bananakick add stuff here
+const char *affected_bits[] =
 {
   "BLIND",
   "INVIS",

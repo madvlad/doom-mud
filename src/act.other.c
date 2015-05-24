@@ -72,8 +72,6 @@ ACMD(do_reload)
     send_to_char(ch, "You are already reloading!\r\n");
 
   send_to_char(ch, "You are reloading...\r\n");
-  //send_to_room = "$n glows slightly and $s face is set with determination.";
-  //bananakick: send message to characters in the room.
   act("$n begins reloading.", FALSE, ch, 0, 0, TO_ROOM);
 
   af.type = SKILL_SNEAK;

@@ -69,6 +69,7 @@ int enter_player_game (struct descriptor_data *d);
 ACMD(do_headshot);
 ACMD(do_berserk);
 ACMD(do_slow);
+ACMD(do_reload);
 /* prototypes for all do_x functions. */
 ACMD(do_action);
 ACMD(do_advance);
@@ -553,6 +554,7 @@ cpp_extern const struct command_info cmd_info[] = {
   { "berserk" , "ber"        , POS_STANDING, do_berserk , 0, 0 },
   { "headshot" , "head"      , POS_STANDING, do_headshot , 1, 0 },
   { "slowshot" , "slow"      , POS_STANDING, do_slow , 1, 0 },
+  { "reload" , "rel"      , POS_STANDING, do_reload , 0, 0 },
 
   { "\n", "zzzzzzz", 0, 0, 0, 0 } };	/* this must be last */
 
