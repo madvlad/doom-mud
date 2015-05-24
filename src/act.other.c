@@ -76,15 +76,12 @@ ACMD(do_reload)
   //bananakick: send message to characters in the room.
   act("$n begins reloading.", FALSE, ch, 0, 0, TO_ROOM);
 
-  GET_POS(ch) = POS_RELADING;
-
-
-  /*af.type = SKILL_SNEAK;
-  af.duration = GET_LEVEL(ch);
+  af.type = SKILL_SNEAK;
+  af.duration = 2 * PULSE_VIOLENCE;
   af.modifier = 0;
   af.location = APPLY_NONE;
-  af.bitvector = AFF_SNEAK;
-  affect_to_char(ch, &af);*/
+  af.bitvector = AFF_RELOAD;
+  affect_to_char(ch, &af);
 }
 ACMD(do_quit)
 {
@@ -765,7 +762,7 @@ ACMD(do_display)
   skip_spaces(&argument);
 
   if (!*argument) {
-    send_to_char(ch, "Usage: prompt { { H | M | V } | all | auto | none }\r\n");
+    send_to_char(ch, "Usage: prompt { { H | M | A } | all | auto | none }\r\n");
     return;
   }
 
@@ -776,22 +773,25 @@ ACMD(do_display)
   }
 
   if (!str_cmp(argument, "on") || !str_cmp(argument, "all"))
-    SET_BIT(PRF_FLAGS(ch), PRF_DISPHP | PRF_DISPMANA);
+    SET_BIT(PRF_FLAGS(ch), PRF_DISPHP | PRF_DISPMANA | PRF_DISPAMMO);
   else if (!str_cmp(argument, "off") || !str_cmp(argument, "none"))
-    REMOVE_BIT(PRF_FLAGS(ch), PRF_DISPHP | PRF_DISPMANA);
+    REMOVE_BIT(PRF_FLAGS(ch), PRF_DISPHP | PRF_DISPMANA | PRF_DISPAMMO);
   else {
-    REMOVE_BIT(PRF_FLAGS(ch), PRF_DISPHP | PRF_DISPMANA);
+    REMOVE_BIT(PRF_FLAGS(ch), PRF_DISPHP | PRF_DISPMANA | PRF_DISPAMMO);
 
     for (i = 0; i < strlen(argument); i++) {
       switch (LOWER(argument[i])) {
-      case 'h':
-	SET_BIT(PRF_FLAGS(ch), PRF_DISPHP);
-	break;
-      case 'm':
-	SET_BIT(PRF_FLAGS(ch), PRF_DISPMANA);
-	break;
-      default:
-	send_to_char(ch, "Usage: prompt { { H | M | V } | all | auto | none }\r\n");
+        case 'h':
+        	SET_BIT(PRF_FLAGS(ch), PRF_DISPHP);
+        	break;
+        case 'm':
+        	SET_BIT(PRF_FLAGS(ch), PRF_DISPMANA);
+        	break;
+        case 'a':
+          SET_BIT(PRF_FLAGS(ch), PRF_DISPAMMO);
+          break;
+        default:
+	send_to_char(ch, "Usage: prompt { { H | M | A } | all | auto | none }\r\n");
 	return;
       }
     }

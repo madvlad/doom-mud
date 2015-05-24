@@ -147,7 +147,6 @@
 #define POS_SITTING    	6	/* sitting		*/
 #define POS_FIGHTING   	7	/* fighting		*/
 #define POS_STANDING   	8	/* standing		*/
-#define POS_RELADING	9 	/* reloading	*/
 
 /* Player flags: used by char_data.char_specials.act */
 #define PLR_KILLER	(1 << 0)   /* Player is a player-killer		*/
@@ -216,7 +215,8 @@
 #define PRF_DISPAUTO	(1 << 22) /* Show prompt HP, MP, MV when < 25%.	*/
 #define PRF_CLS         (1 << 23) /* Clear screen in OLC                */
 #define PRF_BUILDWALK   (1 << 24) /* Build new rooms while walking ?    */
-#define PRF_AFK         (1 << 25) /* AFK flag                           */
+#define PRF_AFK         (1 << 25) /* AFK flag                          */
+#define PRF_DISPAMMO	(1 << 26)  /* Display ammo in prompt	*/
 
 /* Affect bits: used in char_data.char_specials.saved.affected_by */
 /* WARNING: In the world files, NEVER set the bits marked "R" ("Reserved") */
@@ -244,6 +244,7 @@
 #define AFF_CHARM             	(1 << 21)	   /* Char is charmed		*/
 #define AFF_BLEED            	(1 << 22)	   /* Char is bleeding		*/
 #define AFF_SLOW             	(1 << 23)	   /* Char is slowed		*/
+#define AFF_RELOAD             	(1 << 24)	   /* Char is reloading		*/
 
 
 /* Modes of connectedness: used by descriptor_data.state */
@@ -397,6 +398,7 @@
 
 #define APPLY_EVASION 			25 	/* Apply to evasion*/
 #define APPLY_SPEED				26 	/* Apply to attack speed */
+#define APPLY_AMMO				27	/* Set the ammo for the gun */
 
 /* Container flags - value[1] */
 #define CONT_CLOSEABLE      (1 << 0)	/* Container can be closed	*/
@@ -800,6 +802,8 @@ struct char_point_data {
    sh_int max_hit;      /* Max hit for PC/NPC                       */
    sh_int evasion;		/* Evasion rating of the Character 			*/
    sh_int attacks;		/* Number of attacks per round 				*/
+   sh_int max_ammo;
+   sh_int ammo;
 
    sh_int armor;        /* Internal -100..100, external -10..10 AC 	*/ //switch to DR?
    int	gold;           /* Money carried                           	*/

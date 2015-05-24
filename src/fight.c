@@ -884,11 +884,19 @@ int compute_thaco(struct char_data *ch, struct char_data *victim)
   return calc_thaco;
 }
 
-void calc_hits(struct char_data *ch, struct char_data *victim)
+int calc_hits(struct char_data *ch, struct char_data *victim)
 {
+  if(!GET_AMMO(ch)){ //can't fire with no bullets
+    send_to_char(ch, "You have to realod!\r\n");
+    return 0;
+}
+  GET_AMMO(ch)--;
   int max_crit = 20, dam, w_type, diceroll, crit_roll, victim_evasion, thaco;
   bool is_crit = FALSE;
+  struct affected_type af;
   struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
+  struct obj_data *armor = GET_EQ(ch, WEAR_BODY);
+  
 
   /* Calculate chance of hit. */
   thaco = compute_thaco(ch, victim); //look at mob version
@@ -921,7 +929,6 @@ void calc_hits(struct char_data *ch, struct char_data *victim)
   diceroll = rand_number(1, 100);
   if (!AWAKE(victim) || diceroll <= thaco - victim_evasion ){ // HIT
     dam = dice_roll(min_dam, max_dam);
-    /***** HERE IS WHERE COUNTER ATTACK STUFF WILL GO ****/
     /* Check to see if it's a crit*/
     if(!IS_NPC(ch) && GET_SKILL(ch, SKILL_CRITICAL) == 100)
       max_crit = 13;
@@ -933,13 +940,30 @@ void calc_hits(struct char_data *ch, struct char_data *victim)
     /* at least 1 hp damage min per hit */
     dam = MAX(1, dam);
     if(w_type == 0) w_type = 300;
-    if(is_crit){
+    if(is_crit && !IS_NPC(ch)){
       //Add something to notify ch/victim of crit
+      if(GET_SKILL(ch, SKILL_BLEED_CRIT)){
+        //apply bleed
+        af->type = SKILL_BLEED_CRIT; 
+        af->duration = 2;
+        af->modifier = 0;
+        af->location = APPLY_NON;        
+        af->bitvector = AFF_BLEED;
+        affect_to_char(ch, &af);
+      }
+      if(GET_SKILL(ch, SKILL_HEAL_CRIT))
+        GET_HIT(ch) += 5;
     }
+    dam += GET_DAMROLL; // Add bonus damage
+    if (armor) dam -= GET_OBJ_VAL(armor, 0);
     damage(ch, victim, dam, w_type);
   } else {
+    /* Give free attack if player has counter attack */
+    if(!IS_NPC(ch) && GET_SKILL(ch, SKILL_COUNTER_ATTACK))
+      calc_hits(victim, struct char_data *victim)
     damage(ch, victim, 0, w_type);
   }
+  return 1;
 }
 
 void hit(struct char_data *ch, struct char_data *victim, int type)
@@ -955,19 +979,29 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
       stop_fighting(ch);
     return;
   }
-  if (type) {
-
-  } 
 
   /* Perform each attack seperately*/
   //dice(ch->mob_specials.damnodice, ch->mob_specials.damsizedice);
   if (IS_NPC(ch))
     num_attacks = ch->mob_specials.damnodice;
-  else
+  else{
+    if(AFF_FLAGGED(ch, AFF_RELOAD)){
+      send_to_char("You are reloading....");
+      return;
+    }
+
     num_attacks = GET_ATTACKS(ch);
+    if(GET_SKILL(ch, SKILL_RAPID_FIRE))
+      num_attacks += num_attacks/2;
+  }
   if (num_attacks < 1) num_attacks = 1;
-  while (num_attacks-- > 0)
-    calc_hits(ch, victim);
+  while (num_attacks-- > 0){
+    if(calc_hits(ch, victim)){ // Have to reload
+      send_to_char(ch, "You have to reload!\r\n");
+      perform_act("reload", ch, NULL, NULL, NULL); // force reload
+      break;
+    }
+  }
 
     /*
      * Include a damage multiplier if victim isn't ready to fight:

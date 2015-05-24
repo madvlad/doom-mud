@@ -196,9 +196,10 @@ SPECIAL(guild)
 
   if (GET_SKILL(ch, skill_num) >= LEARNED(ch)){
     send_to_char(ch, "You have matered a new skill!\r\n");
-    if(skill_num == SKILL_TOUGHNESS) //Add past level hp
-      ch->points.max_hit += ((GET_LEVEL(ch)-1) * TOUGHNESS_BONUS_HP);
-
+    if (skill_num == SKILL_TOUGHNESS) //Add past level hp
+      GET_MAX_HIT += ((GET_LEVEL(ch)-1) * TOUGHNESS_BONUS_HP);
+    else if (skill_num == SKILL_EVASION)
+      GET_EVASION += 5;
   }
 
   return (TRUE);

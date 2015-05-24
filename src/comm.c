@@ -1265,6 +1265,11 @@ char *make_prompt(struct descriptor_data *d)
         if (count >= 0)
           len += count;
       }
+      if (PRF_FLAGGED(d->character, PRF_DISPAMMO) && len < sizeof(prompt)) {
+        count = snprintf(prompt + len, sizeof(prompt) - len, "%dA/ %d", GET_AMMO(d->character), GET_MAX_AMMO(d->character));
+        if (count >= 0)
+          len += count;
+      }
   
       if (PRF_FLAGGED(d->character, PRF_DISPMANA) && len < sizeof(prompt)) {
         count = snprintf(prompt + len, sizeof(prompt) - len, "%dM ", GET_MANA(d->character));

@@ -196,28 +196,27 @@ byte saving_throws(int class_num, int type, int level)
 /* THAC0 for classes and levels.  (To Hit Armor Class 0) */
 int thaco(struct char_data *ch) {
   struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
+  int thaco = 50;
 
-  if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON && GET_OBJ_VAL(wielded, 0)) {
+  if (wielded && (GET_OBJ_TYPE(wielded) == ITEM_WEAPON) && (GET_SKILL(ch, GET_OBJ_VAL(wielded, 0))) ) {
     switch(GET_OBJ_VAL(wielded, 0)){
       case(SKILL_MACHINE): // Machine gun
-        return(HIT_MACHINE);
+        thaco = HIT_MACHINE;
         break;
       case(SKILL_SHOTGUN): // Shotgun
-        return(HIT_SHOTGUN);
+        thaco = HIT_SHOTGUN;
         break;
       case(SKILL_PISTOL): // Pistol
-        return(HIT_PISTOL);
+        thaco = HIT_PISTOL;
         break;
       case(SKILL_RIFLE): // Rifle
-        return(HIT_RIFLE);
+        thaco = HIT_RIFLE;
         break;
-      default:
-        return(50);
-        break;
-   	 }
+   	}
+    if(GET_SKILL(ch, SKILL_ACCURACY))
+      thaco += 5;
 	}
-    //return (GET_SKILL(ch, GET_OBJ_VAL(wielded, 0)));
-   return 50;
+   return (thaco);
 }
 
 
@@ -304,6 +303,8 @@ void roll_real_abils(struct char_data *ch)
 /* Some initializations for characters, including initial skills */
 void do_start(struct char_data *ch)
 {
+  SET_BIT(PRF_FLAGS(ch), PRF_DISPHP);
+  SET_BIT(PRF_FLAGS(ch), PRF_DISPAMMO);
   GET_LEVEL(ch) = 1;
   GET_EXP(ch) = 1;
   GET_ATTACKS(ch) = 1;
@@ -323,7 +324,7 @@ void do_start(struct char_data *ch)
     break;
 
   case CLASS_BOUNTY_HUNTER:
-    GET_EVASION(ch) = 5;
+    GET_EVASION(ch) = 3;
     SET_SKILL(ch, SKILL_SNEAK, 10);
     SET_SKILL(ch, SKILL_HIDE, 5);
     SET_SKILL(ch, SKILL_STEAL, 15);

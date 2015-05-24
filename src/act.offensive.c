@@ -45,12 +45,12 @@ ACMD(do_berserk)
   struct affected_type af[3];
   int i;
 
-  for (i=0; i<3; i++){
+  for (i=0; i<4; i++){
     af[i].type = SKILL_BERSERK;
     af[i].duration = GET_LEVEL(ch);
     af[i].bitvector = AFF_BERSERK;
     af[i].location = APPLY_NONE;
-	af[i].modifier = 0;
+    af[i].modifier = 0;
   }
 
   if (!GET_SKILL(ch, SKILL_BERSERK)) {
@@ -71,6 +71,8 @@ ACMD(do_berserk)
   af[1].location = APPLY_EVASION;
   af[2].modifier = 20;
   af[2].location = APPLY_HIT;
+  af[3].modifier = 1;
+  af[3].location = APPLY_SPEED
 
   for (i=0; i<3; i++)
     affect_join(ch, af+i, FALSE, FALSE, FALSE, FALSE);
@@ -163,10 +165,10 @@ ACMD(do_slow){
     damage(ch, vict, 0, SKILL_SLOW_SHOT);
   } else { //HIT
     damage(ch, vict, 1, SKILL_BASH);
-    af->type = SKILL_SLOW_SHOT; //Banankick: not sure if this works.
+    af->type = SKILL_SLOW_SHOT;
     af->duration = 2 * PULSE_VIOLENCE;
     af->modifier = -1;
-    af->location = APPLY_SPEED;        //APPLY_NONE?
+    af->location = APPLY_SPEED; 
     af->bitvector = AFF_SLOW;
     affect_to_char(ch, &af);
   }

@@ -351,22 +351,22 @@ void point_update(void)
     if (GET_POS(i) >= POS_STUNNED) {
       GET_HIT(i) = MIN(GET_HIT(i) + hit_gain(i), GET_MAX_HIT(i));
       GET_MANA(i) = MIN(GET_MANA(i) + mana_gain(i), GET_MAX_MANA(i));
-      if (AFF_FLAGGED(i, AFF_POISON))
-	if (damage(i, i, 2, SPELL_POISON) == -1)
-	  continue;	/* Oops, they died. -gg 6/24/98 */
-      if (GET_POS(i) <= POS_STUNNED)
-	update_pos(i);
+      if (AFF_FLAGGED(i, AFF_POISON) || AFF_FLAGGED(i, AFF_BLEED))
+        if (damage(i, i, 2, SPELL_POISON) == -1)
+          continue;	/* Oops, they died. -gg 6/24/98 */
+        if (GET_POS(i) <= POS_STUNNED)
+          update_pos(i);
     } else if (GET_POS(i) == POS_INCAP) {
       if (damage(i, i, 1, TYPE_SUFFERING) == -1)
-	continue;
+        continue;
     } else if (GET_POS(i) == POS_MORTALLYW) {
       if (damage(i, i, 2, TYPE_SUFFERING) == -1)
-	continue;
+        continue;
     }
     if (!IS_NPC(i)) {
       update_char_objects(i);
       if (GET_LEVEL(i) < CONFIG_IDLE_MAX_LEVEL)
-	check_idling(i);
+        check_idling(i);
     }
   }
 

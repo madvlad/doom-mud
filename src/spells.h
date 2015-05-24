@@ -124,7 +124,7 @@
 #define SKILL_ADRENALINE      151 /* Get rid of the stuff */
 #define SKILL_HEADSHOT        152 /* Make sure that this is this */
 #define SKILL_EXTEND_MAG      153 /* Break All The Things - Heather Schmidt */
-
+  
 #define SKILL_DUAL_PISTOL     154 /* Cost 3 skill points */
 #define SKILL_MASOCHISM       155 
 #define SKILL_CRITICAL        156

@@ -756,19 +756,28 @@ ACMD(do_gold)
 ACMD(do_score)
 {
   struct time_info_data playing_time;
+  int exp_to_level = level_exp(GET_CLASS(ch), GET_LEVEL(ch) + 1) - GET_EXP(ch));
 
   if (IS_NPC(ch))
     return;
 
-  send_to_char(ch, "You are %d years old.", GET_AGE(ch));
+  send_to_char("+------------------------------------------------------------------------+");
+  send_to_char("|\t\t\tName:%s %s\t\t\t\t\t\t\t|", GET_PC_NAME(ch), GET_TITLE(ch));
+  send_to_char("| \t\tLevel: %d\t\tAge: %d\t\t Gender: %d\t\t|", GET_LEVEL(ch), GET_AGE(ch),GET_SEX);
+  send_to_char("| \t\tExperience: %d/%d\t\t\tHeight: %d\t\t\tWeight: %d\t\t|", GET_EXP(ch), exp_to_level, GET_HEIGHT, GET_WEIGHT);
+  send_to_char("+----Abilities-----------------------------------------------------------+");
+  send_to_char("|\t\t\tStr: %d\t\t\tDex: %d\t\t\tCon: %d\t\t\t|", GET_STR(ch), GET_DEX(ch), GET_CON(ch));
+  send_to_char("|\t\t\tInt: %d\t\t\tWis: %d\t\t\tCha: %d\t\t\t|", GET_INT(ch), GET_WIS(ch), GET_CHA(ch));
+  send_to_char("+----Vitals--------------------------------------------------------------+");
+  send_to_char("|\t\t\tHit Points: %d/%d\t\t\tAttack Speed: %d\t\t\t|", GET_HIT(ch), GET_MAX_HIT(ch), GET_ATTACKS(ch));
+  send_to_char("|\t\t\tAmmo: %d/%d\t\t\t\t\t\t\t\t\t\t\t\t\t|", GET_AMMO(ch), GET_MAX_AMMO(ch));
 
-  if (age(ch)->month == 0 && age(ch)->day == 0)
-    send_to_char(ch, "  It's your birthday today.\r\n");
-  else
-    send_to_char(ch, "\r\n");
+  send_to_char("|\t\t\tGold: %d  |", GET_GOLD(ch));
+  send_to_char("+------------------------------------------------------------------------+");
 
-  send_to_char(ch, "You have %d(%d) hit, %d(%d) mana.\r\n",
-	  GET_HIT(ch), GET_MAX_HIT(ch), GET_MANA(ch), GET_MAX_MANA(ch));
+
+  //if (age(ch)->month == 0 && age(ch)->day == 0)
+   // send_to_char(ch, "  It's your birthday today.\r\n");
 
   send_to_char(ch, "Your armor class is %d/10, and your alignment is %d.\r\n",
 	  compute_armor_class(ch), GET_ALIGNMENT(ch));
@@ -786,41 +795,11 @@ ACMD(do_score)
      playing_time.day, playing_time.day == 1 ? "" : "s",
      playing_time.hours, playing_time.hours == 1 ? "" : "s");
 
-  send_to_char(ch, "This ranks you as %s %s (level %d).\r\n",
-	  GET_NAME(ch), GET_TITLE(ch), GET_LEVEL(ch));
+  if (AFF_FLAGGED(ch, AFF_BLEED))
+    send_to_char(ch, "You are bleeding!\r\n");
 
-  switch (GET_POS(ch)) {
-  case POS_DEAD:
-    send_to_char(ch, "You are DEAD!\r\n");
-    break;
-  case POS_MORTALLYW:
-    send_to_char(ch, "You are mortally wounded!  You should seek help!\r\n");
-    break;
-  case POS_INCAP:
-    send_to_char(ch, "You are incapacitated, slowly fading away...\r\n");
-    break;
-  case POS_STUNNED:
-    send_to_char(ch, "You are stunned!  You can't move!\r\n");
-    break;
-  case POS_SLEEPING:
-    send_to_char(ch, "You are sleeping.\r\n");
-    break;
-  case POS_RESTING:
-    send_to_char(ch, "You are resting.\r\n");
-    break;
-  case POS_SITTING:
-    send_to_char(ch, "You are sitting.\r\n");
-    break;
-  case POS_FIGHTING:
-    send_to_char(ch, "You are fighting %s.\r\n", FIGHTING(ch) ? PERS(FIGHTING(ch), ch) : "thin air");
-    break;
-  case POS_STANDING:
-    send_to_char(ch, "You are standing.\r\n");
-    break;
-  default:
-    send_to_char(ch, "You are floating.\r\n");
-    break;
-  }
+  if (AFF_FLAGGED(ch, AFF_SLOW))
+    send_to_char(ch, "You are moving slowly.\r\n");
 
   if (GET_COND(ch, DRUNK) > 10)
     send_to_char(ch, "You are intoxicated.\r\n");
@@ -1764,6 +1743,7 @@ ACMD(do_toggle)
   }
 
   send_to_char(ch,
+    "   Ammo Display: %-3s    "
 	  "Hit Pnt Display: %-3s    "
 	  "     Brief Mode: %-3s    "
 	  " Summon Protect: %-3s\r\n"
@@ -1787,7 +1767,8 @@ ACMD(do_toggle)
           "       AFK flag: %-3s    "
 	  "    Color Level: %s     \r\n ",
           
-	  ONOFF(PRF_FLAGGED(ch, PRF_DISPHP)),
+	  ONOFF(PRF_FLAGGED(ch, PRF_DISAMMO)),
+    ONOFF(PRF_FLAGGED(ch, PRF_DISPHP)),
 	  ONOFF(PRF_FLAGGED(ch, PRF_BRIEF)),
 	  ONOFF(!PRF_FLAGGED(ch, PRF_SUMMONABLE)),
 
