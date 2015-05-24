@@ -756,24 +756,24 @@ ACMD(do_gold)
 ACMD(do_score)
 {
   struct time_info_data playing_time;
-  int exp_to_level = level_exp(GET_CLASS(ch), GET_LEVEL(ch) + 1) - GET_EXP(ch));
+  int exp_to_level = level_exp(GET_CLASS(ch), GET_LEVEL(ch) + 1) - GET_EXP(ch);
 
   if (IS_NPC(ch))
     return;
 
-  send_to_char("+------------------------------------------------------------------------+");
-  send_to_char("|\t\t\tName:%s %s\t\t\t\t\t\t\t|", GET_PC_NAME(ch), GET_TITLE(ch));
-  send_to_char("| \t\tLevel: %d\t\tAge: %d\t\t Gender: %d\t\t|", GET_LEVEL(ch), GET_AGE(ch),GET_SEX);
-  send_to_char("| \t\tExperience: %d/%d\t\t\tHeight: %d\t\t\tWeight: %d\t\t|", GET_EXP(ch), exp_to_level, GET_HEIGHT, GET_WEIGHT);
-  send_to_char("+----Abilities-----------------------------------------------------------+");
-  send_to_char("|\t\t\tStr: %d\t\t\tDex: %d\t\t\tCon: %d\t\t\t|", GET_STR(ch), GET_DEX(ch), GET_CON(ch));
-  send_to_char("|\t\t\tInt: %d\t\t\tWis: %d\t\t\tCha: %d\t\t\t|", GET_INT(ch), GET_WIS(ch), GET_CHA(ch));
-  send_to_char("+----Vitals--------------------------------------------------------------+");
-  send_to_char("|\t\t\tHit Points: %d/%d\t\t\tAttack Speed: %d\t\t\t|", GET_HIT(ch), GET_MAX_HIT(ch), GET_ATTACKS(ch));
-  send_to_char("|\t\t\tAmmo: %d/%d\t\t\t\t\t\t\t\t\t\t\t\t\t|", GET_AMMO(ch), GET_MAX_AMMO(ch));
+  send_to_char(ch, "+------------------------------------------------------------------------+");
+  send_to_char(ch, "|\t\t\tName:%s %s\t\t\t\t\t\t\t|", GET_PC_NAME(ch), GET_TITLE(ch));
+  send_to_char(ch, "| \t\tLevel: %d\t\tAge: %d\t\t Gender: %d\t\t|", GET_LEVEL(ch), GET_AGE(ch),GET_SEX(ch));
+  send_to_char(ch, "| \t\tExperience: %d/%d\t\t\tHeight: %d\t\t\tWeight: %d\t\t|", GET_EXP(ch), exp_to_level, GET_HEIGHT(ch), GET_WEIGHT(ch));
+  send_to_char(ch, "+----Abilities-----------------------------------------------------------+");
+  send_to_char(ch, "|\t\t\tStr: %d\t\t\tDex: %d\t\t\tCon: %d\t\t\t|", GET_STR(ch), GET_DEX(ch), GET_CON(ch));
+  send_to_char(ch, "|\t\t\tInt: %d\t\t\tWis: %d\t\t\tCha: %d\t\t\t|", GET_INT(ch), GET_WIS(ch), GET_CHA(ch));
+  send_to_char(ch, "+----Vitals--------------------------------------------------------------+");
+  send_to_char(ch, "|\t\t\tHit Points: %d/%d\t\t\tAttack Speed: %d\t\t\t|", GET_HIT(ch), GET_MAX_HIT(ch), GET_ATTACKS(ch));
+  send_to_char(ch, "|\t\t\tAmmo: %d/%d\t\t\t\t\t\t\t\t\t\t\t\t\t|", GET_AMMO(ch), GET_MAX_AMMO(ch));
 
-  send_to_char("|\t\t\tGold: %d  |", GET_GOLD(ch));
-  send_to_char("+------------------------------------------------------------------------+");
+  send_to_char(ch, "|\t\t\tGold: %d  |", GET_GOLD(ch));
+  send_to_char(ch, "+------------------------------------------------------------------------+");
 
 
   //if (age(ch)->month == 0 && age(ch)->day == 0)
@@ -1767,7 +1767,7 @@ ACMD(do_toggle)
           "       AFK flag: %-3s    "
 	  "    Color Level: %s     \r\n ",
           
-	  ONOFF(PRF_FLAGGED(ch, PRF_DISAMMO)),
+	  ONOFF(PRF_FLAGGED(ch, PRF_DISPAMMO)),
     ONOFF(PRF_FLAGGED(ch, PRF_DISPHP)),
 	  ONOFF(PRF_FLAGGED(ch, PRF_BRIEF)),
 	  ONOFF(!PRF_FLAGGED(ch, PRF_SUMMONABLE)),

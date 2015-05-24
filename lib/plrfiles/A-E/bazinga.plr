@@ -13,7 +13,8 @@ Host: localhost
 Hite: 199
 Wate: 121
 Act : gh
-Room: 65535
+Pref: A
+Room: 1
 Hit : 109/109
 Mana: 100/100
 Str : 110/0

@@ -68,7 +68,7 @@ ACMD(do_reload)
 {
   struct affected_type af;
 
-  if (GET_POS(ch) == POS_RELADING)
+  if (AFF_FLAGGED(ch, AFF_RELOAD))
     send_to_char(ch, "You are already reloading!\r\n");
 
   send_to_char(ch, "You are reloading...\r\n");

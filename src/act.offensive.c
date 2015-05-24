@@ -42,7 +42,7 @@ ACMD(do_kick);
 
 ACMD(do_berserk)
 {
-  struct affected_type af[3];
+  struct affected_type af[4];
   int i;
 
   for (i=0; i<4; i++){
@@ -72,9 +72,9 @@ ACMD(do_berserk)
   af[2].modifier = 20;
   af[2].location = APPLY_HIT;
   af[3].modifier = 1;
-  af[3].location = APPLY_SPEED
+  af[3].location = APPLY_SPEED;
 
-  for (i=0; i<3; i++)
+  for (i=0; i<4; i++)
     affect_join(ch, af+i, FALSE, FALSE, FALSE, FALSE);
   	//affect_to_char(ch, &af);
 

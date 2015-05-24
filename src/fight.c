@@ -58,7 +58,7 @@ void perform_violence(void);
 int compute_armor_class(struct char_data *ch);
 int compute_evasion(struct char_data *ch);
 int compute_thaco(struct char_data *ch, struct char_data *vict);
-void calc_hits(struct char_data *ch, struct char_data *victim);
+int calc_hits(struct char_data *ch, struct char_data *victim);
 
 /* Weapon attack texts */
 struct attack_hit_type attack_hit_text[] =
@@ -893,7 +893,7 @@ int calc_hits(struct char_data *ch, struct char_data *victim)
   GET_AMMO(ch)--;
   int max_crit = 20, dam, w_type, diceroll, crit_roll, victim_evasion, thaco;
   bool is_crit = FALSE;
-  struct affected_type af;
+  struct affected_type *af;
   struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
   struct obj_data *armor = GET_EQ(ch, WEAR_BODY);
   
@@ -947,20 +947,20 @@ int calc_hits(struct char_data *ch, struct char_data *victim)
         af->type = SKILL_BLEED_CRIT; 
         af->duration = 2;
         af->modifier = 0;
-        af->location = APPLY_NON;        
+        af->location = APPLY_NONE;        
         af->bitvector = AFF_BLEED;
         affect_to_char(ch, &af);
       }
       if(GET_SKILL(ch, SKILL_HEAL_CRIT))
         GET_HIT(ch) += 5;
     }
-    dam += GET_DAMROLL; // Add bonus damage
+    dam += GET_DAMROLL(ch); // Add bonus damage
     if (armor) dam -= GET_OBJ_VAL(armor, 0);
     damage(ch, victim, dam, w_type);
   } else {
     /* Give free attack if player has counter attack */
     if(!IS_NPC(ch) && GET_SKILL(ch, SKILL_COUNTER_ATTACK))
-      calc_hits(victim, struct char_data *victim)
+      calc_hits(victim, ch);
     damage(ch, victim, 0, w_type);
   }
   return 1;
@@ -986,7 +986,7 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
     num_attacks = ch->mob_specials.damnodice;
   else{
     if(AFF_FLAGGED(ch, AFF_RELOAD)){
-      send_to_char("You are reloading....");
+      send_to_char(ch, "You are reloading....");
       return;
     }
 

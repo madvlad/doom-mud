@@ -22,6 +22,7 @@
 
 #define LOAD_HIT	0
 #define LOAD_MANA	1
+#define LOAD_AMMO 2
 
 #define LOAD_STRENGTH	3
 
@@ -299,6 +300,7 @@ int load_char(const char *name, struct char_data *ch)
 	else if (!strcmp(tag, "Affs"))	load_affects(fl, ch);
 	else if (!strcmp(tag, "Alin"))	GET_ALIGNMENT(ch)	= atoi(line);
   else if (!strcmp(tag, "Attacks"))  GET_ATTACKS(ch) = atoi(line);
+  else if (!strcmp(tag, "Ammo ")) load_HMVS(ch, line, LOAD_AMMO);
 	break;
 
       case 'B':
@@ -591,6 +593,7 @@ void save_char(struct char_data * ch)
 
   if (GET_HIT(ch)	   != PFDEF_HIT  || GET_MAX_HIT(ch)  != PFDEF_MAXHIT)  fprintf(fl, "Hit : %d/%d\n", GET_HIT(ch),  GET_MAX_HIT(ch));
   if (GET_MANA(ch)	   != PFDEF_MANA || GET_MAX_MANA(ch) != PFDEF_MAXMANA) fprintf(fl, "Mana: %d/%d\n", GET_MANA(ch), GET_MAX_MANA(ch));
+  if (GET_AMMO(ch)     != PFDEF_AMMO || GET_MAX_AMMO(ch) != PFDEF_MAXAMMO) fprintf(fl, "Ammo: %d/%d\n", GET_AMMO(ch), GET_MAX_AMMO(ch));
 
   if (GET_STR(ch)	   != PFDEF_STR  || GET_ADD(ch)      != PFDEF_STRADD)  fprintf(fl, "Str : %d/%d\n", GET_STR(ch),  GET_ADD(ch));
  
@@ -612,7 +615,6 @@ void save_char(struct char_data * ch)
 
   if (GET_EVASION(ch)     != PFDEF_EVASION)   fprintf(fl, "Evasion  : %d\n", GET_EVASION(ch));
   if (GET_ATTACKS(ch)     != PFDEF_ATTACKS)   fprintf(fl, "Attacks  : %d\n", GET_ATTACKS(ch));
-  //if (GET_EVASION(ch)     != PFDEF_EVASION)   fprintf(fl, "Evasion  : %d\n", GET_EVASION(ch)); BANANAKICK: ammo?
 
   /* Save skills */
   if (GET_LEVEL(ch) < LVL_IMMORT) {
@@ -843,6 +845,11 @@ void load_HMVS(struct char_data *ch, const char *line, int mode)
   case LOAD_MANA:
     GET_MANA(ch) = num;
     GET_MAX_MANA(ch) = num2;
+    break;
+
+  case LOAD_AMMO:
+    GET_AMMO(ch) = num;
+    GET_MAX_AMMO(ch) = num2;
     break;
 
   case LOAD_STRENGTH:

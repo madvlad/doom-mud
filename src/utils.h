@@ -306,8 +306,8 @@ void	update_pos(struct char_data *victim);
 #define GET_HITROLL(ch)	  ((ch)->points.hitroll)
 #define GET_DAMROLL(ch)   ((ch)->points.damroll)
 #define GET_ATTACKS(ch)   ((ch)->points.attacks)    //number of attacks for the character
-#define GET_AMMO(ch)      (ch)->points.ammo)
-#define GET_MAX_AMMO(ch)  (ch)->points.max_ammo)
+#define GET_AMMO(ch)      ((ch)->points.ammo)
+#define GET_MAX_AMMO(ch)  ((ch)->points.max_ammo)
 
 #define GET_POS(ch)	  ((ch)->char_specials.position)
 #define GET_IDNUM(ch)	  ((ch)->char_specials.saved.idnum)

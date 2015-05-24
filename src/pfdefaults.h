@@ -49,7 +49,7 @@
 #define PFDEF_PAGELENGTH        22
 #define PFDEF_ATTACKS		1
 #define PFDEF_EVASION		3
-#define PFDEF_MAX_AMMO		0
+#define PFDEF_MAXAMMO		0
 #define	PFDEF_AMMO 			0
 
 
